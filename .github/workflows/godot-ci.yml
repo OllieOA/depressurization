@@ -41,7 +41,6 @@ jobs:
           mkdir build
       - name: Export Web Build
         run: |
-          mkdir ./build/web
           ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
       - name: Publish Export Artifact
         uses: actions/upload-artifact@v2
