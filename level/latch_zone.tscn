@@ -1,9 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkqd6q1ts78vh"]
+[gd_scene load_steps=9 format=3 uid="uid://bkqd6q1ts78vh"]
 
 [ext_resource type="Script" path="res://level/latch_zone.gd" id="1_d80rb"]
+[ext_resource type="Texture2D" uid="uid://uso4le2ggck5" path="res://assets/prototype_latch.png" id="2_s0ib4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxe7d"]
-radius = 200.0
+radius = 100.0
+
+[sub_resource type="Curve" id="Curve_fab4d"]
+min_value = 0.95
+_data = [Vector2(0, 0.953182), 0.0, 0.0, 0, 0, Vector2(0.652778, 0.999091), 0.0, 0.0, 0, 0, Vector2(1, 0.97), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0bw6r"]
+curve = SubResource("Curve_fab4d")
+
+[sub_resource type="Curve" id="Curve_veng6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751663, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_uoaav"]
+curve = SubResource("Curve_veng6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b5byw"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_uoaav")
+color = Color(0, 0.8, 1, 1)
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_0bw6r")
+collision_mode = 2
 
 [node name="LatchZone" type="Area2D"]
 collision_layer = 16
@@ -12,3 +48,12 @@ script = ExtResource("1_d80rb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vxe7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 23)
+texture = ExtResource("2_s0ib4")
+
+[node name="OxygenLeak" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_b5byw")

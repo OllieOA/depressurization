@@ -1,7 +1,7 @@
 res://default_env.tres
-res://character/character.tscn
 res://prototype_level.tscn
-res://character/character.gd
-res://level/latch_zone.tscn
-res://level/latch_zone.gd
 res://character/rotational_particles.tres
+res://character/character.tscn
+res://level/latch_zone.tscn
+res://character/character.gd
+res://prototype_block.tscn

@@ -18,14 +18,14 @@ min_value = 0.95
 _data = [Vector2(0, 0.953182), 0.0, 0.0, 0, 0, Vector2(0.652778, 0.999091), 0.0, 0.0, 0, 0, Vector2(1, 0.97), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_0bw6r"]
+[sub_resource type="CurveTexture" id="CurveTexture_tmuwr"]
 curve = SubResource("Curve_i4e8r")
 
 [sub_resource type="Curve" id="Curve_g2i2e"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751663, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_uoaav"]
+[sub_resource type="CurveTexture" id="CurveTexture_5ieql"]
 curve = SubResource("Curve_g2i2e")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_im252"]
@@ -40,11 +40,11 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 2.0
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_uoaav")
+scale_curve = SubResource("CurveTexture_5ieql")
 color = Color(0, 0.8, 1, 1)
 hue_variation_min = 1.0
 hue_variation_max = 1.0
-hue_variation_curve = SubResource("CurveTexture_0bw6r")
+hue_variation_curve = SubResource("CurveTexture_tmuwr")
 collision_mode = 2
 
 [node name="Character" type="RigidBody2D"]

@@ -3,9 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crgrcsob4mrrq" path="res://assets/prototype_background.png" id="1_jonuu"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="1_q6anf"]
 [ext_resource type="PackedScene" uid="uid://bkqd6q1ts78vh" path="res://level/latch_zone.tscn" id="3_e4g5p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f2k2"]
-size = Vector2(436, 135)
+[ext_resource type="PackedScene" uid="uid://dkl2qqjvd0v8i" path="res://prototype_block.tscn" id="3_er460"]
 
 [node name="PrototypeLevel" type="Node2D"]
 
@@ -14,84 +12,77 @@ scale = Vector2(10, 10)
 texture = ExtResource("1_jonuu")
 
 [node name="Character" parent="." groups=["character"] instance=ExtResource("1_q6anf")]
-position = Vector2(672, 2)
-rotation = -1.3786
+position = Vector2(1207, -225)
+rotation = -0.446363
 
 [node name="PrototypeBlocks" type="Node2D" parent="."]
 
-[node name="Block" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-375, -191)
-collision_layer = 4
-collision_mask = 2
+[node name="Block" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(647, -284)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block19" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1166, 85)
 
-[node name="Block9" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-1350, 511)
-collision_layer = 4
-collision_mask = 2
+[node name="Block2" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(212, -219)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block9"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block3" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(300, 139)
 
-[node name="Block5" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-937, 510)
-collision_layer = 4
-collision_mask = 2
+[node name="Block10" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-127, 666)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block5"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block11" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(309, 667)
 
-[node name="Block6" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-1072, 72)
-collision_layer = 4
-collision_mask = 2
+[node name="Block12" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(743, 666)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block6"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block13" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-129, -482)
 
-[node name="Block7" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(61, -191)
-collision_layer = 4
-collision_mask = 2
+[node name="Block4" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(735, 84)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block7"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block5" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-549, -208)
+rotation = 1.57079
 
-[node name="Block8" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(235, 203)
-collision_layer = 4
-collision_mask = 2
+[node name="Block6" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-412, -406)
+rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block8"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block14" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(158, -499)
+rotation = 1.57079
 
-[node name="Block2" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-200, 203)
-collision_layer = 4
-collision_mask = 2
+[node name="Block7" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-412, 516)
+rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block2"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block8" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-548, 225)
+rotation = 1.57079
 
-[node name="Block3" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-750, -64)
-rotation = -0.784659
-collision_layer = 4
-collision_mask = 2
+[node name="Block9" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-548, 225)
+rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block3"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block15" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1440, 233)
+rotation = 1.57079
 
-[node name="Block4" type="StaticBody2D" parent="PrototypeBlocks"]
-position = Vector2(-523, 338)
-rotation = -0.784659
-collision_layer = 4
-collision_mask = 2
+[node name="Block16" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1493, 672)
+rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block4"]
-shape = SubResource("RectangleShape2D_7f2k2")
+[node name="Block17" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1491, 1106)
+rotation = 1.57079
+
+[node name="Block18" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(889, 949)
+rotation = 1.57079
 
 [node name="LatchZone" parent="." groups=["latch"] instance=ExtResource("3_e4g5p")]
-position = Vector2(-1044, 374)
+position = Vector2(-260, 526)
