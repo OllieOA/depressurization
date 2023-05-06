@@ -68,5 +68,5 @@ jobs:
       - name: Push Web Export To Itch
         run: |
           ls ./build/web
-          ls ./build
+          ls ./
           ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
