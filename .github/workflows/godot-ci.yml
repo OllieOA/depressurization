@@ -1,13 +1,11 @@
 name: Deploy Game
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
 
 env:
-  IS_MAIN: ${{contains(github.ref, 'main')}}
   PROJECT_NAME: "decontrolled-decompression"
   ITCH_PROJECT_NAME: "decontrolled-decompression"
   ITCH_USERNAME: "ollieoa"
@@ -15,8 +13,8 @@ env:
 
 jobs:
   BuildAndPublish:
-    environment: BnP
     runs-on: ubuntu-latest
+    environment: BnP
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v3.3.0
@@ -45,19 +43,6 @@ jobs:
        run: |
          ./godot --verbose --headless -e --quit --path ./
          exit 0
-      # Comment out as necessary to minimise builds - generally only a web build is necessary
-      # - name: Export Windows Port
-      #   run: |
-      #     mkdir ./exports/windows
-      #     ./godot --headless --path ./ --export-release "Windows" ./exports/windows/$PROJECT_NAME.exe
-      # - name: Export Mac Port
-      #   run: |
-      #     mkdir ./exports/mac
-      #     ./godot --headless --path ./ --export-release "Mac" ./exports/mac/$PROJECT_NAME.zip
-      # - name: Export Linux Port
-      #   run: |
-      #     mkdir ./exports/linux
-      #     ./godot --headless --path ./ --export-release "Linux" ./exports/linux/$PROJECT_NAME.x86_64
       - name: Export Web Build
         run: |
           mkdir ./exports/web
@@ -114,13 +99,5 @@ jobs:
           ./butler -V
       - name: Login To Butler
         run: ./butler login
-      
-      # As above, comment as needed
-      # - name: Push Windows Export To Itch
-      #   run: ./butler push ./exports/windows/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:win
-      # - name: Push Mac Export To Itch
-      #   run: ./butler push ./exports/mac/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:mac
-      # - name: Push Linux Export To Itch
-      #   run: ./butler push ./exports/linux/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:linux
       - name: Push Web Export To Itch
         run: ./butler push ./exports/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
