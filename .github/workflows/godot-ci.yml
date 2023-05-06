@@ -25,7 +25,7 @@ jobs:
         run: |
           curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_linux.x86_64.zip
           unzip godot.zip
-          mv Godot_v4.0-stable_linux.x86_64 godot
+          mv Godot_v4.0.2-stable_linux.x86_64 godot
           ls
           chmod +x godot
       - name: Download Export Templates
