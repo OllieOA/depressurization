@@ -14,9 +14,9 @@ env:
 jobs:
   BuildAndPublish:
     runs-on: ubuntu-latest
+    environment: BnP
     steps:
       - name: Checkout Source Code
-        environment: BnP
         uses: actions/checkout@v3.3.0
         with:
           lfs: true
