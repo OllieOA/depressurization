@@ -42,12 +42,12 @@ jobs:
       - name: Export Web Build
         run: |
           mkdir ./exports/web
-          ./godot --headless --path ./ --export-release "Web" ./exports/web/index.html
+          ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
       - name: Publish Export Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: exports
-          path: exports
+          name: build
+          path: build
   PushExportsToItch:
     needs: BuildAndPublish
     if: ${{ contains(github.ref, 'main') }}
@@ -59,8 +59,8 @@ jobs:
       - name: Download Exports
         uses: actions/download-artifact@v3.0.2
         with:
-          name: exports
-          path: exports
+          name: build
+          path: build
       - name: Download + Authorize Butler
         run: |
           curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
@@ -70,4 +70,4 @@ jobs:
       - name: Login To Butler
         run: ./butler login
       - name: Push Web Export To Itch
-        run: ./butler push ./exports/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
+        run: ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
