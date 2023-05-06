@@ -38,10 +38,10 @@ jobs:
           mv ./templates/* ~/.local/share/godot/export_templates/4.0.2
       - name: Make Exports Folder
         run: |
-          mkdir exports
+          mkdir build
       - name: Export Web Build
         run: |
-          mkdir ./exports/web
+          mkdir ./build/web
           ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
       - name: Publish Export Artifact
         uses: actions/upload-artifact@v2
