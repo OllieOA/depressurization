@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkqd6q1ts78vh"]
+
+[ext_resource type="Script" path="res://level/latch_zone.gd" id="1_d80rb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxe7d"]
+radius = 200.0
+
+[node name="LatchZone" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_d80rb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vxe7d")
