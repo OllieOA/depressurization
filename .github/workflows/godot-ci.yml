@@ -36,9 +36,6 @@ jobs:
         run: |
           mkdir -p ~/.local/share/godot/export_templates/4.0.2
           mv ./templates/* ~/.local/share/godot/export_templates/4.0.2
-      - name: Make Exports Folder
-        run: |
-          mkdir build
       - name: Export Web Build
         run: |
           ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
@@ -69,4 +66,7 @@ jobs:
       - name: Login To Butler
         run: ./butler login
       - name: Push Web Export To Itch
-        run: ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
+        run: |
+          ls ./build/web
+          ls ./build
+          ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
