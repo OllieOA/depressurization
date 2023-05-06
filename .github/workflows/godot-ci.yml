@@ -14,10 +14,9 @@ env:
 jobs:
   BuildAndPublish:
     runs-on: ubuntu-latest
-    environment: BnP
     steps:
-      - uses: actions/checkout@v3.3.0
       - name: Checkout Source Code
+        uses: actions/checkout@v3.3.0
         with:
           lfs: true
           fetch-depth: 0
@@ -60,12 +59,12 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically generated
     steps:
-      - uses: actions/checkout@v3.3.0
       - name: Checkout Source Code
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
-      - uses: actions/download-artifact@v3.0.2
       - name: Download Exports
+        uses: actions/download-artifact@v3.0.2
         with:
           name: exports
           path: exports
