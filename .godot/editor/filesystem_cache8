@@ -1,69 +1,39 @@
 2a60927148abd1d33b818b535e306557
-<<<<<<< Updated upstream
-::res://::1683397384
+::res://::1683412481
 default_bus_layout.tres::AudioBusLayout::-1::1683337559::0::1::::<><>::
-default_env.tres::Environment::1607415269412226583::1683397384::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1683395037::0::1::::<><>::
-prototype_block.tscn::PackedScene::-1::1683395037::0::1::::<><>::
-prototype_level.tscn::PackedScene::1903568713409548732::1683397384::0::1::::<><>::uid://b5ycsjf8qq25i<>uid://bd38qs5q2ovej<>uid://bkqd6q1ts78vh<>res://prototype_block.tscn<>uid://b6kk4pburta1h
+default_env.tres::Environment::1607415269412226583::1683412481::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1683409972::0::1::::<><>::
+prototype_block.tscn::PackedScene::-1::1683409972::0::1::::<><>::
+prototype_level.tscn::PackedScene::1903568713409548732::1683412481::0::1::::<><>::res://assets/prototype_background.png<>uid://bd38qs5q2ovej<>uid://bkqd6q1ts78vh<>res://prototype_block.tscn<>uid://bby4bapeybvgn
 README.md::TextFile::-1::1683337598::0::1::::<><>::
-test_level.tscn::PackedScene::6086793864390723194::1683397384::0::1::::<><>::uid://bd38qs5q2ovej<>uid://bg5x8p80o1lia<>uid://bqhaxv4rphjpu<>uid://c0l4xtx02w2tr<>uid://nps2hdmi8xxr<>uid://bqksbaqm7e6pc
-::res://assets/::1683395037
-prototype_background.png::CompressedTexture2D::4541785119162913104::1683395037::1683394114::1::::<><>::
-prototype_boi.png::CompressedTexture2D::6207047720800173568::1683338908::1683394298::1::::<><>::
-prototype_latch.png::CompressedTexture2D::2926950760123058030::1683395037::1683394112::1::::<><>::
-::res://character/::1683395060
-character.gd::GDScript::-1::1683395037::0::1::::Astronaut<>RigidBody2D<>::
-character.tscn::PackedScene::2656823017712701189::1683395037::0::1::::<><>::uid://eq2yo2kckgu5
-character_sprite.gd::GDScript::-1::1683395037::0::1::::<>Sprite2D<>::
-PlayerCamera.gd::GDScript::-1::1683395037::0::1::::PlayerCamera<>Camera2D<>::
-rotational_particles.tres::ParticleProcessMaterial::445631444726917943::1683395060::0::1::::<><>::
-::res://Elzi-Assets/::1683400493
-prototype_level_Elzi.tscn::PackedScene::5282452435543513017::1683397384::0::1::::<><>::uid://b5ycsjf8qq25i<>uid://bd38qs5q2ovej<>res://prototype_block.tscn<>uid://bkqd6q1ts78vh<>uid://b6kk4pburta1h
-ramps.png::CompressedTexture2D::4204666611495487933::1683395739::1683395739::1::::<><>::
-prototype_level_Elzi.tres::TileSet::4583578362290839779::1683397364::0::1::::<><>::uid://b051ik752f4fh
-TilesV2.png::CompressedTexture2D::566259161112823244::1683400493::1683400494::1::::<><>::
-::res://globals/::1683395037
-audio_manager.gd::GDScript::-1::1683337559::0::1::::<>Node<>::
-audio_manager.tscn::PackedScene::-1::1683337559::0::1::::<><>::res://globals/audio_manager.gd
-signal_bus.gd::GDScript::-1::1683395037::0::1::::<>Node<>::
-::res://level/::1683395037
-latch_zone.gd::GDScript::-1::1683395037::0::1::::LatchZone<>Area2D<>::
-latch_zone.tscn::PackedScene::3121577556154873301::1683395037::0::1::::<><>::res://level/latch_zone.gd<>uid://uso4le2ggck5
-::res://prototypes/::1683392254
-::res://theme/::1683395037
-=======
-::res://::1683402081
-default_bus_layout.tres::AudioBusLayout::-1::1683337559::0::1::::<><>::
-default_env.tres::Environment::1607415269412226583::1683400564::0::1::::<><>::
-prototype_level.tscn::PackedScene::1903568713409548732::1683397384::0::1::::<><>::uid://b5ycsjf8qq25i<>uid://bd38qs5q2ovej<>uid://bkqd6q1ts78vh<>res://prototype_block.tscn<>uid://b6kk4pburta1h
-README.md::TextFile::-1::1683337598::0::1::::<><>::
-the last one.txt::TextFile::-1::1683402081::0::1::::<><>::
-::res://assets/::1683402091
+test_level.tscn::PackedScene::-1::1683409972::0::1::::<><>::
+::res://assets/::1683409972
+prototype_background.png::CompressedTexture2D::-1::1683409972::1683394114::1::::<><>::
 prototype_boi.png::CompressedTexture2D::6207047720800173568::1683338908::1683402091::1::::<><>::
-::res://character/::1683402081
-character.tscn::PackedScene::2656823017712701189::1683402081::0::1::::<><>::uid://eq2yo2kckgu5
-::res://Elzi-Assets/::1683402081
-::res://final assets/::1683402916
-background tiles test2.png::CompressedTexture2D::6527321867527596650::1683402081::1683402091::1::::<><>::
-ramps.png::CompressedTexture2D::5102981613688413850::1683402081::1683402091::1::::<><>::
-Sprite-0004.png::CompressedTexture2D::4895404564090281000::1683402081::1683402091::1::::<><>::
-tile map maybe.png::CompressedTexture2D::4198546186556476333::1683402081::1683402091::1::::<><>::
-windows.png::CompressedTexture2D::8320240070139966068::1683402916::1683402920::1::::<><>::
-::res://globals/::1683402081
+prototype_latch.png::CompressedTexture2D::-1::1683409972::1683394112::1::::<><>::
+::res://character/::1683409972
+character.gd::GDScript::-1::1683409972::0::1::::Astronaut<>RigidBody2D<>::
+character.tscn::PackedScene::2656823017712701189::1683409972::0::1::::<><>::uid://eq2yo2kckgu5
+character_sprite.gd::GDScript::-1::1683409972::0::1::::<>Sprite2D<>::
+PlayerCamera.gd::GDScript::-1::1683409972::0::1::::PlayerCamera<>Camera2D<>::
+rotational_particles.tres::ParticleProcessMaterial::-1::1683409972::0::1::::<><>::
+::res://Elzi-Assets/::1683413030
+GasRelease.png::CompressedTexture2D::1104452343395273597::1683413030::1683413031::1::::<><>::
+prototype_level_Elzi.tres::TileSet::2507917195398644213::1683410274::0::1::::<><>::res://Elzi-Assets/ramps.png<>res://Elzi-Assets/TilesV2.png<>uid://ckwmuk5e1jtt2<>uid://7c2h5jxwwu61<>uid://dqsnex628qjey
+prototype_level_Elzi.tscn::PackedScene::1148508996052805993::1683412481::0::1::::<><>::res://assets/prototype_background.png<>uid://bd38qs5q2ovej<>res://prototype_block.tscn<>uid://bkqd6q1ts78vh<>uid://bby4bapeybvgn
+ramps.png::CompressedTexture2D::-1::1683409972::1683395739::1::::<><>::
+GasRelease.tres::CanvasItemMaterial::7641935368195653525::1683412481::0::1::::<><>::
+TilesV2.png::CompressedTexture2D::-1::1683409972::1683400494::1::::<><>::
+::res://final assets/::1683409972
+::res://globals/::1683409972
 audio_manager.gd::GDScript::-1::1683337559::0::1::::<>Node<>::
 audio_manager.tscn::PackedScene::-1::1683337559::0::1::::<><>::res://globals/audio_manager.gd
-signal_bus.gd::GDScript::-1::1683402081::0::1::::<>Node<>::
-::res://prototypes/::1683402916
-background tiles test.png::CompressedTexture2D::2251825201966231736::1683402081::1683402091::1::::<><>::
-fixed tile map template.png::CompressedTexture2D::4933263098747724740::1683402081::1683402091::1::::<><>::
-t1.png::CompressedTexture2D::2648605785230277095::1683402081::1683402091::1::::<><>::
-t2.png::CompressedTexture2D::5487135478121563051::1683402081::1683402091::1::::<><>::
-t3.png::CompressedTexture2D::8462085712210584620::1683402081::1683402091::1::::<><>::
-t4.png::CompressedTexture2D::6630187221620248798::1683402081::1683402091::1::::<><>::
-tmap test.png::CompressedTexture2D::3523935048022264638::1683402081::1683402091::1::::<><>::
-::res://theme/::1683402081
->>>>>>> Stashed changes
+signal_bus.gd::GDScript::-1::1683409972::0::1::::<>Node<>::
+::res://level/::1683409972
+latch_zone.gd::GDScript::-1::1683409972::0::1::::LatchZone<>Area2D<>::
+latch_zone.tscn::PackedScene::3121577556154873301::1683409972::0::1::::<><>::res://level/latch_zone.gd<>uid://uso4le2ggck5
+::res://prototypes/::1683409972
+::res://theme/::1683409972
 in_game_menu.tres::Theme::2061097625677167148::1683395037::0::1::::<><>::uid://cvaxce74jpxlf<>uid://ba8ujd8xchtyh<>uid://ds4w8qxnh2xe8<>uid://jhkelujfb7j8<>uid://cfoqgnanybq32<>uid://byy6t8hy3p4dc<>uid://7omrns0d0j5d<>uid://biui5bkki0n12<>uid://djjvss1805lnq
 ::res://theme/fonts/::1683338776
 dogicapixel.ttf::FontFile::5750279321594126101::1683337559::1683338776::1::::<><>::
