@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd38qs5q2ovej"]
+
+[ext_resource type="Texture2D" uid="uid://eq2yo2kckgu5" path="res://assets/prototype_boi.png" id="1_nxq1g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yntig"]
+radius = 30.0
+height = 110.0
+
+[node name="Character" type="CharacterBody2D"]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yntig")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nxq1g")
