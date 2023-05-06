@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
+        environment: BnP
         uses: actions/checkout@v3.3.0
         with:
           lfs: true
@@ -39,7 +40,7 @@ jobs:
         run: |
           mkdir exports
       - name: Generate cache
-       run: |
+        run: |
          ./godot --verbose --headless -e --quit --path ./
          exit 0
       - name: Export Web Build
