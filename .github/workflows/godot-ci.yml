@@ -34,8 +34,8 @@ jobs:
           unzip export_templates.zip
       - name: Install Export Templates
         run: |
-          mkdir -p ~/.local/share/godot/export_templates/4.0.2
-          mv ./templates/* ~/.local/share/godot/export_templates/4.0.2
+          mkdir -p ~/.local/share/godot/export_templates/4.0.2.stable
+          mv ./templates/* ~/.local/share/godot/export_templates/4.0.2.stable
       - name: Export Web Build
         run: |
           ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
