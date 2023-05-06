@@ -9,7 +9,7 @@ env:
   PROJECT_NAME: "decontrolled-decompression"
   ITCH_PROJECT_NAME: "decontrolled-decompression"
   ITCH_USERNAME: "ollieoa"
-  GODOT_VERSION: 4.0
+  GODOT_VERSION: 4.0.2
 
 jobs:
   BuildAndPublish:
@@ -39,10 +39,6 @@ jobs:
       - name: Make Exports Folder
         run: |
           mkdir exports
-      # - name: Generate cache
-      #   run: |
-      #    ./godot --verbose --headless -e --quit --path ./
-      #    exit 0
       - name: Export Web Build
         run: |
           mkdir ./exports/web
@@ -52,32 +48,6 @@ jobs:
         with:
           name: exports
           path: exports
-  # CreateNewGithubRelease:
-  #   needs: BuildAndPublish
-  #   if: ${{ contains(github.ref, 'main') }}
-  #   runs-on: ubuntu-latest
-  #   environment: BnP
-  #   env:
-  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically generated
-  #   steps:
-  #     - name: Checkout Source Code
-  #       uses: actions/checkout@v3.3.0
-  #       with:
-  #         fetch-depth: 0
-  #     - name: Download Exports
-  #       uses: actions/download-artifact@v3.0.2
-  #       with:
-  #         name: exports
-  #         path: exports
-  #     - name: Zip Exports
-  #       run: zip -r exports.zip exports
-  #     - name: Test Release Variables
-  #       run: |
-  #         echo "Version Number $GITHUB_RUN_NUMBER"
-  #         echo "Commit Message $COMMIT_MESSAGE"
-  #         echo "Project Name $PROJECT_NAME"
-  #       env:
-  #         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
   PushExportsToItch:
     needs: BuildAndPublish
     if: ${{ contains(github.ref, 'main') }}
