@@ -6,8 +6,8 @@ on:
       - main
 env:
   IS_MAIN: ${{contains(github.ref, 'main')}}
-  PROJECT_NAME: decontrolled-decompression
-  ITCH_PROJECT_NAME: decontrolled-decompression
+  PROJECT_NAME: "decontrolled-decompression"
+  ITCH_PROJECT_NAME: "decontrolled-decompression"
   ITCH_USERNAME: "ollieoa"
   GODOT_VERSION: 4.0
 
