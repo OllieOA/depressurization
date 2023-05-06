@@ -1,5 +1,6 @@
 # OllieOA Ignores
 external/*
+export/*
 
 
 # Godot-specific ignores
@@ -10,3 +11,5 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+
+.godot/shader_cache/
