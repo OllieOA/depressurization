@@ -23,26 +23,26 @@ jobs:
           fetch-depth: 0
       - name: Download + Authorize Godot
         run: |
-          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_linux.x86_64.zip
           unzip godot.zip
           mv Godot_v4.0-stable_linux.x86_64 godot
           ls
           chmod +x godot
       - name: Download Export Templates
         run: |
-          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_export_templates.tpz
           unzip export_templates.zip
       - name: Install Export Templates
         run: |
-          mkdir -p ~/.local/share/godot/export_templates/4.0
-          mv ./templates/* ~/.local/share/godot/export_templates/4.0
+          mkdir -p ~/.local/share/godot/export_templates/4.0.2
+          mv ./templates/* ~/.local/share/godot/export_templates/4.0.2
       - name: Make Exports Folder
         run: |
           mkdir exports
-      - name: Generate cache
-        run: |
-         ./godot --verbose --headless -e --quit --path ./
-         exit 0
+      # - name: Generate cache
+      #   run: |
+      #    ./godot --verbose --headless -e --quit --path ./
+      #    exit 0
       - name: Export Web Build
         run: |
           mkdir ./exports/web
@@ -52,32 +52,32 @@ jobs:
         with:
           name: exports
           path: exports
-  CreateNewGithubRelease:
-    needs: BuildAndPublish
-    if: ${{ contains(github.ref, 'main') }}
-    runs-on: ubuntu-latest
-    environment: BnP
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically generated
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3.3.0
-        with:
-          fetch-depth: 0
-      - name: Download Exports
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: exports
-          path: exports
-      - name: Zip Exports
-        run: zip -r exports.zip exports
-      - name: Test Release Variables
-        run: |
-          echo "Version Number $GITHUB_RUN_NUMBER"
-          echo "Commit Message $COMMIT_MESSAGE"
-          echo "Project Name $PROJECT_NAME"
-        env:
-          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+  # CreateNewGithubRelease:
+  #   needs: BuildAndPublish
+  #   if: ${{ contains(github.ref, 'main') }}
+  #   runs-on: ubuntu-latest
+  #   environment: BnP
+  #   env:
+  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically generated
+  #   steps:
+  #     - name: Checkout Source Code
+  #       uses: actions/checkout@v3.3.0
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Download Exports
+  #       uses: actions/download-artifact@v3.0.2
+  #       with:
+  #         name: exports
+  #         path: exports
+  #     - name: Zip Exports
+  #       run: zip -r exports.zip exports
+  #     - name: Test Release Variables
+  #       run: |
+  #         echo "Version Number $GITHUB_RUN_NUMBER"
+  #         echo "Commit Message $COMMIT_MESSAGE"
+  #         echo "Project Name $PROJECT_NAME"
+  #       env:
+  #         COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
   PushExportsToItch:
     needs: BuildAndPublish
     if: ${{ contains(github.ref, 'main') }}
