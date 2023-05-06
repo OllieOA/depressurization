@@ -1,15 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=5 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Texture2D" uid="uid://eq2yo2kckgu5" path="res://assets/prototype_boi.png" id="1_nxq1g"]
+[ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
+[ext_resource type="Script" path="res://character/PlayerCamera.gd" id="3_nw4oj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yntig"]
 radius = 30.0
 height = 110.0
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_urmi3")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yntig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nxq1g")
+
+[node name="AstronautUI" type="CanvasLayer" parent="."]
+
+[node name="OxygenWidgitMargin" type="MarginContainer" parent="AstronautUI"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_right = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="OxygenLevel" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+step = 0.1
+value = 50.0
+fill_mode = 3
+
+[node name="DebugLabel" type="Label" parent="AstronautUI"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Text"
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("3_nw4oj")
+
+[node name="CameraTarget" type="Node2D" parent="."]

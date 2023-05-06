@@ -1,6 +1,5 @@
 res://default_env.tres
-res://globals/scene_manager.gd
-res://ui/shaders/fade_shader.tres
-res://ui/shaders/vignette_shader.tres
-res://ui/shaders/wipe_shader.tres
-res://globals/scene_manager.tscn
+res://prototype_level.tscn
+res://character/character.gd
+res://character/character.tscn
+res://character/PlayerCamera.gd

@@ -1,8 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://2edq7m1otujc"]
+[gd_scene load_steps=4 format=3 uid="uid://2edq7m1otujc"]
 
+[ext_resource type="Texture2D" uid="uid://crgrcsob4mrrq" path="res://assets/prototype_background.png" id="1_jonuu"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="1_q6anf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f2k2"]
+size = Vector2(436, 135)
 
 [node name="PrototypeLevel" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_jonuu")
+
 [node name="Character" parent="." instance=ExtResource("1_q6anf")]
-position = Vector2(507, 312)
+position = Vector2(672, 2)
+rotation = -1.3786
+
+[node name="PrototypeBlocks" type="Node2D" parent="."]
+
+[node name="Block" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-375, -191)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block9" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-1350, 511)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block9"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block5" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-937, 510)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block5"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block6" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-1072, 72)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block6"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block7" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(61, -191)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block7"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block8" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(235, 203)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block8"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block2" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-200, 203)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block2"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block3" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-750, -64)
+rotation = -0.784659
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block3"]
+shape = SubResource("RectangleShape2D_7f2k2")
+
+[node name="Block4" type="StaticBody2D" parent="PrototypeBlocks"]
+position = Vector2(-523, 338)
+rotation = -0.784659
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeBlocks/Block4"]
+shape = SubResource("RectangleShape2D_7f2k2")
