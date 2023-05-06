@@ -1,6 +1,7 @@
 res://default_env.tres
-res://globals/scene_manager.gd
-res://ui/shaders/fade_shader.tres
-res://ui/shaders/vignette_shader.tres
-res://ui/shaders/wipe_shader.tres
-res://globals/scene_manager.tscn
+res://prototype_level.tscn
+res://character/rotational_particles.tres
+res://character/character.tscn
+res://level/latch_zone.tscn
+res://character/character.gd
+res://prototype_block.tscn
