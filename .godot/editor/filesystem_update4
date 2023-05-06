@@ -1,5 +1,4 @@
 res://default_env.tres
+res://character/character.tscn
 res://prototype_level.tscn
 res://character/character.gd
-res://character/character.tscn
-res://character/PlayerCamera.gd

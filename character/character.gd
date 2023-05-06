@@ -15,8 +15,19 @@ var debug_text: String = ""
 @onready var oxygen_level: ProgressBar = $"%OxygenLevel"
 
 
+
+#enum State {
+#	FLYING,
+#	LATCHING,
+#	LATCHED,
+#	LAUNCHING,
+#}
+
+
 func _ready() -> void:
 	pass
+
+
 
 
 func _physics_process(_delta: float) -> void:
