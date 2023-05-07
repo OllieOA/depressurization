@@ -57,22 +57,27 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("CurveTexture_tmuwr")
 collision_mode = 2
 
-[node name="Character" type="RigidBody2D"]
+[node name="Character" type="RigidBody2D" groups=["character"]]
 collision_layer = 2
 collision_mask = 524300
 physics_material_override = SubResource("PhysicsMaterial_2rb3r")
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_urmi3")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
 shape = SubResource("CapsuleShape2D_yntig")
 
-[node name="Head" type="RigidBody2D" parent="."]
+[node name="Head" type="RigidBody2D" parent="." groups=["character"]]
+unique_name_in_owner = true
 position = Vector2(-1, -26)
 collision_layer = 524288
 collision_mask = 6
 mass = 0.01
 inertia = 1.0
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="Head" type="Sprite2D" parent="Head"]
 texture = ExtResource("2_om7b6")
@@ -81,7 +86,7 @@ texture = ExtResource("2_om7b6")
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_mebys")
 
-[node name="LeftLeg" type="RigidBody2D" parent="."]
+[node name="LeftLeg" type="RigidBody2D" parent="." groups=["character"]]
 position = Vector2(-22, 55)
 collision_layer = 524288
 collision_mask = 2
@@ -96,7 +101,7 @@ position = Vector2(-1, 7)
 rotation = 0.288553
 shape = SubResource("CapsuleShape2D_y237a")
 
-[node name="RightLeg" type="RigidBody2D" parent="."]
+[node name="RightLeg" type="RigidBody2D" parent="." groups=["character"]]
 position = Vector2(9, 57)
 collision_layer = 524288
 collision_mask = 2

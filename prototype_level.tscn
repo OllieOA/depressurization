@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2edq7m1otujc"]
+[gd_scene load_steps=6 format=3 uid="uid://2edq7m1otujc"]
 
 [ext_resource type="Texture2D" uid="uid://crgrcsob4mrrq" path="res://assets/prototype_background.png" id="1_jonuu"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="1_q6anf"]
 [ext_resource type="PackedScene" uid="uid://bkqd6q1ts78vh" path="res://level/latch_zone.tscn" id="3_e4g5p"]
 [ext_resource type="PackedScene" uid="uid://dkl2qqjvd0v8i" path="res://prototype_block.tscn" id="3_er460"]
+[ext_resource type="PackedScene" uid="uid://buwlfi7gwkxgh" path="res://level/oxygen_pickup.tscn" id="5_dhfuy"]
 
 [node name="PrototypeLevel" type="Node2D"]
 
@@ -14,12 +15,7 @@ texture = ExtResource("1_jonuu")
 [node name="Character" parent="." groups=["character"] instance=ExtResource("1_q6anf")]
 position = Vector2(1207, -225)
 rotation = -0.446363
-thrust_ratio = 1.0
-thrust_power = 5.0
-max_speed = 700.0
-rotation_strength = 200.0
-max_rotation_speed = 6.0
-latch_strength = 0.025
+collision_mask = 524428
 
 [node name="PrototypeBlocks" type="Node2D" parent="."]
 
@@ -92,3 +88,6 @@ rotation = 1.57079
 
 [node name="LatchZone" parent="." groups=["latch"] instance=ExtResource("3_e4g5p")]
 position = Vector2(-260, 526)
+
+[node name="OxygenPickup" parent="." instance=ExtResource("5_dhfuy")]
+position = Vector2(985, -367)
