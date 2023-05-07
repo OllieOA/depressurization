@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=22 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
 [ext_resource type="Texture2D" uid="uid://b0sgg81dhl7mr" path="res://character/astro_body.png" id="2_jvphb"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dm1wh67xhkb5l" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
 [ext_resource type="Material" uid="uid://b7a7ce8y6hqip" path="res://character/rotational_particles.tres" id="4_enxxd"]
 [ext_resource type="Texture2D" uid="uid://dnm08utyi7dsy" path="res://character/astro_r_leggie.png" id="4_k7xci"]
+[ext_resource type="AudioStream" uid="uid://7li7krlh5w1c" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
+[ext_resource type="AudioStream" uid="uid://cf0ktd0vfivyx" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
+[ext_resource type="Script" path="res://character/body_bump_sound.gd" id="10_wa373"]
+[ext_resource type="AudioStream" uid="uid://dbbstiflp5lj3" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
+[ext_resource type="Script" path="res://character/HeadBumpSound.gd" id="12_1iu1g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
@@ -203,9 +208,21 @@ disable_collision = false
 softness = 0.5
 
 [node name="OxygenLeakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fa3sx")
+bus = &"SFX"
 
 [node name="OxygenRotateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_w7kyr")
+bus = &"SFX"
 
 [node name="BodyBumpSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("10_wa373")
 
 [node name="HeadBumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_q8ggg")
+bus = &"SFX"
+script = ExtResource("12_1iu1g")
+
+[node name="BreathingSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnd3tmw0qqa3n"]
+[gd_scene load_steps=13 format=3 uid="uid://bnd3tmw0qqa3n"]
 
 [ext_resource type="Script" path="res://level/explosive_debris.gd" id="1_u8ovh"]
 [ext_resource type="Texture2D" uid="uid://cj6uf0sw52dkg" path="res://final assets/explosive_barrel.png" id="2_1wgc6"]
 [ext_resource type="Texture2D" uid="uid://cdcojfmpbby6i" path="res://final assets/explosion_pellet.png" id="3_nrhnf"]
+[ext_resource type="AudioStream" uid="uid://bollohen7u8ge" path="res://audio/explosion.ogg" id="4_tjut8"]
+[ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="5_hdehv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3qn3"]
 radius = 21.0
@@ -50,6 +52,8 @@ radius = 304.0
 [node name="ExplosiveDebris" type="RigidBody2D"]
 collision_layer = 32
 collision_mask = 786534
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_u8ovh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -77,3 +81,9 @@ collision_mask = 786530
 shape = SubResource("CircleShape2D_v3eco")
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tjut8")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ImpactSound" parent="." instance=ExtResource("5_hdehv")]
+pitch_scale = 0.6

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjt5odahqefls"]
+[gd_scene load_steps=5 format=3 uid="uid://cjt5odahqefls"]
 
 [ext_resource type="Script" path="res://level/small_debris.gd" id="1_0bpvx"]
 [ext_resource type="Texture2D" uid="uid://bm4d22grvby86" path="res://prototypes/small debris sheet.png" id="1_4655f"]
+[ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_oappn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
 
@@ -10,6 +11,8 @@ collision_layer = 64
 collision_mask = 786534
 mass = 0.2
 continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_0bpvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -22,3 +25,6 @@ texture = ExtResource("1_4655f")
 hframes = 4
 vframes = 4
 frame = 1
+
+[node name="ImpactSound" parent="." instance=ExtResource("3_oappn")]
+pitch_scale = 2.0

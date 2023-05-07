@@ -1,14 +1,13 @@
 class_name LatchZone extends Area2D
 
+@onready var fill_up_sound: AudioStreamPlayer = $FillUpSound
+@onready var oxygen_leak = %OxygenLeak
+var is_player_latched: bool = false
+
 
 func _ready():
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 # Signals
@@ -22,3 +21,14 @@ func _on_body_exited(body: PhysicsBody2D) -> void:
 	if body.is_in_group("character"):
 		body.latching_area = null
 		body.state = body.State.FLYING
+
+
+func player_latched() -> void:
+	fill_up_sound.play()
+	oxygen_leak.emitting = false
+
+
+func player_unlatched() -> void:
+	fill_up_sound.stop()
+	oxygen_leak.emitting = true
+		

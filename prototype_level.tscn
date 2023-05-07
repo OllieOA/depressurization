@@ -153,6 +153,7 @@ position = Vector2(780, 371)
 position = Vector2(434, 502)
 
 [node name="TileDebrisGroup" type="Node2D" parent="DebrisGroup"]
+position = Vector2(2718, 518)
 
 [node name="TileDebris" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
 position = Vector2(-26, 140)

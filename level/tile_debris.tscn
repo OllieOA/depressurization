@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnygomqpp8e0j"]
+[gd_scene load_steps=5 format=3 uid="uid://dnygomqpp8e0j"]
 
 [ext_resource type="Script" path="res://level/tile_debris.gd" id="1_kd4c1"]
 [ext_resource type="Texture2D" uid="uid://dvub0i840ksqx" path="res://final assets/ramps.png" id="2_53tt6"]
+[ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_0hy4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
 size = Vector2(128, 128)
@@ -11,6 +12,8 @@ collision_layer = 64
 collision_mask = 786534
 mass = 5.0
 continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_kd4c1")
 
 [node name="DebrisSprite" type="Sprite2D" parent="."]
@@ -22,3 +25,6 @@ frame = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lwt0d")
+
+[node name="ImpactSound" parent="." instance=ExtResource("3_0hy4u")]
+volume_db = -8.0

@@ -55,19 +55,42 @@ var step_drain: float = 0.0
 var immune_frames: int = 0
 var last_known_velocity: Vector2 = Vector2.ZERO
 
+@onready var oxygen_leak_sound: AudioStreamPlayer = $OxygenLeakSound
+@onready var oxygen_rotate_sound: AudioStreamPlayer = $OxygenRotateSound
+@onready var body_bump_sound: AudioStreamPlayer = $BodyBumpSound
+@onready var head_bump_sound: AudioStreamPlayer = $HeadBumpSound
+@onready var breathing_sound: AudioStreamPlayer = $BreathingSound
+
+const FAST_BREATH_THRESHOLD: float = 0.8
+const slow_breathing: Resource = preload("res://audio/breathing-slow.ogg")
+const fast_breathing: Resource = preload("res://audio/breathing-fast.ogg")
+
+
 
 func _ready() -> void:
+	oxygen_leak_sound.play()
+	breathing_sound.stream = slow_breathing
+	breathing_sound.play()
 	connect("body_entered", _on_body_collision)
 	head.connect("body_entered", _on_head_collision)
 	SignalBus.connect("out_of_oxygen", _on_out_of_oxygen)
 #	character_torso.character = self  # Bring back if we want sprite flipping
 	player_camera.character = self
+	body_bump_sound.character = self
+	head_bump_sound.character = self
 
 
 func _process(delta: float) -> void:
 	debug_text = "linear velocity: {lin_vel}, angular velocity: {ang_vel}, state: {state}, i_frames: {i_frames}"
 	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "ang_vel": angular_velocity, "state": state, "i_frames": immune_frames})
 	oxygen_level.value = total_oxygen
+	
+	if breathing_sound.stream == slow_breathing and total_oxygen < FAST_BREATH_THRESHOLD:
+		breathing_sound.stream = fast_breathing
+		breathing_sound.play()
+	elif breathing_sound.stream == fast_breathing and total_oxygen > FAST_BREATH_THRESHOLD:
+		breathing_sound.stream = slow_breathing
+		breathing_sound.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -115,6 +138,11 @@ func _apply_rotation_thrust(delta: float) -> void:
 			anticlockwise_oxygen.emitting = true
 	else:
 		anticlockwise_oxygen.emitting = false
+		
+	if (anticlockwise_oxygen.emitting or clockwise_oxygen.emitting) and not oxygen_rotate_sound.playing:
+		oxygen_rotate_sound.play()
+	elif not (anticlockwise_oxygen.emitting or clockwise_oxygen.emitting) and oxygen_rotate_sound.playing:
+		oxygen_rotate_sound.stop()
 
 
 func _handle_flying_state(delta: float) -> void:
@@ -137,7 +165,7 @@ func _handle_latching_state(delta: float) -> void:
 	# Check if close enough
 	latching_distance = (target_latch - global_position).length()
 	if latching_distance < latch_distance_threshold:
-		print("LATCHED")
+		latching_area.player_latched()
 		state = State.LATCHED
 		latching_distance = 100.0
 
@@ -150,7 +178,8 @@ func _handle_latched_state(delta: float) -> void:
 	_apply_rotation_thrust(delta)
 	if Input.is_action_just_pressed("launch"):
 		linear_damp = 0.0
-		print("LAUNCHING")
+		if latching_area != null:
+			latching_area.player_unlatched()
 		state = State.LAUNCHING
 
 
@@ -160,6 +189,8 @@ func add_oxygen(amount: float) -> void:
 
 func _take_collision_damage(factor: float = 1.0) -> void:
 	if (linear_velocity - last_known_velocity).length() > collision_speed_threshold and immune_frames == 0:
+		if factor == 1.0:
+			body_bump_sound.play_random_sound()
 		total_oxygen -= linear_velocity.length() / max_speed * (max_hit_penalty - min_hit_penalty) * factor
 		immune_frames = damage_i_frames
 
@@ -172,6 +203,7 @@ func _on_body_collision(body: Node) -> void:
 
 func _on_head_collision(body: Node) -> void:
 	if not body.is_in_group("character"):
+		head_bump_sound.play_random_sound()
 		_take_collision_damage(head_damage_factor)
 
 
