@@ -1,6 +1,8 @@
 res://default_env.tres
 res://character/character.tscn
 res://character/rotational_particles.tres
-res://character/character.gd
+res://character/PlayerCamera.gd
+res://level/latch_zone.tscn
 res://prototype_level.tscn
 res://level/oxygen_pickup.tscn
+res://character/character.gd

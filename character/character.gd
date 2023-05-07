@@ -24,7 +24,7 @@ var debug_text: String = ""
 var rotating_clockwise: bool = false
 var rotating_anticlockwise: bool = false
 
-@export var latch_strength: float = 0.025
+@export var latch_strength: float = 0.05
 var target_latch: Vector2
 var latching_area: Area2D
 var latching_distance: float = 100.0
@@ -53,6 +53,7 @@ var step_drain: float = 0.0
 @export var head_damage_factor: float = 2.0
 @export var damage_i_frames: int = 30
 var immune_frames: int = 0
+var last_known_velocity: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -90,6 +91,8 @@ func _physics_process(delta: float) -> void:
 	total_oxygen = clamp(total_oxygen - step_drain, 0.0, 1.0)
 	if total_oxygen == 0.0 and state != State.DEAD:
 		SignalBus.emit_signal("out_of_oxygen")
+		
+	last_known_velocity = linear_velocity
 
 
 func _apply_rotation_thrust(delta: float) -> void:
@@ -156,7 +159,7 @@ func add_oxygen(amount: float) -> void:
 
 
 func _take_collision_damage(factor: float = 1.0) -> void:
-	if linear_velocity.length() > collision_speed_threshold and immune_frames == 0:
+	if (linear_velocity - last_known_velocity).length() > collision_speed_threshold and immune_frames == 0:
 		total_oxygen -= linear_velocity.length() / max_speed * (max_hit_penalty - min_hit_penalty) * factor
 		immune_frames = damage_i_frames
 

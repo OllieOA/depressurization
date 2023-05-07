@@ -11,7 +11,6 @@ var linear_velocity_ratio: float = 0.0
 const MAX_CAMERA_OFFSET: float = 500
 const MAX_LINEAR_VELOCITY: float = 700
 
-@onready var label: Label = $"Label"
 var character: RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float):
-	label.text = "{position}".format({"position": position})
+	pass
 
 
 func _physics_process(_delta: float) -> void:
