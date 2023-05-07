@@ -62,9 +62,17 @@ var last_known_velocity: Vector2 = Vector2.ZERO
 @onready var breathing_sound: AudioStreamPlayer = $BreathingSound
 
 const FAST_BREATH_THRESHOLD: float = 0.4
-const PANIC_BREATH_THRESHOLD: float = 0.2
+const PANIC_BREATH_THRESHOLD: float = 0.1
 const slow_breathing: Resource = preload("res://audio/breathing-slow.ogg")
 const fast_breathing: Resource = preload("res://audio/breathing-fast.ogg")
+const panic_breathing: Resource = preload("res://audio/breathing-panic.ogg")
+
+# Hazards
+var is_on_fire: bool = false
+var fire_damage_remaining: float = 0.0
+@export var fire_damage_rate: float = 0.04
+@onready var fire_particles: GPUParticles2D = %FireParticles
+
 
 func _ready() -> void:
 	oxygen_leak_sound.play()
@@ -77,24 +85,28 @@ func _ready() -> void:
 	player_camera.character = self
 	body_bump_sound.character = self
 	head_bump_sound.character = self
+	fire_particles.emitting = false
 
 
 func _process(delta: float) -> void:
-	debug_text = "linear velocity: {lin_vel}, state: {state}, i_frames: {i_frames}"
-	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "state": state, "i_frames": immune_frames})
+	debug_text = "linear velocity: {lin_vel}, state: {state}, i_frames: {i_frames}, fire_damage: {fire_damage}"
+	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "state": state, "i_frames": immune_frames, "fire_damage": fire_damage_remaining})
 	oxygen_level.value = total_oxygen
 	
-#	if total_oxygen > FAST_BREATH_THRESHOLD and breathing_sound.stream != slow_breathing:
-#		breathing_sound.stream = slow_breathing
-#		breathing_sound.play()
-#	elif total_oxygen < FAST_BREATH_THRESHOLD
-	
-	if breathing_sound.stream == slow_breathing and total_oxygen < FAST_BREATH_THRESHOLD:
-		breathing_sound.stream = fast_breathing
-		breathing_sound.play()
-	elif breathing_sound.stream == fast_breathing and total_oxygen > FAST_BREATH_THRESHOLD:
+	if total_oxygen >= FAST_BREATH_THRESHOLD and breathing_sound.stream != slow_breathing:
 		breathing_sound.stream = slow_breathing
 		breathing_sound.play()
+	elif total_oxygen < FAST_BREATH_THRESHOLD and total_oxygen >= PANIC_BREATH_THRESHOLD and breathing_sound.stream != fast_breathing:
+		breathing_sound.stream = fast_breathing
+		breathing_sound.play()
+	elif total_oxygen < PANIC_BREATH_THRESHOLD and breathing_sound.stream != panic_breathing:
+		breathing_sound.stream = panic_breathing
+		breathing_sound.play()
+		
+	if is_on_fire and not fire_particles.emitting:
+		fire_particles.emitting = true
+	elif not is_on_fire and fire_particles.emitting:
+		fire_particles.emitting = false
 
 
 func _physics_process(delta: float) -> void:
@@ -116,9 +128,18 @@ func _physics_process(delta: float) -> void:
 			pass
 			
 	total_oxygen = clamp(total_oxygen - step_drain, 0.0, 1.0)
+	
+	if is_on_fire:
+		fire_damage_remaining -= fire_damage_rate * delta
+		total_oxygen = clamp(total_oxygen - fire_damage_rate * delta, 0.0, 1.0)
+		if fire_damage_remaining <= 0.0:
+			is_on_fire = false
+			fire_damage_remaining = 0.0
+	
+	
 	if total_oxygen == 0.0 and state != State.DEAD:
 		SignalBus.emit_signal("out_of_oxygen")
-		
+	
 	last_known_velocity = linear_velocity
 
 
@@ -193,6 +214,12 @@ func add_oxygen(amount: float) -> void:
 	total_oxygen = clamp(total_oxygen + amount, 0.0, 1.0)
 
 
+func set_fire_damage(value: float) -> void:
+	fire_damage_remaining = value
+	if not is_on_fire:
+		is_on_fire = true
+
+
 func _take_collision_damage(factor: float = 1.0) -> void:
 	if (linear_velocity - last_known_velocity).length() > collision_speed_threshold and immune_frames == 0:
 		body_bump_sound.play_random_sound()
@@ -213,4 +240,5 @@ func _on_head_collision(body: Node) -> void:
 
 
 func _on_out_of_oxygen() -> void:
+	breathing_sound.stop()
 	print("DED")

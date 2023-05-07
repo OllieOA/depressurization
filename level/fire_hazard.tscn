@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8jc1fqno8k7d"]
+
+[ext_resource type="Script" path="res://level/fire_hazard.gd" id="1_ipml1"]
+[ext_resource type="Texture2D" uid="uid://uso4le2ggck5" path="res://assets/prototype_latch.png" id="2_qoard"]
+[ext_resource type="Texture2D" uid="uid://ch7eh8py8fvro" path="res://final assets/fire_particle.png" id="3_4yjn3"]
+[ext_resource type="AudioStream" uid="uid://bkjmsa6pude64" path="res://audio/pumping.ogg" id="3_t0628"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxe7d"]
+radius = 60.0
+
+[sub_resource type="Curve" id="Curve_yfaq5"]
+min_value = 0.95
+_data = [Vector2(0, 0.953182), 0.0, 0.0, 0, 0, Vector2(0.652778, 0.999091), 0.0, 0.0, 0, 0, Vector2(1, 0.97), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6h0cw"]
+curve = SubResource("Curve_yfaq5")
+
+[sub_resource type="Curve" id="Curve_1o5gw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751663, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7l52d"]
+curve = SubResource("Curve_1o5gw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0ktlx"]
+emission_shape = 1
+emission_sphere_radius = 60.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -20.0
+radial_accel_max = 20.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_7l52d")
+color = Color(1, 0, 0, 1)
+hue_variation_max = 0.15
+hue_variation_curve = SubResource("CurveTexture_6h0cw")
+collision_mode = 2
+
+[node name="FireHazard" type="Area2D"]
+rotation = -0.00190484
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("1_ipml1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vxe7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 23)
+texture = ExtResource("2_qoard")
+
+[node name="HazardParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_0ktlx")
+texture = ExtResource("3_4yjn3")
+randomness = 0.85
+
+[node name="HazardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t0628")

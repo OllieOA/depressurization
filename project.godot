@@ -96,6 +96,7 @@ zoom_out={
 2d_physics/layer_6="explosives"
 2d_physics/layer_7="debris"
 2d_physics/layer_8="pickups"
+2d_physics/layer_9="hazards"
 2d_physics/layer_19="head"
 2d_physics/layer_20="limb"
 
