@@ -10,6 +10,7 @@ class_name Astronaut extends RigidBody2D
 var thrust_direction: Vector2
 var rotation_thrust_direction: float
 @onready var character_sprite: Sprite2D = $"%CharacterSprite"
+@onready var player_camera: Camera2D = $"%PlayerCamera"
 
 var debug_text: String = ""
 @onready var debug_label: Label = $"%DebugLabel"
@@ -49,6 +50,7 @@ const REPLENISH_RATE: float = -0.08
 func _ready() -> void:
 	SignalBus.connect("out_of_oxygen", _on_out_of_oxygen)
 	character_sprite.character = self
+	player_camera.character = self
 
 
 func _process(delta: float) -> void:
