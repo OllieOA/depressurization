@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://buwlfi7gwkxgh"]
+
+[ext_resource type="Script" path="res://level/oxygen_pickup.gd" id="1_y4576"]
+[ext_resource type="Texture2D" uid="uid://bbq2qwq45bvu0" path="res://final assets/ox tank.png" id="2_lils6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nrmn"]
+radius = 227.009
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6rfi"]
+radius = 18.0
+height = 104.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7yr1f"]
+radius = 64.195
+
+[node name="OxygenPickup" type="RigidBody2D"]
+collision_layer = 128
+collision_mask = 6
+script = ExtResource("1_y4576")
+
+[node name="GrabArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_4nrmn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("2_lils6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_n6rfi")
+
+[node name="ConsumeArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumeArea"]
+shape = SubResource("CircleShape2D_7yr1f")

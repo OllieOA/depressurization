@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dcjgbjiaulj7v"]
 
-[ext_resource path="res://globals/audio_manager.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://globals/audio_manager.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://sha0exjaltcy" path="res://audio/space_ambience.ogg" id="2_0crfo"]
 
 [node name="AudioManager" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0crfo")
+volume_db = -20.0
+autoplay = true
+stream_paused = true

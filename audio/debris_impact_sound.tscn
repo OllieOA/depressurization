@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://blm1lea1nevv1"]
+
+[ext_resource type="Script" path="res://audio/debris_impact_sound.gd" id="1_3d6ef"]
+
+[node name="ImpactSound" type="AudioStreamPlayer2D"]
+bus = &"SFX"
+script = ExtResource("1_3d6ef")

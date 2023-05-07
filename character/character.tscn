@@ -1,20 +1,53 @@
+<<<<<<< HEAD
 [gd_scene load_steps=15 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Texture2D" uid="uid://cuo0f0qlfr7ce" path="res://assets/prototype_boi.png" id="1_nxq1g"]
+=======
+[gd_scene load_steps=30 format=3 uid="uid://bd38qs5q2ovej"]
+
+>>>>>>> main
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
+[ext_resource type="Texture2D" uid="uid://b0sgg81dhl7mr" path="res://character/astro_body.png" id="2_jvphb"]
+[ext_resource type="Texture2D" uid="uid://cw47rtvg1pb1w" path="res://character/astro_head.png" id="2_om7b6"]
 [ext_resource type="Script" path="res://character/PlayerCamera.gd" id="3_nw4oj"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://character/character_sprite.gd" id="3_uoi2g"]
 [ext_resource type="Material" path="res://character/rotational_particles.tres" id="4_enxxd"]
 [ext_resource type="Material" uid="uid://dg42tahp2hokb" path="res://Elzi-Assets/GasRelease.tres" id="5_56w22"]
 [ext_resource type="Texture2D" uid="uid://p0af0b5jdc3v" path="res://Elzi-Assets/GasRelease.png" id="6_fr6wu"]
+=======
+[ext_resource type="Texture2D" uid="uid://dm1wh67xhkb5l" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
+[ext_resource type="Material" uid="uid://b7a7ce8y6hqip" path="res://character/rotational_particles.tres" id="4_enxxd"]
+[ext_resource type="Texture2D" uid="uid://dnm08utyi7dsy" path="res://character/astro_r_leggie.png" id="4_k7xci"]
+[ext_resource type="AudioStream" uid="uid://7li7krlh5w1c" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
+[ext_resource type="AudioStream" uid="uid://cf0ktd0vfivyx" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
+[ext_resource type="Script" path="res://character/body_bump_sound.gd" id="10_wa373"]
+[ext_resource type="AudioStream" uid="uid://dbbstiflp5lj3" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
+[ext_resource type="Script" path="res://character/HeadBumpSound.gd" id="12_1iu1g"]
+[ext_resource type="AudioStream" uid="uid://c6bq5rhkgj4is" path="res://audio/breathing-panic.ogg" id="13_4jdfs"]
+[ext_resource type="Script" path="res://character/ArrowGroup.gd" id="13_50wp4"]
+[ext_resource type="Texture2D" uid="uid://ch7eh8py8fvro" path="res://final assets/fire_particle.png" id="15_47lk3"]
+>>>>>>> main
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
 bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yntig"]
+<<<<<<< HEAD
 radius = 30.0
 height = 110.0
+=======
+radius = 21.0
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mebys"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y237a"]
+radius = 7.27973
+height = 34.0
+>>>>>>> main
 
 [sub_resource type="Curve" id="Curve_i4e8r"]
 min_value = 0.95
@@ -48,19 +81,105 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("CurveTexture_tmuwr")
 collision_mode = 2
 
-[node name="Character" type="RigidBody2D"]
+[sub_resource type="Curve" id="Curve_47lhc"]
+min_value = 0.95
+_data = [Vector2(0, 0.953182), 0.0, 0.0, 0, 0, Vector2(0.652778, 0.999091), 0.0, 0.0, 0, 0, Vector2(1, 0.97), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ujvn2"]
+curve = SubResource("Curve_47lhc")
+
+[sub_resource type="Curve" id="Curve_4f6f4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751663, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bwg8f"]
+curve = SubResource("Curve_4f6f4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6tfmo"]
+emission_shape = 1
+emission_sphere_radius = 40.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -20.0
+radial_accel_max = 20.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_bwg8f")
+color = Color(1, 0, 0, 1)
+hue_variation_max = 0.15
+hue_variation_curve = SubResource("CurveTexture_ujvn2")
+collision_mode = 2
+
+[node name="Character" type="RigidBody2D" groups=["character"]]
 collision_layer = 2
-collision_mask = 12
+collision_mask = 524300
 physics_material_override = SubResource("PhysicsMaterial_2rb3r")
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_urmi3")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
 shape = SubResource("CapsuleShape2D_yntig")
 
-[node name="CharacterSprite" type="Sprite2D" parent="."]
+[node name="Head" type="RigidBody2D" parent="." groups=["character"]]
 unique_name_in_owner = true
-texture = ExtResource("1_nxq1g")
-script = ExtResource("3_uoi2g")
+position = Vector2(-1, -26)
+collision_layer = 524288
+collision_mask = 6
+mass = 0.01
+inertia = 1.0
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="Head" type="Sprite2D" parent="Head"]
+texture = ExtResource("2_om7b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_mebys")
+
+[node name="LeftLeg" type="RigidBody2D" parent="." groups=["character"]]
+position = Vector2(-22, 55)
+collision_layer = 524288
+collision_mask = 2
+mass = 0.01
+inertia = 1.0
+
+[node name="LLeg" type="Sprite2D" parent="LeftLeg"]
+texture = ExtResource("3_w1t5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg"]
+position = Vector2(-1, 7)
+rotation = 0.288553
+shape = SubResource("CapsuleShape2D_y237a")
+
+[node name="RightLeg" type="RigidBody2D" parent="." groups=["character"]]
+position = Vector2(9, 57)
+collision_layer = 524288
+collision_mask = 2
+mass = 0.01
+inertia = 1.0
+
+[node name="RLeg" type="Sprite2D" parent="RightLeg"]
+texture = ExtResource("4_k7xci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg"]
+position = Vector2(2, 8)
+rotation = -0.187023
+shape = SubResource("CapsuleShape2D_y237a")
+
+[node name="CharacterTorsoSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 16)
+texture = ExtResource("2_jvphb")
 
 [node name="AstronautUI" type="CanvasLayer" parent="."]
 
@@ -99,12 +218,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_nw4oj")
 
-[node name="Label" type="Label" parent="PlayerCamera"]
-offset_left = 50.0
-offset_top = 65.0
-offset_right = 90.0
-offset_bottom = 88.0
-
 [node name="CameraTarget" type="Node2D" parent="."]
 
 [node name="MainOxygen" type="GPUParticles2D" parent="."]
@@ -117,14 +230,68 @@ texture = ExtResource("6_fr6wu")
 
 [node name="ClockwiseOxygen" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(34, -30)
+position = Vector2(20, -20)
 rotation = -0.523599
 amount = 20
 process_material = ExtResource("4_enxxd")
 
 [node name="AnticlockwiseOxygen" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(34, 30)
+position = Vector2(20, 20)
 rotation = 3.66519
 amount = 20
 process_material = ExtResource("4_enxxd")
+
+[node name="Neck" type="PinJoint2D" parent="."]
+position = Vector2(0, -11)
+node_a = NodePath("..")
+node_b = NodePath("../Head")
+disable_collision = false
+
+[node name="LHip" type="PinJoint2D" parent="."]
+position = Vector2(-14, 43)
+node_a = NodePath("..")
+node_b = NodePath("../LeftLeg")
+bias = 0.5
+disable_collision = false
+softness = 0.5
+
+[node name="RHip" type="PinJoint2D" parent="."]
+position = Vector2(7, 46)
+node_a = NodePath("..")
+node_b = NodePath("../RightLeg")
+bias = 0.5
+disable_collision = false
+softness = 0.5
+
+[node name="OxygenLeakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fa3sx")
+bus = &"SFX"
+
+[node name="OxygenRotateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_w7kyr")
+bus = &"SFX"
+
+[node name="BodyBumpSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("10_wa373")
+
+[node name="HeadBumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_q8ggg")
+bus = &"SFX"
+script = ExtResource("12_1iu1g")
+
+[node name="BreathingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_4jdfs")
+bus = &"SFX"
+
+[node name="ArrowGroup" type="Node2D" parent="."]
+z_index = 3
+script = ExtResource("13_50wp4")
+
+[node name="FireParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_6tfmo")
+texture = ExtResource("15_47lk3")
+randomness = 0.85
