@@ -93,6 +93,8 @@ zoom_out={
 2d_physics/layer_3="walls"
 2d_physics/layer_4="interactables"
 2d_physics/layer_5="latches"
+2d_physics/layer_19="head"
+2d_physics/layer_20="limb"
 
 [physics]
 

@@ -1,31 +1,58 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683419015
+::res://::1683423880
 default_bus_layout.tres::AudioBusLayout::-1::1683335172::0::1::::<><>::
-default_env.tres::Environment::1607415269412226583::1683419001::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1683372010::0::1::::<><>::
-prototype_block.tscn::PackedScene::7885527429497460374::1683418928::0::1::::<><>::
-prototype_level.tscn::PackedScene::1903568713409548732::1683418928::0::1::::<><>::uid://crgrcsob4mrrq<>uid://bd38qs5q2ovej<>uid://bkqd6q1ts78vh<>uid://dkl2qqjvd0v8i
+default_env.tres::Environment::1607415269412226583::1683423880::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1683422779::0::1::::<><>::
+prototype_block.tscn::PackedScene::7885527429497460374::1683422779::0::1::::<><>::
+prototype_level.tscn::PackedScene::1903568713409548732::1683423880::0::1::::<><>::uid://crgrcsob4mrrq<>uid://bd38qs5q2ovej<>uid://bkqd6q1ts78vh<>uid://dkl2qqjvd0v8i
 README.md::TextFile::-1::1683337042::0::1::::<><>::
-::res://assets/::1683366521
-prototype_background.png::CompressedTexture2D::5979474703354196454::1683366521::1683344047::1::::<><>::
+the last one.txt::TextFile::-1::1683422791::0::1::::<><>::
+::res://assets/::1683422779
+prototype_background.png::CompressedTexture2D::5979474703354196454::1683422779::1683344047::1::::<><>::
 prototype_boi.png::CompressedTexture2D::315468413969546830::1683366521::1683338221::1::::<><>::
-prototype_latch.png::CompressedTexture2D::1441838083426778346::1683366521::1683365739::1::::<><>::
-::res://character/::1683419001
-character.gd::GDScript::-1::1683418686::0::1::::Astronaut<>RigidBody2D<>::
-character.tscn::PackedScene::2656823017712701189::1683419001::0::1::::<><>::uid://eq2yo2kckgu5<>res://character/character.gd<>res://character/PlayerCamera.gd<>res://character/character_sprite.gd<>uid://b7a7ce8y6hqip
-character_sprite.gd::GDScript::-1::1683374713::0::1::::<>Sprite2D<>::
-PlayerCamera.gd::GDScript::-1::1683419001::0::1::::PlayerCamera<>Camera2D<>::
-rotational_particles.tres::ParticleProcessMaterial::4634410457670590791::1683418103::0::1::::<><>::
+prototype_latch.png::CompressedTexture2D::1441838083426778346::1683422779::1683365739::1::::<><>::
+::res://character/::1683424551
+astro_body.png::CompressedTexture2D::4178677364518614737::1683424505::1683424616::1::::<><>::
+astro_head.png::CompressedTexture2D::6378837215248052518::1683424512::1683424616::1::::<><>::
+astro_l_leggie.png::CompressedTexture2D::8056551949451802539::1683424533::1683424616::1::::<><>::
+astro_r_leggie.png::CompressedTexture2D::8098067488361154120::1683424551::1683424616::1::::<><>::
+character.gd::GDScript::-1::1683423877::0::1::::Astronaut<>RigidBody2D<>::
+character.tscn::PackedScene::2656823017712701189::1683423880::0::1::::<><>::res://character/character.gd<>uid://dju4d8rgi1ol0<>res://character/PlayerCamera.gd<>uid://b7a7ce8y6hqip
+character_sprite.gd::GDScript::-1::1683422779::0::1::::<>Sprite2D<>::
+PlayerCamera.gd::GDScript::-1::1683422779::0::1::::PlayerCamera<>Camera2D<>::
+rotational_particles.tres::ParticleProcessMaterial::4634410457670590791::1683423610::0::1::::<><>::
 ::res://external/::1683376092
-::res://globals/::1683374782
+::res://final assets/::1683422822
+astro full.png::CompressedTexture2D::729355467855068301::1683422791::1683422822::1::::<><>::
+astro leggies.png::CompressedTexture2D::7581503883152893496::1683422791::1683422822::1::::<><>::
+astro torso fixed.png::CompressedTexture2D::396351585305016166::1683422791::1683422822::1::::<><>::
+astro torso.png::CompressedTexture2D::7834017108891303831::1683422791::1683422822::1::::<><>::
+background tiles test2.png::CompressedTexture2D::3459235515418342817::1683422791::1683422822::1::::<><>::
+blank textures.png::CompressedTexture2D::4731863173956406147::1683422791::1683422822::1::::<><>::
+ox tank.png::CompressedTexture2D::2491308684491618205::1683422791::1683422822::1::::<><>::
+proper background.png::CompressedTexture2D::3112583739147682542::1683422791::1683422822::1::::<><>::
+ramps.png::CompressedTexture2D::8674621156916364607::1683422791::1683422822::1::::<><>::
+Sprite-0004.png::CompressedTexture2D::8523189001424702721::1683422791::1683422822::1::::<><>::
+tile map maybe.png::CompressedTexture2D::2301960413648900392::1683422791::1683422822::1::::<><>::
+windows.png::CompressedTexture2D::3397749425320746268::1683422791::1683422822::1::::<><>::
+::res://globals/::1683422779
 audio_manager.gd::GDScript::-1::1683335172::0::1::::<>Node<>::
 audio_manager.tscn::PackedScene::-1::1683335172::0::1::::<><>::res://globals/audio_manager.gd
-signal_bus.gd::GDScript::-1::1683374782::0::1::::<>Node<>::
-::res://level/::1683418928
-latch_zone.gd::GDScript::-1::1683366521::0::1::::LatchZone<>Area2D<>::
-latch_zone.tscn::PackedScene::3121577556154873301::1683418928::0::1::::<><>::res://level/latch_zone.gd<>uid://uso4le2ggck5
-::res://theme/::1683372010
-in_game_menu.tres::Theme::2061097625677167148::1683372010::0::1::::<><>::uid://cvaxce74jpxlf<>uid://ba8ujd8xchtyh<>uid://ds4w8qxnh2xe8<>uid://jhkelujfb7j8<>uid://cfoqgnanybq32<>uid://byy6t8hy3p4dc<>uid://7omrns0d0j5d<>uid://biui5bkki0n12<>uid://djjvss1805lnq
+signal_bus.gd::GDScript::-1::1683422779::0::1::::<>Node<>::
+::res://level/::1683422779
+latch_zone.gd::GDScript::-1::1683422779::0::1::::LatchZone<>Area2D<>::
+latch_zone.tscn::PackedScene::3121577556154873301::1683422779::0::1::::<><>::res://level/latch_zone.gd<>uid://uso4le2ggck5
+::res://prototypes/::1683424140
+background tiles test.png::CompressedTexture2D::8272105154564425529::1683422791::1683422822::1::::<><>::
+fixed tile map template.png::CompressedTexture2D::3652970037853212155::1683422791::1683422822::1::::<><>::
+kjsdhf.png::CompressedTexture2D::6461798134026576409::1683422791::1683422822::1::::<><>::
+t1.png::CompressedTexture2D::4248062544723305945::1683422791::1683422822::1::::<><>::
+t2.png::CompressedTexture2D::555521214873066266::1683422791::1683422822::1::::<><>::
+t3.png::CompressedTexture2D::179890380481276563::1683422791::1683422822::1::::<><>::
+t4.png::CompressedTexture2D::2298385263241536872::1683422791::1683422822::1::::<><>::
+tmap test.png::CompressedTexture2D::204554161352911108::1683422791::1683422822::1::::<><>::
+::res://theme/::1683422779
+in_game_menu.tres::Theme::2061097625677167148::1683422779::0::1::::<><>::uid://cvaxce74jpxlf<>uid://ba8ujd8xchtyh<>uid://ds4w8qxnh2xe8<>uid://jhkelujfb7j8<>uid://cfoqgnanybq32<>uid://byy6t8hy3p4dc<>uid://7omrns0d0j5d<>uid://biui5bkki0n12<>uid://djjvss1805lnq
 ::res://theme/fonts/::1683335226
 dogicapixel.ttf::FontFile::1415723913352005138::1683335172::1683335226::1::::<><>::
 dogicapixelbold.ttf::FontFile::481418269106657054::1683335172::1683335226::1::::<><>::

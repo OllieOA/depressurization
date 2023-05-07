@@ -14,6 +14,12 @@ texture = ExtResource("1_jonuu")
 [node name="Character" parent="." groups=["character"] instance=ExtResource("1_q6anf")]
 position = Vector2(1207, -225)
 rotation = -0.446363
+thrust_ratio = 1.0
+thrust_power = 5.0
+max_speed = 700.0
+rotation_strength = 200.0
+max_rotation_speed = 6.0
+latch_strength = 0.025
 
 [node name="PrototypeBlocks" type="Node2D" parent="."]
 

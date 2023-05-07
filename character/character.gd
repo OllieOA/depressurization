@@ -9,7 +9,7 @@ class_name Astronaut extends RigidBody2D
 
 var thrust_direction: Vector2
 var rotation_thrust_direction: float
-@onready var character_sprite: Sprite2D = $"%CharacterSprite"
+@onready var character_torso: Sprite2D = $"%CharacterTorsoSprite"
 @onready var player_camera: Camera2D = $"%PlayerCamera"
 
 var debug_text: String = ""
@@ -49,7 +49,7 @@ const REPLENISH_RATE: float = -0.08
 
 func _ready() -> void:
 	SignalBus.connect("out_of_oxygen", _on_out_of_oxygen)
-	character_sprite.character = self
+#	character_torso.character = self  # Bring back if we want sprite flipping
 	player_camera.character = self
 
 
