@@ -1,18 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=17 format=3 uid="uid://bd38qs5q2ovej"]
 
-[ext_resource type="Texture2D" uid="uid://eq2yo2kckgu5" path="res://assets/prototype_boi.png" id="1_nxq1g"]
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
+[ext_resource type="Texture2D" uid="uid://b0sgg81dhl7mr" path="res://character/astro_body.png" id="2_jvphb"]
+[ext_resource type="Texture2D" uid="uid://cw47rtvg1pb1w" path="res://character/astro_head.png" id="2_om7b6"]
 [ext_resource type="Script" path="res://character/PlayerCamera.gd" id="3_nw4oj"]
-[ext_resource type="Script" path="res://character/character_sprite.gd" id="3_uoi2g"]
+[ext_resource type="Texture2D" uid="uid://dm1wh67xhkb5l" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
 [ext_resource type="Material" uid="uid://b7a7ce8y6hqip" path="res://character/rotational_particles.tres" id="4_enxxd"]
+[ext_resource type="Texture2D" uid="uid://dnm08utyi7dsy" path="res://character/astro_r_leggie.png" id="4_k7xci"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
 bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yntig"]
-radius = 33.0
-height = 114.0
+radius = 21.0
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mebys"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y237a"]
+radius = 7.27973
+height = 34.0
 
 [sub_resource type="Curve" id="Curve_i4e8r"]
 min_value = 0.95
@@ -50,17 +59,62 @@ collision_mode = 2
 
 [node name="Character" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 12
+collision_mask = 524300
 physics_material_override = SubResource("PhysicsMaterial_2rb3r")
 script = ExtResource("1_urmi3")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
 shape = SubResource("CapsuleShape2D_yntig")
 
-[node name="CharacterSprite" type="Sprite2D" parent="."]
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(-1, -26)
+collision_layer = 524288
+collision_mask = 6
+mass = 0.01
+inertia = 1.0
+
+[node name="Head" type="Sprite2D" parent="Head"]
+texture = ExtResource("2_om7b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_mebys")
+
+[node name="LeftLeg" type="RigidBody2D" parent="."]
+position = Vector2(-22, 55)
+collision_layer = 524288
+collision_mask = 2
+mass = 0.01
+inertia = 1.0
+
+[node name="LLeg" type="Sprite2D" parent="LeftLeg"]
+texture = ExtResource("3_w1t5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg"]
+position = Vector2(-1, 7)
+rotation = 0.288553
+shape = SubResource("CapsuleShape2D_y237a")
+
+[node name="RightLeg" type="RigidBody2D" parent="."]
+position = Vector2(9, 57)
+collision_layer = 524288
+collision_mask = 2
+mass = 0.01
+inertia = 1.0
+
+[node name="RLeg" type="Sprite2D" parent="RightLeg"]
+texture = ExtResource("4_k7xci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg"]
+position = Vector2(2, 8)
+rotation = -0.187023
+shape = SubResource("CapsuleShape2D_y237a")
+
+[node name="CharacterTorsoSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-texture = ExtResource("1_nxq1g")
-script = ExtResource("3_uoi2g")
+position = Vector2(0, 16)
+texture = ExtResource("2_jvphb")
 
 [node name="AstronautUI" type="CanvasLayer" parent="."]
 
@@ -115,14 +169,36 @@ process_material = SubResource("ParticleProcessMaterial_im252")
 
 [node name="ClockwiseOxygen" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(34, -30)
+position = Vector2(20, -20)
 rotation = -0.523599
 amount = 20
 process_material = ExtResource("4_enxxd")
 
 [node name="AnticlockwiseOxygen" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(34, 30)
+position = Vector2(20, 20)
 rotation = 3.66519
 amount = 20
 process_material = ExtResource("4_enxxd")
+
+[node name="Neck" type="PinJoint2D" parent="."]
+position = Vector2(0, -11)
+node_a = NodePath("..")
+node_b = NodePath("../Head")
+disable_collision = false
+
+[node name="LHip" type="PinJoint2D" parent="."]
+position = Vector2(-14, 43)
+node_a = NodePath("..")
+node_b = NodePath("../LeftLeg")
+bias = 0.5
+disable_collision = false
+softness = 0.5
+
+[node name="RHip" type="PinJoint2D" parent="."]
+position = Vector2(7, 46)
+node_a = NodePath("..")
+node_b = NodePath("../RightLeg")
+bias = 0.5
+disable_collision = false
+softness = 0.5
