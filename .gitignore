@@ -8,6 +8,9 @@ export/*
 *.import
 export.cfg
 .godot/editor/*
+audio/reaper_projects
+*.wav
+*.wav.*
 
 
 # Mono-specific ignores
