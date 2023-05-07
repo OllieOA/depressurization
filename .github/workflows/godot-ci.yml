@@ -4,12 +4,12 @@ on:
   push:
     branches:
       - main
+
 env:
-  IS_MAIN: ${{contains(github.ref, 'main')}}
-  PROJECT_NAME: !!!<UPDATE>!!!
-  ITCH_PROJECT_NAME: !!!<UPDATE>!!!
+  PROJECT_NAME: "decontrolled-decompression"
+  ITCH_PROJECT_NAME: "decontrolled-decompression"
   ITCH_USERNAME: "ollieoa"
-  GODOT_VERSION: 4.0
+  GODOT_VERSION: 4.0.2
 
 jobs:
   BuildAndPublish:
@@ -23,74 +23,27 @@ jobs:
           fetch-depth: 0
       - name: Download + Authorize Godot
         run: |
-          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_linux.x86_64.zip
           unzip godot.zip
-          mv Godot_v4.0-stable_linux.x86_64 godot
+          mv Godot_v4.0.2-stable_linux.x86_64 godot
           ls
           chmod +x godot
       - name: Download Export Templates
         run: |
-          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_export_templates.tpz
           unzip export_templates.zip
       - name: Install Export Templates
         run: |
-          mkdir -p ~/.local/share/godot/export_templates/4.0
-          mv ./templates/* ~/.local/share/godot/export_templates/4.0
-      - name: Make Exports Folder
-        run: |
-          mkdir exports
-      - name: Generate cache
-       run: |
-         ./godot --verbose --headless -e --quit --path ./
-         exit 0
-      # Comment out as necessary to minimise builds - generally only a web build is necessary
-      # - name: Export Windows Port
-      #   run: |
-      #     mkdir ./exports/windows
-      #     ./godot --headless --path ./ --export-release "Windows" ./exports/windows/$PROJECT_NAME.exe
-      # - name: Export Mac Port
-      #   run: |
-      #     mkdir ./exports/mac
-      #     ./godot --headless --path ./ --export-release "Mac" ./exports/mac/$PROJECT_NAME.zip
-      # - name: Export Linux Port
-      #   run: |
-      #     mkdir ./exports/linux
-      #     ./godot --headless --path ./ --export-release "Linux" ./exports/linux/$PROJECT_NAME.x86_64
+          mkdir -p ~/.local/share/godot/export_templates/4.0.2.stable
+          mv ./templates/* ~/.local/share/godot/export_templates/4.0.2.stable
       - name: Export Web Build
         run: |
-          mkdir ./exports/web
-          ./godot --headless --path ./ --export-release "Web" ./exports/web/index.html
+          ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
       - name: Publish Export Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: exports
-          path: exports
-  CreateNewGithubRelease:
-    needs: BuildAndPublish
-    if: ${{ contains(github.ref, 'main') }}
-    runs-on: ubuntu-latest
-    environment: BnP
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically generated
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3.3.0
-        with:
-          fetch-depth: 0
-      - name: Download Exports
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: exports
-          path: exports
-      - name: Zip Exports
-        run: zip -r exports.zip exports
-      - name: Test Release Variables
-        run: |
-          echo "Version Number $GITHUB_RUN_NUMBER"
-          echo "Commit Message $COMMIT_MESSAGE"
-          echo "Project Name $PROJECT_NAME"
-        env:
-          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          name: build
+          path: build
   PushExportsToItch:
     needs: BuildAndPublish
     if: ${{ contains(github.ref, 'main') }}
@@ -102,8 +55,8 @@ jobs:
       - name: Download Exports
         uses: actions/download-artifact@v3.0.2
         with:
-          name: exports
-          path: exports
+          name: build
+          path: build
       - name: Download + Authorize Butler
         run: |
           curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
@@ -112,13 +65,8 @@ jobs:
           ./butler -V
       - name: Login To Butler
         run: ./butler login
-      
-      # As above, comment as needed
-      # - name: Push Windows Export To Itch
-      #   run: ./butler push ./exports/windows/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:win
-      # - name: Push Mac Export To Itch
-      #   run: ./butler push ./exports/mac/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:mac
-      # - name: Push Linux Export To Itch
-      #   run: ./butler push ./exports/linux/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:linux
       - name: Push Web Export To Itch
-        run: ./butler push ./exports/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
+        run: |
+          ls ./build/web
+          ls ./
+          ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5

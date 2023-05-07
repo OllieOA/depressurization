@@ -1,8 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://2edq7m1otujc"]
+[gd_scene load_steps=5 format=3 uid="uid://2edq7m1otujc"]
 
+[ext_resource type="Texture2D" uid="uid://dwoqa2s534314" path="res://assets/prototype_background.png" id="1_jonuu"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="1_q6anf"]
+[ext_resource type="PackedScene" uid="uid://bkqd6q1ts78vh" path="res://level/latch_zone.tscn" id="3_e4g5p"]
+[ext_resource type="PackedScene" uid="uid://dkl2qqjvd0v8i" path="res://prototype_block.tscn" id="3_er460"]
 
 [node name="PrototypeLevel" type="Node2D"]
 
-[node name="Character" parent="." instance=ExtResource("1_q6anf")]
-position = Vector2(507, 312)
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_jonuu")
+
+[node name="Character" parent="." groups=["character"] instance=ExtResource("1_q6anf")]
+position = Vector2(1207, -225)
+rotation = -0.446363
+
+[node name="PrototypeBlocks" type="Node2D" parent="."]
+
+[node name="Block" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(647, -284)
+
+[node name="Block19" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1166, 85)
+
+[node name="Block2" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(212, -219)
+
+[node name="Block3" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(300, 139)
+
+[node name="Block10" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-127, 666)
+
+[node name="Block11" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(309, 667)
+
+[node name="Block12" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(743, 666)
+
+[node name="Block13" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-129, -482)
+
+[node name="Block4" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(735, 84)
+
+[node name="Block5" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-549, -208)
+rotation = 1.57079
+
+[node name="Block6" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-412, -406)
+rotation = 1.57079
+
+[node name="Block14" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(158, -499)
+rotation = 1.57079
+
+[node name="Block7" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-412, 516)
+rotation = 1.57079
+
+[node name="Block8" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-548, 225)
+rotation = 1.57079
+
+[node name="Block9" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(-548, 225)
+rotation = 1.57079
+
+[node name="Block15" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1440, 233)
+rotation = 1.57079
+
+[node name="Block16" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1493, 672)
+rotation = 1.57079
+
+[node name="Block17" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(1491, 1106)
+rotation = 1.57079
+
+[node name="Block18" parent="PrototypeBlocks" instance=ExtResource("3_er460")]
+position = Vector2(889, 949)
+rotation = 1.57079
+
+[node name="LatchZone" parent="." groups=["latch"] instance=ExtResource("3_e4g5p")]
+position = Vector2(-260, 526)

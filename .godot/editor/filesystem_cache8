@@ -1,46 +1,59 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683483155
+::res://::1683496796
 default_bus_layout.tres::AudioBusLayout::-1::1683338688::0::1::::<><>::
 default_env.tres::Environment::1607415269412226583::1683338688::0::1::::<><>::
-prototype_level.tscn::PackedScene::1903568713409548732::1683385373::0::1::::<><>::uid://bd38qs5q2ovej
+export_presets.cfg::TextFile::-1::1683496731::0::1::::<><>::
+prototype_block.tscn::PackedScene::7885527429497460374::1683496731::0::1::::<><>::
+prototype_level.tscn::PackedScene::1903568713409548732::1683496731::0::1::::<><>::uid://crgrcsob4mrrq<>uid://bd38qs5q2ovej<>uid://bkqd6q1ts78vh<>uid://dkl2qqjvd0v8i
 README.md::TextFile::-1::1683338688::0::1::::<><>::
-the last one.txt::TextFile::-1::1683385373::0::1::::<><>::
-::res://assets/::1683385373
+the last one.txt::TextFile::-1::1683496714::0::1::::<><>::
+::res://assets/::1683496731
+prototype_background.png::CompressedTexture2D::8733290818895702505::1683496731::1683496797::1::::<><>::
 prototype_boi.png::CompressedTexture2D::7262292491702908277::1683338688::1683483157::1::::<><>::
-::res://character/::1683385373
-character.tscn::PackedScene::2656823017712701189::1683385373::0::1::::<><>::uid://eq2yo2kckgu5
-::res://final assets/::1683428004
-astro full.png::CompressedTexture2D::2081298212665738764::1683421791::1683483157::1::::<><>::
-astro leggies.png::CompressedTexture2D::5707313224684758236::1683421827::1683483157::1::::<><>::
-astro torso fixed.png::CompressedTexture2D::1522208009939950771::1683422526::1683483157::1::::<><>::
-astro torso.png::CompressedTexture2D::8576915927893922383::1683421980::1683483157::1::::<><>::
-background tiles test2.png::CompressedTexture2D::7949554638650600::1683400374::1683483157::1::::<><>::
-blank textures.png::CompressedTexture2D::2353334560035900935::1683416227::1683483157::1::::<><>::
-good old oxygen.png::CompressedTexture2D::1460690857077566073::1683427934::1683483157::1::::<><>::
-ox tank.png::CompressedTexture2D::3331026757809600570::1683421940::1683483157::1::::<><>::
-proper background.png::CompressedTexture2D::3889351582088501391::1683419884::1683483157::1::::<><>::
-ramps.png::CompressedTexture2D::1032094268910170593::1683388829::1683483157::1::::<><>::
-Sprite-0004.png::CompressedTexture2D::7292819030297684123::1683385373::1683483156::1::::<><>::
-tile map maybe.png::CompressedTexture2D::1749236708394699853::1683385060::1683483157::1::::<><>::
-windows.png::CompressedTexture2D::3501082765792750154::1683402754::1683483156::1::::<><>::
-::res://globals/::1683385373
+prototype_latch.png::CompressedTexture2D::405945630486627821::1683496731::1683496796::1::::<><>::
+::res://character/::1683496731
+character.gd::GDScript::-1::1683496731::0::1::::Astronaut<>RigidBody2D<>::
+character.tscn::PackedScene::2656823017712701189::1683496731::0::1::::<><>::uid://eq2yo2kckgu5<>res://character/character.gd<>res://character/PlayerCamera.gd<>res://character/character_sprite.gd<>uid://b7a7ce8y6hqip
+character_sprite.gd::GDScript::-1::1683496731::0::1::::<>Sprite2D<>::
+PlayerCamera.gd::GDScript::-1::1683496731::0::1::::PlayerCamera<>Camera2D<>::
+rotational_particles.tres::ParticleProcessMaterial::4634410457670590791::1683496731::0::1::::<><>::
+::res://final assets/::1683496714
+astro full.png::CompressedTexture2D::2081298212665738764::1683496714::1683483157::1::::<><>::
+astro leggies.png::CompressedTexture2D::5707313224684758236::1683496714::1683483157::1::::<><>::
+astro torso fixed.png::CompressedTexture2D::1522208009939950771::1683496714::1683483157::1::::<><>::
+astro torso.png::CompressedTexture2D::8576915927893922383::1683496714::1683483157::1::::<><>::
+background tiles test2.png::CompressedTexture2D::7949554638650600::1683496714::1683483157::1::::<><>::
+blank textures.png::CompressedTexture2D::2353334560035900935::1683496714::1683483157::1::::<><>::
+escape pod.png::CompressedTexture2D::4934568698690749637::1683495009::1683496796::1::::<><>::
+good old oxygen.png::CompressedTexture2D::1460690857077566073::1683496714::1683483157::1::::<><>::
+lorge debris sheet.png::CompressedTexture2D::3726463981131031196::1683496714::1683496796::1::::<><>::
+MED DEBRIS.png::CompressedTexture2D::5275729140169146962::1683496714::1683496796::1::::<><>::
+ox tank.png::CompressedTexture2D::3331026757809600570::1683496714::1683483157::1::::<><>::
+proper background.png::CompressedTexture2D::3889351582088501391::1683496714::1683483157::1::::<><>::
+ramps.png::CompressedTexture2D::1032094268910170593::1683496714::1683483157::1::::<><>::
+small debris sheet.png::CompressedTexture2D::8134361838087899543::1683496714::1683496796::1::::<><>::
+Sprite-0004.png::CompressedTexture2D::7292819030297684123::1683496714::1683483156::1::::<><>::
+tile map maybe.png::CompressedTexture2D::1749236708394699853::1683496714::1683483157::1::::<><>::
+windows.png::CompressedTexture2D::3501082765792750154::1683496714::1683483156::1::::<><>::
+::res://globals/::1683496731
 audio_manager.gd::GDScript::-1::1683338688::0::1::::<>Node<>::
 audio_manager.tscn::PackedScene::-1::1683338688::0::1::::<><>::res://globals/audio_manager.gd
-signal_bus.gd::GDScript::-1::1683385373::0::1::::<>Node<>::
-::res://prototypes/::1683477330
-background tiles test.png::CompressedTexture2D::5916098767947648153::1683400228::1683483156::1::::<><>::
-fixed tile map template.png::CompressedTexture2D::3922390327134005760::1683385373::1683483156::1::::<><>::
-good old oxygen.png::CompressedTexture2D::1082322649562854873::1683427934::1683483156::1::::<><>::
-kjsdhf.png::CompressedTexture2D::8199012026816255320::1683410256::1683483157::1::::<><>::
-lorge debris sheet.png::CompressedTexture2D::3833128172992598777::1683477342::1683483156::1::::<><>::
-small debris sheet.png::CompressedTexture2D::1556406747188483546::1683477358::1683483156::1::::<><>::
-t1.png::CompressedTexture2D::8426246655484551860::1683385373::1683343341::1::::<><>::
-t2.png::CompressedTexture2D::6735076518638609427::1683385373::1683343341::1::::<><>::
-t3.png::CompressedTexture2D::6217384147632682540::1683385373::1683343341::1::::<><>::
-t4.png::CompressedTexture2D::6689714275379931458::1683385373::1683343341::1::::<><>::
-tmap test.png::CompressedTexture2D::1784168267819812602::1683385373::1683483156::1::::<><>::
-::res://theme/::1683385373
-in_game_menu.tres::Theme::-1::1683385373::0::1::::<><>::res://ui/settings/panel_ninepatch.png<>res://ui/settings/icon_square_button_normal.png<>res://ui/settings/icon_square_button_pressed.png<>res://ui/settings/icon_square_button_hover.png<>res://ui/settings/slider_base.png<>res://ui/settings/slider_normal_tick.png<>res://ui/settings/slider_highlight_tick.png<>res://ui/settings/slider_highlight_grab.png<>res://ui/settings/slider_normal_grab.png
+signal_bus.gd::GDScript::-1::1683496731::0::1::::<>Node<>::
+::res://level/::1683496731
+latch_zone.gd::GDScript::-1::1683496731::0::1::::LatchZone<>Area2D<>::
+latch_zone.tscn::PackedScene::3121577556154873301::1683496731::0::1::::<><>::res://level/latch_zone.gd<>uid://uso4le2ggck5
+::res://prototypes/::1683496714
+background tiles test.png::CompressedTexture2D::5916098767947648153::1683496714::1683483156::1::::<><>::
+fixed tile map template.png::CompressedTexture2D::3922390327134005760::1683496714::1683483156::1::::<><>::
+good old oxygen.png::CompressedTexture2D::1082322649562854873::1683496714::1683483156::1::::<><>::
+kjsdhf.png::CompressedTexture2D::8199012026816255320::1683496714::1683483157::1::::<><>::
+t1.png::CompressedTexture2D::8426246655484551860::1683496714::1683343341::1::::<><>::
+t2.png::CompressedTexture2D::6735076518638609427::1683496714::1683343341::1::::<><>::
+t3.png::CompressedTexture2D::6217384147632682540::1683496714::1683343341::1::::<><>::
+t4.png::CompressedTexture2D::6689714275379931458::1683496714::1683343341::1::::<><>::
+tmap test.png::CompressedTexture2D::1784168267819812602::1683496714::1683483156::1::::<><>::
+::res://theme/::1683496731
+in_game_menu.tres::Theme::2061097625677167148::1683496731::0::1::::<><>::uid://cvaxce74jpxlf<>uid://ba8ujd8xchtyh<>uid://ds4w8qxnh2xe8<>uid://jhkelujfb7j8<>uid://cfoqgnanybq32<>uid://byy6t8hy3p4dc<>uid://7omrns0d0j5d<>uid://biui5bkki0n12<>uid://djjvss1805lnq
 ::res://theme/fonts/::1683340975
 dogicapixel.ttf::FontFile::3987458397099000539::1683338688::1683340975::1::::<><>::
 dogicapixelbold.ttf::FontFile::4868409041122759548::1683338688::1683340975::1::::<><>::

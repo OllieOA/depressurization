@@ -1,15 +1,119 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=13 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Texture2D" uid="uid://eq2yo2kckgu5" path="res://assets/prototype_boi.png" id="1_nxq1g"]
+[ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
+[ext_resource type="Script" path="res://character/PlayerCamera.gd" id="3_nw4oj"]
+[ext_resource type="Script" path="res://character/character_sprite.gd" id="3_uoi2g"]
+[ext_resource type="Material" uid="uid://b7a7ce8y6hqip" path="res://character/rotational_particles.tres" id="4_enxxd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
+friction = 0.0
+bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yntig"]
-radius = 30.0
-height = 110.0
+radius = 33.0
+height = 114.0
 
-[node name="Character" type="CharacterBody2D"]
+[sub_resource type="Curve" id="Curve_i4e8r"]
+min_value = 0.95
+_data = [Vector2(0, 0.953182), 0.0, 0.0, 0, 0, Vector2(0.652778, 0.999091), 0.0, 0.0, 0, 0, Vector2(1, 0.97), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tmuwr"]
+curve = SubResource("Curve_i4e8r")
+
+[sub_resource type="Curve" id="Curve_g2i2e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.751663, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ieql"]
+curve = SubResource("Curve_g2i2e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_im252"]
+particle_flag_disable_z = true
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_5ieql")
+color = Color(0, 0.8, 1, 1)
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_tmuwr")
+collision_mode = 2
+
+[node name="Character" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 12
+physics_material_override = SubResource("PhysicsMaterial_2rb3r")
+script = ExtResource("1_urmi3")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yntig")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CharacterSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("1_nxq1g")
+script = ExtResource("3_uoi2g")
+
+[node name="AstronautUI" type="CanvasLayer" parent="."]
+
+[node name="OxygenWidgitMargin" type="MarginContainer" parent="AstronautUI"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_right = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="OxygenLevel" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
+unique_name_in_owner = true
+modulate = Color(1, 0, 1, 1)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="DebugLabel" type="Label" parent="AstronautUI"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Text"
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+script = ExtResource("3_nw4oj")
+
+[node name="CameraTarget" type="Node2D" parent="."]
+
+[node name="MainOxygen" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(34, 0)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_im252")
+
+[node name="ClockwiseOxygen" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(34, -30)
+rotation = -0.523599
+amount = 20
+process_material = ExtResource("4_enxxd")
+
+[node name="AnticlockwiseOxygen" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(34, 30)
+rotation = 3.66519
+amount = 20
+process_material = ExtResource("4_enxxd")
