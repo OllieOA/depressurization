@@ -158,12 +158,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("3_nw4oj")
 
-[node name="Label" type="Label" parent="PlayerCamera"]
-offset_left = 50.0
-offset_top = 65.0
-offset_right = 90.0
-offset_bottom = 88.0
-
 [node name="CameraTarget" type="Node2D" parent="."]
 
 [node name="MainOxygen" type="GPUParticles2D" parent="."]
