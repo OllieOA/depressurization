@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2edq7m1otujc"]
+[gd_scene load_steps=12 format=3 uid="uid://2edq7m1otujc"]
 
 [ext_resource type="Texture2D" uid="uid://crgrcsob4mrrq" path="res://assets/prototype_background.png" id="1_jonuu"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="1_q6anf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnygomqpp8e0j" path="res://level/tile_debris.tscn" id="8_govwn"]
 [ext_resource type="PackedScene" uid="uid://upc7oqxk8pwp" path="res://level/large_debris.tscn" id="9_q62k4"]
 [ext_resource type="PackedScene" uid="uid://bnd3tmw0qqa3n" path="res://level/explosive_debris.tscn" id="10_0ngde"]
+[ext_resource type="PackedScene" uid="uid://b8jc1fqno8k7d" path="res://level/fire_hazard.tscn" id="11_edf42"]
 
 [node name="PrototypeLevel" type="Node2D"]
 
@@ -195,3 +196,6 @@ position = Vector2(-232, 15)
 
 [node name="ExplosiveDebris2" parent="DebrisGroup/ExplosiveDebrisGroup" instance=ExtResource("10_0ngde")]
 position = Vector2(2094, -527)
+
+[node name="FireHazard" parent="DebrisGroup" instance=ExtResource("11_edf42")]
+position = Vector2(1501, -37.9999)

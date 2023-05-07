@@ -1,10 +1,8 @@
 res://default_env.tres
-res://prototype_level.tscn
+res://level/fire_hazard.tscn
 res://character/rotational_particles.tres
+res://level/fire_hazard.gd
 res://character/character.gd
+res://prototype_level.tscn
 res://character/character.tscn
 res://ui/arrow_element.tscn
-res://ui/arrow_element.gd
-res://level/latch_zone.tscn
-res://character/ArrowGroup.gd
-res://level/small_debris.tscn
