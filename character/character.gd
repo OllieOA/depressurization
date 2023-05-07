@@ -1,6 +1,6 @@
 class_name Astronaut extends RigidBody2D
 
-@export var thrust_ratio: float = 1.0
+var thrust_ratio: float = 1.0
 @export var thrust_power: float = 5.0
 @export var max_speed: float = 700.0
 
@@ -11,6 +11,7 @@ var thrust_direction: Vector2
 var rotation_thrust_direction: float
 @onready var character_torso: Sprite2D = $"%CharacterTorsoSprite"
 @onready var player_camera: Camera2D = $"%PlayerCamera"
+@onready var head: RigidBody2D = $"%Head"
 
 var debug_text: String = ""
 @onready var debug_label: Label = $"%DebugLabel"
@@ -42,24 +43,35 @@ enum State {
 # Oxygen drain
 var total_oxygen: float = 1.0
 var step_drain: float = 0.0
-const NORMAL_DRAIN: float = 0.02
-const ROTATION_DRAIN: float = 0.01
-const REPLENISH_RATE: float = -0.08
+@export var NORMAL_DRAIN: float = 0.02
+@export var ROTATION_DRAIN: float = 0.01
+@export var REPLENISH_RATE: float = -0.24
+
+@export var collision_speed_threshold: float = 500.0
+@export var min_hit_penalty: float = 0.005
+@export var max_hit_penalty: float = 0.05
+@export var head_damage_factor: float = 2.0
+@export var damage_i_frames: int = 30
+var immune_frames: int = 0
 
 
 func _ready() -> void:
+	connect("body_entered", _on_body_collision)
+	head.connect("body_entered", _on_head_collision)
 	SignalBus.connect("out_of_oxygen", _on_out_of_oxygen)
 #	character_torso.character = self  # Bring back if we want sprite flipping
 	player_camera.character = self
 
 
 func _process(delta: float) -> void:
-	debug_text = "linear velocity: {lin_vel}, angular velocity: {ang_vel}, state: {state}, rotation_degrees: {rotation_degrees}"
-	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "ang_vel": angular_velocity, "state": state, "rotation_degrees": rotation_degrees})
+	debug_text = "linear velocity: {lin_vel}, angular velocity: {ang_vel}, state: {state}, i_frames: {i_frames}"
+	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "ang_vel": angular_velocity, "state": state, "i_frames": immune_frames})
 	oxygen_level.value = total_oxygen
 
 
 func _physics_process(delta: float) -> void:
+	if immune_frames > 0:
+		immune_frames -= 1
 	step_drain = 0.0
 	match state:
 		State.FLYING:
@@ -142,7 +154,23 @@ func _handle_latched_state(delta: float) -> void:
 func add_oxygen(amount: float) -> void:
 	total_oxygen = clamp(total_oxygen + amount, 0.0, 1.0)
 
+
+func _take_collision_damage(factor: float = 1.0) -> void:
+	if linear_velocity.length() > collision_speed_threshold and immune_frames == 0:
+		total_oxygen -= linear_velocity.length() / max_speed * (max_hit_penalty - min_hit_penalty) * factor
+		immune_frames = damage_i_frames
+
 # Signals
+
+func _on_body_collision(body: Node) -> void:
+	if not body.is_in_group("character"):
+		_take_collision_damage()
+	
+
+func _on_head_collision(body: Node) -> void:
+	if not body.is_in_group("character"):
+		_take_collision_damage(head_damage_factor)
+
 
 func _on_out_of_oxygen() -> void:
 	print("DED")

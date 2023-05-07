@@ -1,6 +1,6 @@
 res://default_env.tres
-res://level/oxygen_pickup.tscn
+res://character/character.tscn
 res://character/rotational_particles.tres
-res://level/oxygen_pickup.gd
 res://character/character.gd
 res://prototype_level.tscn
+res://level/oxygen_pickup.tscn
