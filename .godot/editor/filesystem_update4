@@ -7,3 +7,5 @@ res://Elzi-Assets/prototype_level_Elzi.tres
 res://Elzi-Assets/GasRelease.tres
 res://character/character.tscn
 res://Elzi-Assets/TerrainTest.tscn
+res://Levels/worlds.tscn
+res://Levels/base_tilemap.tscn

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Depressurization"
-run/main_scene="res://prototype_level.tscn"
+run/main_scene="res://Levels/worlds.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
 boot_splash/image="res://ui/gremlindevelopment_splash_screen.png"

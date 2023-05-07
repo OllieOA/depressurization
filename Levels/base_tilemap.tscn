@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://blxow270kptx1"]
+
+[ext_resource type="TileSet" uid="uid://bby4bapeybvgn" path="res://Elzi-Assets/prototype_level_Elzi.tres" id="1_i67en"]
+
+[node name="BaseTilemap" type="TileMap"]
+tile_set = ExtResource("1_i67en")
+format = 2
