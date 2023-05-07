@@ -41,7 +41,8 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("CurveTexture_0bw6r")
 collision_mode = 2
 
-[node name="LatchZone" type="Area2D"]
+[node name="LatchZone" type="Area2D" groups=["latch"]]
+rotation = -0.00190484
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_d80rb")

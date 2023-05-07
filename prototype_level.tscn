@@ -92,8 +92,12 @@ rotation = 1.57079
 position = Vector2(889, 949)
 rotation = 1.57079
 
-[node name="LatchZone" parent="." groups=["latch"] instance=ExtResource("3_e4g5p")]
+[node name="LatchZone" parent="." instance=ExtResource("3_e4g5p")]
 position = Vector2(-260, 526)
+
+[node name="LatchZone2" parent="." instance=ExtResource("3_e4g5p")]
+position = Vector2(1613, 380)
+rotation = 0.517998
 
 [node name="OxygenPickup" parent="." instance=ExtResource("5_dhfuy")]
 position = Vector2(985, -367)

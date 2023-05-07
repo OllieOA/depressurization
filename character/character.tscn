@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=23 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
 [ext_resource type="Texture2D" uid="uid://b0sgg81dhl7mr" path="res://character/astro_body.png" id="2_jvphb"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://character/body_bump_sound.gd" id="10_wa373"]
 [ext_resource type="AudioStream" uid="uid://dbbstiflp5lj3" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
 [ext_resource type="Script" path="res://character/HeadBumpSound.gd" id="12_1iu1g"]
+[ext_resource type="Script" path="res://character/ArrowGroup.gd" id="13_50wp4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
@@ -226,3 +227,7 @@ script = ExtResource("12_1iu1g")
 
 [node name="BreathingSound" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="ArrowGroup" type="Node2D" parent="."]
+z_index = 3
+script = ExtResource("13_50wp4")
