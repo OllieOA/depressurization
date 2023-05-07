@@ -1,10 +1,7 @@
 res://default_env.tres
-res://prototype_block.tscn
-res://character/rotational_particles.tres
-res://theme/in_game_menu.tres
 res://prototype_level.tscn
+res://character/rotational_particles.tres
 res://character/character.tscn
 res://level/latch_zone.tscn
-res://character/character.gd
-res://character/character_sprite.gd
-res://globals/signal_bus.gd
+res://prototype_block.tscn
+res://character/PlayerCamera.gd
