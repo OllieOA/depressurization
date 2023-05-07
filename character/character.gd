@@ -42,9 +42,9 @@ enum State {
 # Oxygen drain
 var total_oxygen: float = 1.0
 var step_drain: float = 0.0
-const NORMAL_DRAIN: float = 0.02
-const ROTATION_DRAIN: float = 0.01
-const REPLENISH_RATE: float = -0.08
+@export var NORMAL_DRAIN: float = 0.02
+@export var ROTATION_DRAIN: float = 0.01
+@export var REPLENISH_RATE: float = -0.16
 
 
 func _ready() -> void:

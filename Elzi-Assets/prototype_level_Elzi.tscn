@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5ycsjf8qq25i" path="res://assets/prototype_background.png" id="1_smdnl"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="2_c6x7v"]
-[ext_resource type="PackedScene" path="res://prototype_block.tscn" id="3_0un25"]
+[ext_resource type="PackedScene" uid="uid://dkl2qqjvd0v8i" path="res://prototype_block.tscn" id="3_0un25"]
 [ext_resource type="PackedScene" uid="uid://bkqd6q1ts78vh" path="res://level/latch_zone.tscn" id="4_kposn"]
 [ext_resource type="TileSet" uid="uid://bby4bapeybvgn" path="res://Elzi-Assets/prototype_level_Elzi.tres" id="5_axsa4"]
 
@@ -15,6 +15,7 @@ texture = ExtResource("1_smdnl")
 [node name="Character" parent="." groups=["character"] instance=ExtResource("2_c6x7v")]
 position = Vector2(1207, -225)
 rotation = -0.446363
+REPLENISH_RATE = -0.08
 
 [node name="PrototypeBlocks" type="Node2D" parent="."]
 
