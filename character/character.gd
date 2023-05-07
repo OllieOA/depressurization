@@ -139,5 +139,10 @@ func _handle_latched_state(delta: float) -> void:
 		state = State.LAUNCHING
 
 
+func add_oxygen(amount: float) -> void:
+	total_oxygen = clamp(total_oxygen + amount, 0.0, 1.0)
+
+# Signals
+
 func _on_out_of_oxygen() -> void:
 	print("DED")
