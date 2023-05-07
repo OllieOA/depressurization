@@ -61,11 +61,10 @@ var last_known_velocity: Vector2 = Vector2.ZERO
 @onready var head_bump_sound: AudioStreamPlayer = $HeadBumpSound
 @onready var breathing_sound: AudioStreamPlayer = $BreathingSound
 
-const FAST_BREATH_THRESHOLD: float = 0.8
+const FAST_BREATH_THRESHOLD: float = 0.4
+const PANIC_BREATH_THRESHOLD: float = 0.2
 const slow_breathing: Resource = preload("res://audio/breathing-slow.ogg")
 const fast_breathing: Resource = preload("res://audio/breathing-fast.ogg")
-
-
 
 func _ready() -> void:
 	oxygen_leak_sound.play()
@@ -81,9 +80,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	debug_text = "linear velocity: {lin_vel}, angular velocity: {ang_vel}, state: {state}, i_frames: {i_frames}"
-	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "ang_vel": angular_velocity, "state": state, "i_frames": immune_frames})
+	debug_text = "linear velocity: {lin_vel}, state: {state}, i_frames: {i_frames}"
+	debug_label.text = debug_text.format({"lin_vel": linear_velocity.length(), "state": state, "i_frames": immune_frames})
 	oxygen_level.value = total_oxygen
+	
+#	if total_oxygen > FAST_BREATH_THRESHOLD and breathing_sound.stream != slow_breathing:
+#		breathing_sound.stream = slow_breathing
+#		breathing_sound.play()
+#	elif total_oxygen < FAST_BREATH_THRESHOLD
 	
 	if breathing_sound.stream == slow_breathing and total_oxygen < FAST_BREATH_THRESHOLD:
 		breathing_sound.stream = fast_breathing
@@ -152,9 +156,9 @@ func _handle_flying_state(delta: float) -> void:
 	step_drain += NORMAL_DRAIN * delta
 	
 	# Gate the speeds
-	if linear_velocity.length() > max_speed:
+	if linear_velocity.length() > max_speed and linear_velocity.dot(thrust_direction) > 0.0:
+		# Dot product is positive if in same direction
 		apply_central_impulse(-thrust_direction * thrust_power * thrust_ratio)
-
 
 func _handle_latching_state(delta: float) -> void:
 	# Add extra push to latching area center
@@ -184,13 +188,14 @@ func _handle_latched_state(delta: float) -> void:
 
 
 func add_oxygen(amount: float) -> void:
+	if amount < 0.0:
+		body_bump_sound.play_random_sound()
 	total_oxygen = clamp(total_oxygen + amount, 0.0, 1.0)
 
 
 func _take_collision_damage(factor: float = 1.0) -> void:
 	if (linear_velocity - last_known_velocity).length() > collision_speed_threshold and immune_frames == 0:
-		if factor == 1.0:
-			body_bump_sound.play_random_sound()
+		body_bump_sound.play_random_sound()
 		total_oxygen -= linear_velocity.length() / max_speed * (max_hit_penalty - min_hit_penalty) * factor
 		immune_frames = damage_i_frames
 
