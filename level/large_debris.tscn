@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://upc7oqxk8pwp"]
+
+[ext_resource type="Script" path="res://level/large_debris.gd" id="1_un002"]
+[ext_resource type="Texture2D" uid="uid://ic7xk766vk88" path="res://prototypes/lorge debris sheet.png" id="2_5lotp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hrej2"]
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
+size = Vector2(30.1664, 33.8296)
+
+[node name="LargeDebris" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 786534
+mass = 500.0
+physics_material_override = SubResource("PhysicsMaterial_hrej2")
+continuous_cd = 1
+script = ExtResource("1_un002")
+
+[node name="DebrisSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_5lotp")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0202179, 52.7633)
+scale = Vector2(6.49596, 3.14735)
+shape = SubResource("RectangleShape2D_lwt0d")

@@ -201,3 +201,11 @@ node_b = NodePath("../RightLeg")
 bias = 0.5
 disable_collision = false
 softness = 0.5
+
+[node name="OxygenLeakSound" type="AudioStreamPlayer" parent="."]
+
+[node name="OxygenRotateSound" type="AudioStreamPlayer" parent="."]
+
+[node name="BodyBumpSound" type="AudioStreamPlayer" parent="."]
+
+[node name="HeadBumpSound" type="AudioStreamPlayer" parent="."]

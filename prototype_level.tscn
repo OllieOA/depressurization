@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2edq7m1otujc"]
+[gd_scene load_steps=11 format=3 uid="uid://2edq7m1otujc"]
 
 [ext_resource type="Texture2D" uid="uid://crgrcsob4mrrq" path="res://assets/prototype_background.png" id="1_jonuu"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="1_q6anf"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dkl2qqjvd0v8i" path="res://prototype_block.tscn" id="3_er460"]
 [ext_resource type="PackedScene" uid="uid://buwlfi7gwkxgh" path="res://level/oxygen_pickup.tscn" id="5_dhfuy"]
 [ext_resource type="Texture2D" uid="uid://bkl02ge1sh7ru" path="res://final assets/proper background.png" id="6_l07qf"]
+[ext_resource type="PackedScene" uid="uid://cjt5odahqefls" path="res://level/small_debris.tscn" id="7_7de06"]
+[ext_resource type="PackedScene" uid="uid://dnygomqpp8e0j" path="res://level/tile_debris.tscn" id="8_govwn"]
+[ext_resource type="PackedScene" uid="uid://upc7oqxk8pwp" path="res://level/large_debris.tscn" id="9_q62k4"]
+[ext_resource type="PackedScene" uid="uid://bnd3tmw0qqa3n" path="res://level/explosive_debris.tscn" id="10_0ngde"]
 
 [node name="PrototypeLevel" type="Node2D"]
 
@@ -104,3 +108,85 @@ motion_mirroring = Vector2(3072, 3072)
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("6_l07qf")
+
+[node name="DebrisGroup" type="Node2D" parent="."]
+
+[node name="SmallDebrisGroup" type="Node2D" parent="DebrisGroup"]
+
+[node name="SmallDebris" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-266, -104)
+
+[node name="SmallDebris2" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-134, 33)
+
+[node name="SmallDebris3" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-236, 102)
+
+[node name="SmallDebris4" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-120, 214)
+
+[node name="SmallDebris5" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-247, 271)
+
+[node name="SmallDebris6" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-401, 127)
+
+[node name="SmallDebris7" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(-116, 339)
+
+[node name="SmallDebris8" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(203, 426)
+
+[node name="SmallDebris9" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(432, 323)
+
+[node name="SmallDebris10" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(616, 392)
+
+[node name="SmallDebris11" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(709, 237)
+
+[node name="SmallDebris12" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(780, 371)
+
+[node name="SmallDebris13" parent="DebrisGroup/SmallDebrisGroup" instance=ExtResource("7_7de06")]
+position = Vector2(434, 502)
+
+[node name="TileDebrisGroup" type="Node2D" parent="DebrisGroup"]
+
+[node name="TileDebris" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
+position = Vector2(-26, 140)
+
+[node name="TileDebris2" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
+position = Vector2(53, 369)
+
+[node name="TileDebris3" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
+position = Vector2(500, 453)
+
+[node name="TileDebris4" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
+position = Vector2(839, 296)
+
+[node name="TileDebris5" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
+position = Vector2(1134, 470)
+
+[node name="TileDebris6" parent="DebrisGroup/TileDebrisGroup" instance=ExtResource("8_govwn")]
+position = Vector2(1228, 270)
+
+[node name="LargeDebrisGroup" type="Node2D" parent="DebrisGroup"]
+
+[node name="LargeDebris" parent="DebrisGroup/LargeDebrisGroup" instance=ExtResource("9_q62k4")]
+position = Vector2(1218, 672)
+
+[node name="LargeDebris2" parent="DebrisGroup/LargeDebrisGroup" instance=ExtResource("9_q62k4")]
+position = Vector2(1146, 920)
+
+[node name="LargeDebris3" parent="DebrisGroup/LargeDebrisGroup" instance=ExtResource("9_q62k4")]
+position = Vector2(1230, 1178)
+
+[node name="ExplosiveDebrisGroup" type="Node2D" parent="DebrisGroup"]
+
+[node name="ExplosiveDebris" parent="DebrisGroup/ExplosiveDebrisGroup" instance=ExtResource("10_0ngde")]
+position = Vector2(-232, 15)
+
+[node name="ExplosiveDebris2" parent="DebrisGroup/ExplosiveDebrisGroup" instance=ExtResource("10_0ngde")]
+position = Vector2(2094, -527)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjt5odahqefls"]
+
+[ext_resource type="Script" path="res://level/small_debris.gd" id="1_0bpvx"]
+[ext_resource type="Texture2D" uid="uid://bm4d22grvby86" path="res://prototypes/small debris sheet.png" id="1_4655f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
+
+[node name="SmallDebris" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 786534
+mass = 0.2
+continuous_cd = 1
+script = ExtResource("1_0bpvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_lwt0d")
+
+[node name="DebrisSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_4655f")
+hframes = 4
+vframes = 4
+frame = 1
