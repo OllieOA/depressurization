@@ -1,8 +1,9 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683494221
+::res://::1683495873
 default_bus_layout.tres::AudioBusLayout::-1::1683337559::0::1::::<><>::
-default_env.tres::Environment::1607415269412226583::1683494221::0::1::::<><>::
+default_env.tres::Environment::1607415269412226583::1683495642::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1683481159::0::1::::<><>::
+play_button.tscn::PackedScene::3574508688029152010::1683494497::0::1::::<><>::uid://dukkkgmfjrf4w<>uid://beerkec1cqb3g<>uid://b414pht54m5yt
 prototype_block.tscn::PackedScene::7885527429497460374::1683481159::0::1::::<><>::
 prototype_level.tscn::PackedScene::-1::1683483425::0::1::::<><>::
 README.md::TextFile::-1::1683337598::0::1::::<><>::
@@ -38,17 +39,17 @@ astro_head.png::CompressedTexture2D::3456435117705552407::1683482808::1683482904
 astro_l_leggie.png::CompressedTexture2D::3082602265941820358::1683482808::1683482904::1::::<><>::
 astro_r_leggie.png::CompressedTexture2D::8574448153877067174::1683482808::1683482904::1::::<><>::
 body_bump_sound.gd::GDScript::-1::1683482808::0::1::::<>AudioStreamPlayer<>::
-character.gd::GDScript::-1::1683483424::0::1::::Astronaut<>RigidBody2D<>::
-character.tscn::PackedScene::-1::1683483425::0::1::::<><>::
+character.gd::GDScript::-1::1683495781::0::1::::Astronaut<>RigidBody2D<>::
+character.tscn::PackedScene::2656823017712701189::1683495781::0::1::::<><>::res://character/character.gd<>uid://b0sgg81dhl7mr<>uid://cw47rtvg1pb1w<>res://character/PlayerCamera.gd<>uid://dm1wh67xhkb5l<>uid://b7a7ce8y6hqip<>uid://dnm08utyi7dsy<>uid://7li7krlh5w1c<>uid://cf0ktd0vfivyx<>res://character/body_bump_sound.gd<>uid://dbbstiflp5lj3<>res://character/HeadBumpSound.gd<>uid://c6bq5rhkgj4is<>res://character/ArrowGroup.gd<>uid://ch7eh8py8fvro
 character_sprite.gd::GDScript::-1::1683481159::0::1::::<>Sprite2D<>::
 HeadBumpSound.gd::GDScript::-1::1683482808::0::1::::<>AudioStreamPlayer<>::
 PlayerCamera.gd::GDScript::-1::1683482808::0::1::::PlayerCamera<>Camera2D<>::
 rotational_particles.tres::ParticleProcessMaterial::445631444726917943::1683483424::0::1::::<><>::
-::res://Elzi-Assets/::1683494464
+::res://Elzi-Assets/::1683495473
 GasRelease.png::CompressedTexture2D::1104452343395273597::1683483424::1683413031::1::::<><>::
 GasRelease.tres::CanvasItemMaterial::7641935368195653525::1683483424::0::1::::<><>::
 prototype_level_Elzi.tres::TileSet::2507917195398644213::1683483862::0::1::::<><>::uid://b051ik752f4fh<>uid://ickg8y7hfexw<>uid://ckwmuk5e1jtt2<>uid://7c2h5jxwwu61<>uid://dqsnex628qjey<>uid://cj57etwg0i3tl
-prototype_level_Elzi.tscn::PackedScene::1148508996052805993::1683494221::0::1::::<><>::uid://b5ycsjf8qq25i<>uid://dkl2qqjvd0v8i<>uid://bby4bapeybvgn
+prototype_level_Elzi.tscn::PackedScene::1148508996052805993::1683495473::0::1::::<><>::uid://b5ycsjf8qq25i<>uid://dkl2qqjvd0v8i<>uid://bby4bapeybvgn
 ramps.png::CompressedTexture2D::4204666611495487933::1683483424::1683395739::1::::<><>::
 TerrainTest.tscn::PackedScene::3521592374268391116::1683483424::0::1::::<><>::uid://bby4bapeybvgn
 TilesV2.png::CompressedTexture2D::566259161112823244::1683483424::1683400494::1::::<><>::
@@ -80,17 +81,17 @@ fire_hazard.gd::GDScript::-1::1683482808::0::1::::<>Area2D<>::
 fire_hazard.tscn::PackedScene::4721400076106068211::1683483425::0::1::::<><>::res://level/fire_hazard.gd<>uid://bhx3pl2j4b8fi<>uid://dqjn46xt62mpt<>uid://b7dodfqpjcouh
 large_debris.gd::GDScript::-1::1683482808::0::1::::<>RigidBody2D<>::
 large_debris.tscn::PackedScene::1434921879565499839::1683482808::0::1::::<><>::res://level/large_debris.gd<>uid://ic7xk766vk88<>uid://blm1lea1nevv1
-latch_zone.gd::GDScript::-1::1683482808::0::1::::LatchZone<>Area2D<>::
-latch_zone.tscn::PackedScene::3121577556154873301::1683483424::0::1::::<><>::res://level/latch_zone.gd
+latch_zone.gd::GDScript::-1::1683495781::0::1::::LatchZone<>Area2D<>::
+latch_zone.tscn::PackedScene::3121577556154873301::1683495781::0::1::::<><>::res://level/latch_zone.gd<>uid://ch82t8em87tew<>uid://bkjmsa6pude64
 oxygen_pickup.gd::GDScript::-1::1683482808::0::1::::OxygenPickup<>RigidBody2D<>::
 oxygen_pickup.tscn::PackedScene::3836291152855993631::1683482808::0::1::::<><>::res://level/oxygen_pickup.gd<>uid://bbq2qwq45bvu0
 small_debris.gd::GDScript::-1::1683482808::0::1::::<>RigidBody2D<>::
 small_debris.tscn::PackedScene::5445610806262934940::1683482808::0::1::::<><>::res://level/small_debris.gd<>uid://bm4d22grvby86<>uid://blm1lea1nevv1
 tile_debris.gd::GDScript::-1::1683482808::0::1::::<>RigidBody2D<>::
 tile_debris.tscn::PackedScene::8121652043242377411::1683482808::0::1::::<><>::res://level/tile_debris.gd<>uid://dvub0i840ksqx<>uid://blm1lea1nevv1
-::res://Levels/::1683494221
-base_tilemap.tscn::PackedScene::3206869446133526828::1683483424::0::1::::<><>::uid://bby4bapeybvgn
-worlds.tscn::PackedScene::3223529200831184580::1683494221::0::1::::<><>::uid://blxow270kptx1
+::res://Levels/::1683495473
+base_tilemap.tscn::PackedScene::3206869446133526828::1683495473::0::1::::<><>::uid://bby4bapeybvgn
+worlds.tscn::PackedScene::3223529200831184580::1683495473::0::1::::<><>::uid://blxow270kptx1
 ::res://prototypes/::1683482904
 background tiles test.png::CompressedTexture2D::2251825201966231736::1683482808::1683415850::1::::<><>::
 fixed tile map template.png::CompressedTexture2D::4933263098747724740::1683482808::1683415850::1::::<><>::
@@ -103,14 +104,14 @@ t2.png::CompressedTexture2D::5487135478121563051::1683482808::1683415850::1::::<
 t3.png::CompressedTexture2D::8462085712210584620::1683482808::1683415850::1::::<><>::
 t4.png::CompressedTexture2D::6630187221620248798::1683482808::1683415850::1::::<><>::
 tmap test.png::CompressedTexture2D::3523935048022264638::1683482808::1683415850::1::::<><>::
-::res://StartMenuFolder/::1683494221
+::res://StartMenuFolder/::1683495642
 astro_full.png::CompressedTexture2D::4016527491482030326::1683485260::1683492508::1::::<><>::
 proper_backgroundnot_jank.png::CompressedTexture2D::6506638687528642200::1683486648::1683492509::1::::<><>::
 QuitButton.gd::GDScript::-1::1683484189::0::1::::<>Button<>::
 Space.png::CompressedTexture2D::595781716189736752::1683485958::1683492515::1::::<><>::
-start_menu.gd::GDScript::-1::1683489185::0::1::::<>Node2D<>::
-start_menu.tscn::PackedScene::6708885798653479972::1683494221::0::1::::<><>::res://StartMenuFolder/start_menu.gd<>uid://cyx4nhfv0g55e<>uid://dukkkgmfjrf4w<>uid://beerkec1cqb3g<>uid://b414pht54m5yt
-::res://StartMenuFolder/ButtonArt/::1683494461
+start_menu.gd::GDScript::-1::1683494618::0::1::::<>Node2D<>::
+start_menu.tscn::PackedScene::6708885798653479972::1683495642::0::1::::<><>::res://StartMenuFolder/start_menu.gd<>uid://cyx4nhfv0g55e<>uid://bq6rvvboxq0fm<>uid://dk225od616yom<>uid://cgme8j3ytp103<>uid://hf3d4ob27gag
+::res://StartMenuFolder/ButtonArt/::1683494474
 PlayHover.png::CompressedTexture2D::4477358948917453803::1683494190::1683494216::1::::<><>::
 PlayIdle.png::CompressedTexture2D::8584308063164895164::1683494171::1683494216::1::::<><>::
 PlayPressed.png::CompressedTexture2D::2676483830445182626::1683494210::1683494216::1::::<><>::

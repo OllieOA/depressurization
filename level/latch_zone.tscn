@@ -1,12 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkqd6q1ts78vh"]
 
 [ext_resource type="Script" path="res://level/latch_zone.gd" id="1_d80rb"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://bhx3pl2j4b8fi" path="res://assets/prototype_latch.png" id="2_s0ib4"]
-=======
 [ext_resource type="Texture2D" uid="uid://ch82t8em87tew" path="res://prototypes/good old oxygen.png" id="2_nun86"]
 [ext_resource type="AudioStream" uid="uid://bkjmsa6pude64" path="res://audio/pumping.ogg" id="3_0oewa"]
->>>>>>> main
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxe7d"]
 radius = 100.0

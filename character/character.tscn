@@ -1,51 +1,26 @@
-<<<<<<< HEAD
-[gd_scene load_steps=15 format=3 uid="uid://bd38qs5q2ovej"]
-
-[ext_resource type="Texture2D" uid="uid://cuo0f0qlfr7ce" path="res://assets/prototype_boi.png" id="1_nxq1g"]
-=======
 [gd_scene load_steps=30 format=3 uid="uid://bd38qs5q2ovej"]
 
->>>>>>> main
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
-[ext_resource type="Texture2D" uid="uid://c4q563mvy3ixm" path="res://character/astro_body.png" id="2_jvphb"]
-[ext_resource type="Texture2D" uid="uid://bpik8mq3kiqst" path="res://character/astro_head.png" id="2_om7b6"]
+[ext_resource type="Texture2D" uid="uid://b0sgg81dhl7mr" path="res://character/astro_body.png" id="2_jvphb"]
+[ext_resource type="Texture2D" uid="uid://cw47rtvg1pb1w" path="res://character/astro_head.png" id="2_om7b6"]
 [ext_resource type="Script" path="res://character/PlayerCamera.gd" id="3_nw4oj"]
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://character/character_sprite.gd" id="3_uoi2g"]
-[ext_resource type="Material" path="res://character/rotational_particles.tres" id="4_enxxd"]
-[ext_resource type="Material" uid="uid://dg42tahp2hokb" path="res://Elzi-Assets/GasRelease.tres" id="5_56w22"]
-[ext_resource type="Texture2D" uid="uid://p0af0b5jdc3v" path="res://Elzi-Assets/GasRelease.png" id="6_fr6wu"]
-=======
 [ext_resource type="Texture2D" uid="uid://dm1wh67xhkb5l" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
-=======
-[ext_resource type="Texture2D" uid="uid://bj6iaklvf7io1" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
->>>>>>> Stashed changes
 [ext_resource type="Material" uid="uid://b7a7ce8y6hqip" path="res://character/rotational_particles.tres" id="4_enxxd"]
-[ext_resource type="Texture2D" uid="uid://dufr55b4hi6a1" path="res://character/astro_r_leggie.png" id="4_k7xci"]
-[ext_resource type="AudioStream" uid="uid://dr0b4kgepltkd" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
-[ext_resource type="AudioStream" uid="uid://dthfjrqmgt5se" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
+[ext_resource type="Texture2D" uid="uid://dnm08utyi7dsy" path="res://character/astro_r_leggie.png" id="4_k7xci"]
+[ext_resource type="AudioStream" uid="uid://7li7krlh5w1c" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
+[ext_resource type="AudioStream" uid="uid://cf0ktd0vfivyx" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
 [ext_resource type="Script" path="res://character/body_bump_sound.gd" id="10_wa373"]
-[ext_resource type="AudioStream" uid="uid://dm7m38pwr4yr2" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
+[ext_resource type="AudioStream" uid="uid://dbbstiflp5lj3" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
 [ext_resource type="Script" path="res://character/HeadBumpSound.gd" id="12_1iu1g"]
-[ext_resource type="AudioStream" uid="uid://21aoiu5w5s0p" path="res://audio/breathing-panic.ogg" id="13_4jdfs"]
+[ext_resource type="AudioStream" uid="uid://c6bq5rhkgj4is" path="res://audio/breathing-panic.ogg" id="13_4jdfs"]
 [ext_resource type="Script" path="res://character/ArrowGroup.gd" id="13_50wp4"]
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://ch7eh8py8fvro" path="res://final assets/fire_particle.png" id="15_47lk3"]
->>>>>>> main
-=======
-[ext_resource type="Texture2D" uid="uid://dqjn46xt62mpt" path="res://final assets/fire_particle.png" id="15_47lk3"]
->>>>>>> Stashed changes
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
 bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yntig"]
-<<<<<<< HEAD
-radius = 30.0
-height = 110.0
-=======
 radius = 21.0
 height = 54.0
 
@@ -55,7 +30,6 @@ radius = 15.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y237a"]
 radius = 7.27973
 height = 34.0
->>>>>>> main
 
 [sub_resource type="Curve" id="Curve_i4e8r"]
 min_value = 0.95
@@ -78,10 +52,12 @@ spread = 10.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-angle_min = -45.0
-angle_max = -45.0
+scale_min = 2.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_5ieql")
 color = Color(0, 0.8, 1, 1)
 hue_variation_min = 1.0
@@ -230,11 +206,9 @@ script = ExtResource("3_nw4oj")
 
 [node name="MainOxygen" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("5_56w22")
 position = Vector2(34, 0)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_im252")
-texture = ExtResource("6_fr6wu")
 
 [node name="ClockwiseOxygen" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true

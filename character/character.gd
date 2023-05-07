@@ -45,9 +45,6 @@ var total_oxygen: float = 1.0
 var step_drain: float = 0.0
 @export var NORMAL_DRAIN: float = 0.02
 @export var ROTATION_DRAIN: float = 0.01
-<<<<<<< HEAD
-@export var REPLENISH_RATE: float = -0.16
-=======
 @export var REPLENISH_RATE: float = -0.24
 
 @export var collision_speed_threshold: float = 500.0
@@ -75,7 +72,6 @@ var is_on_fire: bool = false
 var fire_damage_remaining: float = 0.0
 @export var fire_damage_rate: float = 0.04
 @onready var fire_particles: GPUParticles2D = %FireParticles
->>>>>>> main
 
 
 func _ready() -> void:
