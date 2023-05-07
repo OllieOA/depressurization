@@ -12,7 +12,7 @@
 [ext_resource type="TileSet" uid="uid://bby4bapeybvgn" path="res://Elzi-Assets/prototype_level_Elzi.tres" id="5_ar2g7"]
 =======
 [ext_resource type="PackedScene" uid="uid://buwlfi7gwkxgh" path="res://level/oxygen_pickup.tscn" id="5_dhfuy"]
-[ext_resource type="Texture2D" uid="uid://bkl02ge1sh7ru" path="res://final assets/proper background.png" id="6_l07qf"]
+[ext_resource type="Texture2D" uid="uid://bukwpal1pjmae" path="res://final assets/proper background.png" id="6_l07qf"]
 [ext_resource type="PackedScene" uid="uid://cjt5odahqefls" path="res://level/small_debris.tscn" id="7_7de06"]
 [ext_resource type="PackedScene" uid="uid://dnygomqpp8e0j" path="res://level/tile_debris.tscn" id="8_govwn"]
 [ext_resource type="PackedScene" uid="uid://upc7oqxk8pwp" path="res://level/large_debris.tscn" id="9_q62k4"]

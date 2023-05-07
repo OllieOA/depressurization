@@ -1,20 +1,10 @@
-res://Elzi-Assets/prototype_level_Elzi.tres
 res://default_env.tres
-<<<<<<< HEAD
-res://Levels/worlds.tscn
-res://character/rotational_particles.tres
-res://Elzi-Assets/GasRelease.tres
-res://prototype_level.tscn
+res://Elzi-Assets/prototype_level_Elzi.tres
 res://Elzi-Assets/prototype_level_Elzi.tscn
+res://Levels/worlds.tscn
+res://Elzi-Assets/StartMenuFolder/start_menu.tscn
+res://Elzi-Assets/StartMenuFolder/QuitButton.gd
+res://Elzi-Assets/StartMenuFolder/start_menu.gd
+res://StartMenuFolder/start_menu.tscn
+res://StartMenuFolder/start_menu.gd
 res://Levels/base_tilemap.tscn
-res://level/latch_zone.tscn
-res://character/character.gd
-=======
-res://level/fire_hazard.tscn
-res://character/rotational_particles.tres
-res://level/fire_hazard.gd
-res://character/character.gd
-res://prototype_level.tscn
-res://character/character.tscn
-res://ui/arrow_element.tscn
->>>>>>> main

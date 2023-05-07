@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2t3msqfsn3h5"]
+
+[ext_resource type="Script" path="res://StartMenuFolder/start_menu.gd" id="1_05833"]
+[ext_resource type="Texture2D" uid="uid://cyx4nhfv0g55e" path="res://StartMenuFolder/proper_backgroundnot_jank.png" id="2_n5plt"]
+[ext_resource type="PackedScene" uid="uid://bq6rvvboxq0fm" path="res://play_button.tscn" id="3_0jv1n"]
+[ext_resource type="Texture2D" uid="uid://dk225od616yom" path="res://StartMenuFolder/ButtonArt/QuitIdle.png" id="4_5uu2l"]
+[ext_resource type="Texture2D" uid="uid://cgme8j3ytp103" path="res://StartMenuFolder/ButtonArt/QuitPressed.png" id="5_ijlls"]
+[ext_resource type="Texture2D" uid="uid://hf3d4ob27gag" path="res://StartMenuFolder/ButtonArt/QuitHover.png" id="6_4u1bw"]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_05833")
+
+[node name="ProperBackgroundnotJank" type="Sprite2D" parent="."]
+position = Vector2(513, 850)
+scale = Vector2(1.03955, 1.03955)
+texture = ExtResource("2_n5plt")
+
+[node name="PlayButtonOld" type="Button" parent="."]
+visible = false
+offset_left = 314.0
+offset_top = 299.0
+offset_right = 670.0
+offset_bottom = 372.0
+text = "Play
+"
+
+[node name="QuitButtonOld" type="Button" parent="."]
+visible = false
+offset_left = 315.0
+offset_top = 427.0
+offset_right = 671.0
+offset_bottom = 500.0
+text = "Quit
+"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 299.0
+offset_top = 80.0
+offset_right = 643.0
+offset_bottom = 205.0
+text = "Oxygen currently incldued but very quickly becoming not included"
+
+[node name="PlayButton" parent="." instance=ExtResource("3_0jv1n")]
+
+[node name="QuitButton" parent="." instance=ExtResource("3_0jv1n")]
+offset_left = 362.0
+offset_top = 389.0
+offset_right = 618.0
+offset_bottom = 453.0
+texture_normal = ExtResource("4_5uu2l")
+texture_pressed = ExtResource("5_ijlls")
+texture_hover = ExtResource("6_4u1bw")
+
+[connection signal="pressed" from="PlayButtonOld" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButtonOld" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
