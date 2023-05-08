@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2t3msqfsn3h5"]
 
 [ext_resource type="Script" path="res://StartMenuFolder/start_menu.gd" id="1_05833"]
-[ext_resource type="Texture2D" uid="uid://cyx4nhfv0g55e" path="res://StartMenuFolder/proper_backgroundnot_jank.png" id="2_n5plt"]
+[ext_resource type="Texture2D" uid="uid://bgybj57bwbas3" path="res://StartMenuFolder/proper_backgroundnot_jank.png" id="2_n5plt"]
 [ext_resource type="PackedScene" uid="uid://bq6rvvboxq0fm" path="res://play_button.tscn" id="3_0jv1n"]
 [ext_resource type="Texture2D" uid="uid://dk225od616yom" path="res://StartMenuFolder/ButtonArt/QuitIdle.png" id="4_5uu2l"]
 [ext_resource type="Texture2D" uid="uid://cgme8j3ytp103" path="res://StartMenuFolder/ButtonArt/QuitPressed.png" id="5_ijlls"]
