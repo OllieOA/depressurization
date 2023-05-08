@@ -39,6 +39,7 @@ enum State {
 	LATCHED,
 	LAUNCHING,
 	DEAD,
+	WON
 }
 
 # Oxygen drain
@@ -78,6 +79,7 @@ var rng = RandomNumberGenerator.new()
 var first_launch: bool = false
 
 func _ready() -> void:
+	SignalBus.connect("game_won", _on_game_won)
 	rng.randomize()
 	oxygen_leak_sound.play()
 	breathing_sound.stream = slow_breathing
@@ -133,6 +135,8 @@ func _physics_process(delta: float) -> void:
 			state = State.FLYING
 		State.DEAD:
 			pass
+		State.WON:
+			step_drain = -0.2
 	total_oxygen = clamp(total_oxygen - step_drain, 0.0, 1.0)
 	
 	if is_on_fire:
@@ -252,3 +256,7 @@ func _on_out_of_oxygen() -> void:
 	oxygen_level.visible = !oxygen_level.visible
 	main_oxygen.visible = !main_oxygen.visible
 	fail_screen.visible = true
+
+
+func _on_game_won() -> void:
+	state = State.WON
