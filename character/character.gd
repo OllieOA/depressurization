@@ -34,6 +34,7 @@ var latch_distance_threshold: float = 25.0
 var state = State.LATCHED
 
 enum State {
+	VIBING,  # Special title screen state
 	FLYING,
 	LATCHING,
 	LATCHED,
@@ -126,6 +127,8 @@ func _physics_process(delta: float) -> void:
 		State.LAUNCHING:
 			state = State.FLYING
 		State.DEAD:
+			pass
+		State.VIBING:
 			pass
 			
 	total_oxygen = clamp(total_oxygen - step_drain, 0.0, 1.0)
