@@ -1,13 +1,6 @@
 res://default_env.tres
-res://Levels/worlds.tscn
+res://StartMenuFolder/start_menu.tscn
 res://Elzi-Assets/prototype_level_Elzi.tres
 res://character/rotational_particles.tres
-res://Elzi-Assets/prototype_level_Elzi.tscn
-res://StartMenuFolder/start_menu.tscn
-res://Levels/base_tilemap.tscn
-res://level/explosive_debris.tscn
+res://Levels/worlds.tscn
 res://level/fire_hazard.tscn
-res://level/large_debris.tscn
-res://level/oxygen_pickup.tscn
-res://level/small_debris.tscn
-res://level/tile_debris.tscn
