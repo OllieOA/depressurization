@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=33 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
 [ext_resource type="Texture2D" uid="uid://c4q563mvy3ixm" path="res://character/astro_body.png" id="2_jvphb"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bj6iaklvf7io1" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
 [ext_resource type="Material" uid="uid://gl4qqocoxk60" path="res://character/rotational_particles.tres" id="4_enxxd"]
 [ext_resource type="Texture2D" uid="uid://dufr55b4hi6a1" path="res://character/astro_r_leggie.png" id="4_k7xci"]
+[ext_resource type="Texture2D" uid="uid://dkdo878ha4560" path="res://Elzi-Assets/HealthBarBackground.png" id="6_0jtbl"]
+[ext_resource type="Texture2D" uid="uid://drvp2wqdsl527" path="res://Elzi-Assets/HealthBarForeground.png" id="7_p2l84"]
 [ext_resource type="AudioStream" uid="uid://dr0b4kgepltkd" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
+[ext_resource type="Texture2D" uid="uid://c8w2m362cpvw5" path="res://Elzi-Assets/HealthBarFill.png" id="8_u1t6u"]
 [ext_resource type="AudioStream" uid="uid://dthfjrqmgt5se" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
 [ext_resource type="Script" path="res://character/body_bump_sound.gd" id="10_wa373"]
 [ext_resource type="AudioStream" uid="uid://dm7m38pwr4yr2" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
@@ -172,13 +175,17 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_right = -4.0
+offset_left = -85.9999
+offset_top = 325.0
+offset_right = 426.0
+offset_bottom = 1733.0
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(0.15, 0.15)
 
-[node name="OxygenLevel" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
+[node name="OxygenLevelOLD" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 0, 1, 1)
 layout_mode = 2
 size_flags_vertical = 1
@@ -187,6 +194,19 @@ step = 0.001
 value = 1.0
 fill_mode = 3
 show_percentage = false
+
+[node name="OxygenLevel" type="TextureProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
+unique_name_in_owner = true
+modulate = Color(1, 0.996078, 1, 1)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("6_0jtbl")
+texture_over = ExtResource("7_p2l84")
+texture_progress = ExtResource("8_u1t6u")
+texture_progress_offset = Vector2(0, 270)
 
 [node name="DebugLabel" type="Label" parent="AstronautUI"]
 unique_name_in_owner = true

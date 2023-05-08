@@ -15,7 +15,7 @@ var rotation_thrust_direction: float
 
 var debug_text: String = ""
 @onready var debug_label: Label = $"%DebugLabel"
-@onready var oxygen_level: ProgressBar = $"%OxygenLevel"
+@onready var oxygen_level: TextureProgressBar = $"%OxygenLevel"
 
 @onready var main_oxygen: GPUParticles2D = $"%MainOxygen"
 @onready var clockwise_oxygen: GPUParticles2D = $"%ClockwiseOxygen"
