@@ -1,0 +1,5 @@
+res://default_env.tres
+res://StartMenuFolder/start_menu.tscn
+res://Levels/worlds.tscn
+res://Elzi-Assets/prototype_level_Elzi.tres
+res://character/rotational_particles.tres
