@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://bnd3tmw0qqa3n"]
 
 [ext_resource type="Script" path="res://level/explosive_debris.gd" id="1_u8ovh"]
-[ext_resource type="Texture2D" uid="uid://dhvuxmrefdoj4" path="res://final assets/explosive_barrel.png" id="2_1wgc6"]
-[ext_resource type="Texture2D" uid="uid://bj728qgtcxtl0" path="res://final assets/explosion_pellet.png" id="3_nrhnf"]
-[ext_resource type="AudioStream" uid="uid://b5vqu2fscoyun" path="res://audio/explosion.ogg" id="4_tjut8"]
+[ext_resource type="Texture2D" uid="uid://bq6sv0v5n7ic" path="res://final assets/explosive_barrel.png" id="2_1wgc6"]
+[ext_resource type="Texture2D" uid="uid://c3oy4yvppbqo2" path="res://final assets/explosion_pellet.png" id="3_nrhnf"]
+[ext_resource type="AudioStream" uid="uid://bjmui1wnv3uub" path="res://audio/explosion.ogg" id="4_tjut8"]
 [ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="5_hdehv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3qn3"]

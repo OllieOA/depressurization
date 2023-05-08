@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://buwlfi7gwkxgh"]
 
 [ext_resource type="Script" path="res://level/oxygen_pickup.gd" id="1_y4576"]
-[ext_resource type="Texture2D" uid="uid://c5tkby24brxq1" path="res://final assets/ox tank.png" id="2_lils6"]
+[ext_resource type="Texture2D" uid="uid://0e1j1nfnsg6j" path="res://final assets/ox tank.png" id="2_lils6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nrmn"]
 radius = 227.009
