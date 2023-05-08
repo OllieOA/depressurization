@@ -3,7 +3,7 @@ class_name LatchZone extends Area2D
 @onready var fill_up_sound: AudioStreamPlayer = $FillUpSound
 @onready var oxygen_leak = %OxygenLeak
 var is_player_latched: bool = false
-@onready var prompt = $Prompt
+@onready var prompt = $PromptContainer/Prompt
 
 
 func _ready():
@@ -29,6 +29,7 @@ func _on_body_exited(body: PhysicsBody2D) -> void:
 
 
 func player_latched() -> void:
+	SignalBus.emit_signal("player_latched", self)
 	prompt.show()
 	fill_up_sound.play()
 	oxygen_leak.emitting = false

@@ -275,6 +275,7 @@ script = ExtResource("12_1iu1g")
 
 [node name="BreathingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_4jdfs")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="ArrowGroup" type="Node2D" parent="."]

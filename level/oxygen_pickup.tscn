@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://buwlfi7gwkxgh"]
 
 [ext_resource type="Script" path="res://level/oxygen_pickup.gd" id="1_y4576"]
-[ext_resource type="Texture2D" uid="uid://0e1j1nfnsg6j" path="res://final assets/ox tank.png" id="2_lils6"]
+[ext_resource type="Texture2D" uid="uid://bbq2qwq45bvu0" path="res://final assets/ox tank.png" id="2_lils6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nrmn"]
 radius = 227.009
@@ -16,6 +16,7 @@ radius = 64.195
 [node name="OxygenPickup" type="RigidBody2D"]
 collision_layer = 128
 collision_mask = 6
+mass = 10.0
 script = ExtResource("1_y4576")
 
 [node name="GrabArea" type="Area2D" parent="."]

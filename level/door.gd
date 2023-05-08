@@ -32,6 +32,7 @@ func close_door():
 	door_open = false
 	await door_animator.animation_finished
 	light.show()
+	door_sound.play()
 	
 	
 func open_door():
@@ -39,6 +40,7 @@ func open_door():
 	collider.disabled = true
 	door_animator.play("open")
 	door_open = true
+	door_sound.play()
 
 
 func _on_toggle_door(toggled_door_id: int) -> void:

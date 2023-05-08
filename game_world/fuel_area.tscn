@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://blx1tmvpgg5bx"]
+
+[ext_resource type="PackedScene" uid="uid://bnu2owb48rbtn" path="res://tileset/base_tilemap.tscn" id="1_hrued"]
+
+[node name="FuelArea" instance=ExtResource("1_hrued")]

@@ -86,8 +86,11 @@ process_material = SubResource("ParticleProcessMaterial_b5byw")
 
 [node name="FillUpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0oewa")
+volume_db = -8.0
 
-[node name="Prompt" type="AnimatedSprite2D" parent="."]
+[node name="PromptContainer" type="Node2D" parent="."]
+
+[node name="Prompt" type="AnimatedSprite2D" parent="PromptContainer"]
 position = Vector2(176.259, -135.665)
 sprite_frames = SubResource("SpriteFrames_cj2j3")
 autoplay = "default"
