@@ -260,3 +260,8 @@ func _on_out_of_oxygen() -> void:
 
 func _on_game_won() -> void:
 	state = State.WON
+	#Disable Breathing
+	#Disable gameplay movements
+	#Maybe also add a particle of the ship flying through space
+	oxygen_level.visible = !oxygen_level.visible
+	main_oxygen.visible = !main_oxygen.visible

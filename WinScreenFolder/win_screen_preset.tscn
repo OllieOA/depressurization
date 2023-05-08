@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://dag05rv4p2ldw"]
+
+[ext_resource type="Texture2D" uid="uid://bbomqoe8mm6fb" path="res://WinScreenFolder/Win.png" id="1_q7shv"]
+[ext_resource type="Texture2D" uid="uid://u4p3f2astuux" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuIdle.png" id="2_qrweg"]
+[ext_resource type="Texture2D" uid="uid://u3yux63s8af4" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuPressed.png" id="3_05hwh"]
+[ext_resource type="Texture2D" uid="uid://d2gxgxn5fu7x1" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuHover.png" id="4_omjue"]
+[ext_resource type="Texture2D" uid="uid://b0kmeng3vj18u" path="res://FailScreenFolder/FailScreenButtonArt/RestartIdle.png" id="5_ndugx"]
+[ext_resource type="Texture2D" uid="uid://c4koiucuandn1" path="res://FailScreenFolder/FailScreenButtonArt/RestartPressed.png" id="6_4t8p2"]
+[ext_resource type="Texture2D" uid="uid://ckbtnvf0au6l" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="7_vn5oq"]
+[ext_resource type="Texture2D" uid="uid://dp2p7rgl35656" path="res://final assets/escape pod.png" id="8_0rux8"]
+
+[sub_resource type="Gradient" id="Gradient_owjwq"]
+colors = PackedColorArray(0.219627, 0.445709, 1, 1, 0.972549, 0.054902, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ndjjb"]
+gradient = SubResource("Gradient_owjwq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixbcw"]
+emission_shape = 3
+emission_box_extents = Vector3(0, 1000, 0)
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 700.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.89
+scale_max = 11.13
+color = Color(0.643137, 0, 0.643137, 1)
+color_ramp = SubResource("GradientTexture1D_ndjjb")
+turbulence_noise_strength = 0.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.04
+
+[sub_resource type="Animation" id="Animation_7mkt6"]
+resource_name = "PodAnimation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.518704, -0.293215, -0.518363]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_enbjx"]
+_data = {
+"PodAnimation": SubResource("Animation_7mkt6")
+}
+
+[node name="WinScreenPreset" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 910.0
+offset_bottom = 590.0
+
+[node name="SpeedParticlesBack" type="GPUParticles2D" parent="."]
+position = Vector2(1013, 41)
+rotation = 2.74519
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_ixbcw")
+lifetime = 3.0
+preprocess = 3.0
+randomness = 0.76
+fixed_fps = 60
+
+[node name="EscapePod" type="Sprite2D" parent="."]
+position = Vector2(484, 341)
+rotation = 5.78802
+scale = Vector2(-0.183, 0.183)
+texture = ExtResource("8_0rux8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EscapePod"]
+autoplay = "PodAnimation"
+libraries = {
+"": SubResource("AnimationLibrary_enbjx")
+}
+
+[node name="SpeedParticlesFront" type="GPUParticles2D" parent="."]
+position = Vector2(1013, 41)
+rotation = 2.74519
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_ixbcw")
+lifetime = 3.0
+preprocess = 3.0
+randomness = 0.76
+fixed_fps = 60
+
+[node name="Win" type="Sprite2D" parent="."]
+position = Vector2(480, 201)
+texture = ExtResource("1_q7shv")
+
+[node name="ReturnToMenuButton" type="TextureButton" parent="."]
+offset_left = 501.0
+offset_top = 484.0
+offset_right = 757.0
+offset_bottom = 548.0
+texture_normal = ExtResource("2_qrweg")
+texture_pressed = ExtResource("3_05hwh")
+texture_hover = ExtResource("4_omjue")
+
+[node name="RestartAgainButton" type="TextureButton" parent="."]
+offset_left = 201.0
+offset_top = 486.0
+offset_right = 241.0
+offset_bottom = 526.0
+texture_normal = ExtResource("5_ndugx")
+texture_pressed = ExtResource("6_4t8p2")
+texture_hover = ExtResource("7_vn5oq")
