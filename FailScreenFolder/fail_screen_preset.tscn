@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://ckbtnvf0au6l" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="11_r451j"]
 
 [node name="FailScreenPreset" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_hlxtb")
 
 [node name="Panel" type="Panel" parent="."]

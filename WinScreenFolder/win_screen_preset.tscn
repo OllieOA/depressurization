@@ -10,14 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://dp2p7rgl35656" path="res://final assets/escape pod.png" id="8_0rux8"]
 
 [sub_resource type="Gradient" id="Gradient_owjwq"]
-colors = PackedColorArray(0.219627, 0.445709, 1, 1, 0.972549, 0.054902, 1, 1)
+colors = PackedColorArray(0.988235, 0.941176, 0, 1, 0.978947, 0.258856, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ndjjb"]
 gradient = SubResource("Gradient_owjwq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixbcw"]
 emission_shape = 3
-emission_box_extents = Vector3(0, 1000, 0)
+emission_box_extents = Vector3(0, 800, 0)
 particle_flag_disable_z = true
 spread = 0.0
 gravity = Vector3(0, 0, 0)
@@ -25,6 +25,7 @@ initial_velocity_min = 300.0
 initial_velocity_max = 700.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
+angle_max = 360.0
 scale_min = 3.89
 scale_max = 11.13
 color = Color(0.643137, 0, 0.643137, 1)
@@ -63,7 +64,7 @@ offset_right = 910.0
 offset_bottom = 590.0
 
 [node name="SpeedParticlesBack" type="GPUParticles2D" parent="."]
-position = Vector2(1013, 41)
+position = Vector2(1272, -90)
 rotation = 2.74519
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_ixbcw")
@@ -71,6 +72,7 @@ lifetime = 3.0
 preprocess = 3.0
 randomness = 0.76
 fixed_fps = 60
+visibility_rect = Rect2(-100, -100, 800, 200)
 
 [node name="EscapePod" type="Sprite2D" parent="."]
 position = Vector2(484, 341)
@@ -85,7 +87,7 @@ libraries = {
 }
 
 [node name="SpeedParticlesFront" type="GPUParticles2D" parent="."]
-position = Vector2(1013, 41)
+position = Vector2(1272, -90)
 rotation = 2.74519
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_ixbcw")
@@ -93,6 +95,7 @@ lifetime = 3.0
 preprocess = 3.0
 randomness = 0.76
 fixed_fps = 60
+visibility_rect = Rect2(-100, -100, 800, 200)
 
 [node name="Win" type="Sprite2D" parent="."]
 position = Vector2(480, 201)
