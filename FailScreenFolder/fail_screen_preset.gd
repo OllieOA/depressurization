@@ -1,0 +1,10 @@
+extends Node
+
+
+
+func _on_to_menu_button_pressed():
+	get_tree().change_scene_to_file("res://StartMenuFolder/start_menu.tscn")
+
+
+func _on_retry_button_pressed():
+	get_tree().change_scene_to_file("res://Levels/worlds.tscn")

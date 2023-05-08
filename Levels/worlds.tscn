@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl6rb4sx8e5b1"]
+[gd_scene load_steps=8 format=3 uid="uid://bl6rb4sx8e5b1"]
 
 [ext_resource type="PackedScene" uid="uid://blxow270kptx1" path="res://Levels/base_tilemap.tscn" id="1_so4ce"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="2_g5w3n"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqd6q1ts78vh" path="res://level/latch_zone.tscn" id="3_w1d3i"]
 [ext_resource type="PackedScene" uid="uid://bnd3tmw0qqa3n" path="res://level/explosive_debris.tscn" id="4_pyibh"]
 [ext_resource type="PackedScene" uid="uid://upc7oqxk8pwp" path="res://level/large_debris.tscn" id="6_5b64s"]
+[ext_resource type="PackedScene" uid="uid://mud8bu1mqad0" path="res://FailScreenFolder/fail_screen_preset.tscn" id="7_xc2wj"]
 
 [node name="Worlds" type="Node2D"]
 position = Vector2(-154, 6)
@@ -44,9 +45,4 @@ position = Vector2(-2370, 3568)
 position = Vector2(2765, 4201)
 rotation = -1.5708
 
-[node name="FailScreen" type="Node" parent="."]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="FailScreen"]
-visible = false
-position = Vector2(-239, 185)
-color = Color(0, 0, 0, 0.403922)
+[node name="FailScreenPreset" parent="." instance=ExtResource("7_xc2wj")]
