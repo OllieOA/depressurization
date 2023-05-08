@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://b03mbfabey0go"]
+
+[ext_resource type="Texture2D" uid="uid://b88wg50uwwd8q" path="res://tileset/switch_light.png" id="1_65hrw"]
+[ext_resource type="Script" path="res://level/door_switch.gd" id="1_u78ec"]
+[ext_resource type="Texture2D" uid="uid://hi00rrtyoksg" path="res://tileset/door_switch.png" id="2_blsi2"]
+[ext_resource type="Texture2D" uid="uid://b6urbdv22ukwo" path="res://ui/ui_E_button.png" id="4_yay0w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74nui"]
+radius = 137.0
+height = 442.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3d5r"]
+atlas = ExtResource("4_yay0w")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhjsj"]
+atlas = ExtResource("4_yay0w")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3b50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3d5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhjsj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="DoorSwitch" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_u78ec")
+
+[node name="LightSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 30)
+texture = ExtResource("1_65hrw")
+
+[node name="SwitchSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_blsi2")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -74)
+rotation = -1.57085
+shape = SubResource("CapsuleShape2D_74nui")
+
+[node name="Prompt" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -177)
+sprite_frames = SubResource("SpriteFrames_d3b50")
+autoplay = "default"
+frame_progress = 0.769709

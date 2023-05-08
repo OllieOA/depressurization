@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://dygc60sw6p2tw"]
+
+[ext_resource type="Texture2D" uid="uid://bm4d22grvby86" path="res://prototypes/small debris sheet.png" id="2_yn5ot"]
+[ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_vm4nb"]
+
+[sub_resource type="GDScript" id="GDScript_e7nom"]
+script/source = "@tool
+class_name Debris extends RigidBody2D
+
+@export var debris_class: DebrisClass:
+	set(value):
+		debris_class = value
+		notify_property_list_changed()
+
+
+var debris_type: int = 0
+var target_debris_enum: Dictionary
+var target_debris_type: int = 0
+
+@export var initial_push: float = 60.0
+@export var pitch_modifier: float = 1.0
+@export var randomly_select_sprite: bool = false
+
+@onready var impact_sound = $ImpactSound
+@onready var sprite: Sprite2D = $\"%DebrisSprite\"
+
+
+var choose_random: bool = true
+
+enum DebrisClass {SMALL, MEDIUM, LARGE, TILE}
+
+enum SmallDebris {MUG, PLATE, BRUSH, GLOBE, PLATFORM, SHARD}
+
+enum MediumDebris {COMPUTER, PLANT, DESK, TOILET, LAMP, METAL_PLATE}
+
+enum LargeDebris {COUCH, TABLE, BATH, TANK, PLANT, METAL_PLATE, FRIDGE, BED}
+
+enum TileDebris {DIAG_PLATE = 4, MAIN_PLATE = 6, CORNER_PLATE = 7}
+
+const DEBRIS_SUBTYPES: Dictionary = {
+	DebrisClass.SMALL: SmallDebris,
+	DebrisClass.MEDIUM: MediumDebris,
+	DebrisClass.LARGE: LargeDebris,
+	DebrisClass.TILE: TileDebris,
+}
+
+var rng = RandomNumberGenerator.new()
+
+func _get_property_list():
+	var properties = []
+	var hint_string = \"\"
+	for debris_type in DEBRIS_SUBTYPES[debris_class].keys():
+		hint_string += debris_type + \",\"
+	hint_string = hint_string.rstrip(\",\")
+	properties.append({
+		\"name\": \"debris_type\",
+		\"type\": TYPE_INT,
+		\"usage\": PROPERTY_USAGE_DEFAULT,
+		\"hint\": PROPERTY_HINT_ENUM,
+		\"hint_string\": hint_string
+	})
+	
+	return properties
+
+
+func _process(delta) -> void:
+	if Engine.is_editor_hint():
+		target_debris_type = DEBRIS_SUBTYPES[debris_class].values()[debris_type]
+		if sprite.frame != target_debris_type:
+			sprite.frame = target_debris_type
+
+
+func _ready():
+	connect(\"body_entered\", _on_body_entered)
+	impact_sound.owning_body = self
+	apply_central_force(Vector2(rng.randf_range(-1.0, 1.0), rng.randf_range(-1.0, 1.0)) * initial_push)
+	apply_torque(rng.randf() * initial_push * 100)
+	
+	if not randomly_select_sprite:
+		sprite.frame = debris_type
+	else:
+		sprite.frame = target_debris_enum.values()[rng.randi() % target_debris_enum.size()]
+
+
+func _on_body_entered(body: Node):
+	impact_sound.play_random_sound(pitch_modifier)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
+size = Vector2(229, 112)
+
+[node name="Debris" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 786534
+mass = 0.2
+continuous_cd = 1
+max_contacts_reported = 1
+contact_monitor = true
+script = SubResource("GDScript_e7nom")
+debris_type = -1
+
+[node name="DebrisSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_yn5ot")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_lwt0d")
+
+[node name="ImpactSound" parent="." instance=ExtResource("3_vm4nb")]
+pitch_scale = 2.0
