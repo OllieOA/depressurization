@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsi6h41l1x5pn"]
+
+[ext_resource type="Script" path="res://game_world/win_area.gd" id="1_n8lk8"]
+[ext_resource type="Texture2D" uid="uid://db5l8gvetwvme" path="res://final assets/escape pod.png" id="1_tllo6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f55fk"]
+radius = 264.0
+height = 784.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfg5y"]
+size = Vector2(717, 105)
+
+[node name="WinArea" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_n8lk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(40, 0)
+texture = ExtResource("1_tllo6")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-32, 128)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_f55fk")
+
+[node name="Grabber" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grabber"]
+polygon = PackedVector2Array(-384, 384, 384, 384, 432, -152, 304, -176, 256, 256, -288, 272, -376, -168, -480, -144)
+
+[node name="GrabberTop" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="GrabberTop"]
+position = Vector2(-30.5, -219.5)
+shape = SubResource("RectangleShape2D_qfg5y")
+disabled = true
