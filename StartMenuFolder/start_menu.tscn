@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2t3msqfsn3h5"]
+[gd_scene load_steps=11 format=3 uid="uid://c2t3msqfsn3h5"]
 
 [ext_resource type="Script" path="res://StartMenuFolder/start_menu.gd" id="1_05833"]
 [ext_resource type="Texture2D" uid="uid://bgybj57bwbas3" path="res://StartMenuFolder/proper_backgroundnot_jank.png" id="2_n5plt"]
 [ext_resource type="PackedScene" uid="uid://bq6rvvboxq0fm" path="res://play_button.tscn" id="3_0jv1n"]
-[ext_resource type="Texture2D" uid="uid://c8fyklcm7dohp" path="res://StartMenuFolder/ButtonArt/QuitIdle.png" id="4_5uu2l"]
-[ext_resource type="Texture2D" uid="uid://re8ewadtjoeo" path="res://StartMenuFolder/ButtonArt/QuitPressed.png" id="5_ijlls"]
-[ext_resource type="Texture2D" uid="uid://c827mjcx0s2ax" path="res://StartMenuFolder/ButtonArt/QuitHover.png" id="6_4u1bw"]
+[ext_resource type="Texture2D" uid="uid://dk225od616yom" path="res://StartMenuFolder/ButtonArt/QuitIdle.png" id="4_5uu2l"]
+[ext_resource type="Texture2D" uid="uid://cgme8j3ytp103" path="res://StartMenuFolder/ButtonArt/QuitPressed.png" id="5_ijlls"]
+[ext_resource type="Texture2D" uid="uid://hf3d4ob27gag" path="res://StartMenuFolder/ButtonArt/QuitHover.png" id="6_4u1bw"]
+[ext_resource type="Texture2D" uid="uid://comsinlpwjw80" path="res://StartMenuFolder/MiniLogo.png" id="7_hbpp4"]
+[ext_resource type="Texture2D" uid="uid://dw845hto101va" path="res://StartMenuFolder/ButtonArt/SettingsIdle.png" id="8_hxs6x"]
+[ext_resource type="Texture2D" uid="uid://det3ka6lr0yaf" path="res://StartMenuFolder/ButtonArt/SettingsPressed.png" id="9_fd38t"]
+[ext_resource type="Texture2D" uid="uid://dyys1jpw3a73" path="res://StartMenuFolder/ButtonArt/SettingsHover.png" id="10_7cj4h"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_05833")
@@ -33,25 +37,38 @@ offset_bottom = 500.0
 text = "Quit
 "
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 299.0
-offset_top = 80.0
-offset_right = 643.0
-offset_bottom = 205.0
-text = "Oxygen currently incldued but very quickly becoming not included"
+[node name="MiniLogo" type="Sprite2D" parent="."]
+position = Vector2(480, 149)
+scale = Vector2(1.372, 1.372)
+texture = ExtResource("7_hbpp4")
 
-[node name="PlayButton" parent="." instance=ExtResource("3_0jv1n")]
+[node name="All Buttons" type="Node" parent="."]
 
-[node name="QuitButton" parent="." instance=ExtResource("3_0jv1n")]
-offset_left = 362.0
-offset_top = 389.0
-offset_right = 618.0
-offset_bottom = 453.0
+[node name="PlayButton" parent="All Buttons" instance=ExtResource("3_0jv1n")]
+offset_left = 352.0
+offset_top = 300.0
+offset_right = 608.0
+offset_bottom = 364.0
+
+[node name="SettingsButton" type="TextureButton" parent="All Buttons"]
+offset_left = 352.0
+offset_top = 380.0
+offset_right = 608.0
+offset_bottom = 444.0
+texture_normal = ExtResource("8_hxs6x")
+texture_pressed = ExtResource("9_fd38t")
+texture_hover = ExtResource("10_7cj4h")
+
+[node name="QuitButton" parent="All Buttons" instance=ExtResource("3_0jv1n")]
+offset_left = 352.0
+offset_top = 460.0
+offset_right = 608.0
+offset_bottom = 524.0
 texture_normal = ExtResource("4_5uu2l")
 texture_pressed = ExtResource("5_ijlls")
 texture_hover = ExtResource("6_4u1bw")
 
 [connection signal="pressed" from="PlayButtonOld" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButtonOld" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="All Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="All Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
