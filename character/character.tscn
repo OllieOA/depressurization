@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=35 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
 [ext_resource type="Texture2D" uid="uid://c4q563mvy3ixm" path="res://character/astro_body.png" id="2_jvphb"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://character/ArrowGroup.gd" id="13_50wp4"]
 [ext_resource type="Texture2D" uid="uid://dqjn46xt62mpt" path="res://final assets/fire_particle.png" id="15_47lk3"]
 [ext_resource type="PackedScene" uid="uid://mud8bu1mqad0" path="res://FailScreenFolder/fail_screen_preset.tscn" id="19_y0e6s"]
+[ext_resource type="PackedScene" uid="uid://dag05rv4p2ldw" path="res://WinScreenFolder/win_screen_preset.tscn" id="20_7t18r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
@@ -291,4 +292,7 @@ texture = ExtResource("15_47lk3")
 randomness = 0.85
 
 [node name="FailScreenPreset" parent="." instance=ExtResource("19_y0e6s")]
+unique_name_in_owner = true
+
+[node name="WinScreenPreset" parent="." instance=ExtResource("20_7t18r")]
 unique_name_in_owner = true

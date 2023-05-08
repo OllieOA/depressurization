@@ -1,24 +1,24 @@
 [gd_scene load_steps=15 format=3 uid="uid://dag05rv4p2ldw"]
 
-[ext_resource type="Texture2D" uid="uid://b5w24n13ese16" path="res://WinScreenFolder/Win.png" id="1_q7shv"]
+[ext_resource type="Texture2D" uid="uid://bbomqoe8mm6fb" path="res://WinScreenFolder/Win.png" id="1_q7shv"]
 [ext_resource type="Script" path="res://WinScreenFolder/win_screen_preset.gd" id="1_vp8t5"]
-[ext_resource type="Texture2D" uid="uid://dg3100tpwaw2i" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuIdle.png" id="2_qrweg"]
-[ext_resource type="Texture2D" uid="uid://c22fuv8a83b2g" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuPressed.png" id="3_05hwh"]
-[ext_resource type="Texture2D" uid="uid://38p3pdrrq1x1" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuHover.png" id="4_omjue"]
-[ext_resource type="Texture2D" uid="uid://drixhmtykq7np" path="res://FailScreenFolder/FailScreenButtonArt/RestartIdle.png" id="5_ndugx"]
-[ext_resource type="Texture2D" uid="uid://dsot6vcss87gb" path="res://FailScreenFolder/FailScreenButtonArt/RestartPressed.png" id="6_4t8p2"]
-[ext_resource type="Texture2D" uid="uid://cdqwruejkvgsq" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="7_vn5oq"]
-[ext_resource type="Texture2D" uid="uid://db5l8gvetwvme" path="res://final assets/escape pod.png" id="8_0rux8"]
+[ext_resource type="Texture2D" uid="uid://u4p3f2astuux" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuIdle.png" id="2_qrweg"]
+[ext_resource type="Texture2D" uid="uid://u3yux63s8af4" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuPressed.png" id="3_05hwh"]
+[ext_resource type="Texture2D" uid="uid://d2gxgxn5fu7x1" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuHover.png" id="4_omjue"]
+[ext_resource type="Texture2D" uid="uid://b0kmeng3vj18u" path="res://FailScreenFolder/FailScreenButtonArt/RestartIdle.png" id="5_ndugx"]
+[ext_resource type="Texture2D" uid="uid://c4koiucuandn1" path="res://FailScreenFolder/FailScreenButtonArt/RestartPressed.png" id="6_4t8p2"]
+[ext_resource type="Texture2D" uid="uid://ckbtnvf0au6l" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="7_vn5oq"]
+[ext_resource type="Texture2D" uid="uid://dp2p7rgl35656" path="res://final assets/escape pod.png" id="8_0rux8"]
 
 [sub_resource type="Gradient" id="Gradient_owjwq"]
-colors = PackedColorArray(0.219627, 0.445709, 1, 1, 0.972549, 0.054902, 1, 1)
+colors = PackedColorArray(0.988235, 0.941176, 0, 1, 0.978947, 0.258856, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ndjjb"]
 gradient = SubResource("Gradient_owjwq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ixbcw"]
 emission_shape = 3
-emission_box_extents = Vector3(0, 1000, 0)
+emission_box_extents = Vector3(0, 800, 0)
 particle_flag_disable_z = true
 spread = 0.0
 gravity = Vector3(0, 0, 0)
@@ -26,6 +26,7 @@ initial_velocity_min = 300.0
 initial_velocity_max = 700.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
+angle_max = 360.0
 scale_min = 3.89
 scale_max = 11.13
 color = Color(0.643137, 0, 0.643137, 1)
@@ -56,6 +57,7 @@ _data = {
 }
 
 [node name="WinScreenPreset" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_vp8t5")
 
 [node name="Panel" type="Panel" parent="."]
@@ -65,7 +67,7 @@ offset_right = 910.0
 offset_bottom = 590.0
 
 [node name="SpeedParticlesBack" type="GPUParticles2D" parent="."]
-position = Vector2(1013, 41)
+position = Vector2(1272, -90)
 rotation = 2.74519
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_ixbcw")
@@ -73,6 +75,7 @@ lifetime = 3.0
 preprocess = 3.0
 randomness = 0.76
 fixed_fps = 60
+visibility_rect = Rect2(-100, -100, 800, 200)
 
 [node name="EscapePod" type="Sprite2D" parent="."]
 position = Vector2(484, 341)
@@ -87,7 +90,7 @@ libraries = {
 }
 
 [node name="SpeedParticlesFront" type="GPUParticles2D" parent="."]
-position = Vector2(1013, 41)
+position = Vector2(1272, -90)
 rotation = 2.74519
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_ixbcw")
@@ -95,6 +98,7 @@ lifetime = 3.0
 preprocess = 3.0
 randomness = 0.76
 fixed_fps = 60
+visibility_rect = Rect2(-100, -100, 800, 200)
 
 [node name="Win" type="Sprite2D" parent="."]
 position = Vector2(480, 201)

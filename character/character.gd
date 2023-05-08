@@ -17,6 +17,7 @@ var debug_text: String = ""
 @onready var debug_label: Label = $"%DebugLabel"
 @onready var oxygen_level: TextureProgressBar = $"%OxygenLevel" 
 @onready var fail_screen: CanvasLayer = $"%FailScreenPreset" #Added by ELzi/Killa! Value for FailScreen
+@onready var win_screen: CanvasLayer = $"%WinScreenPreset" #Added by ELzi/Killa! Value for FailScreen
 
 @onready var main_oxygen: GPUParticles2D = $"%MainOxygen"
 @onready var clockwise_oxygen: GPUParticles2D = $"%ClockwiseOxygen"
@@ -265,3 +266,4 @@ func _on_game_won() -> void:
 	#Maybe also add a particle of the ship flying through space
 	oxygen_level.visible = !oxygen_level.visible
 	main_oxygen.visible = !main_oxygen.visible
+	win_screen.visible = true
