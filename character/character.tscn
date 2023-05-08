@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=34 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
 [ext_resource type="Texture2D" uid="uid://b0sgg81dhl7mr" path="res://character/astro_body.png" id="2_jvphb"]
@@ -6,15 +6,19 @@
 [ext_resource type="Script" path="res://character/PlayerCamera.gd" id="3_nw4oj"]
 [ext_resource type="Texture2D" uid="uid://dm1wh67xhkb5l" path="res://character/astro_l_leggie.png" id="3_w1t5x"]
 [ext_resource type="Material" uid="uid://gl4qqocoxk60" path="res://character/rotational_particles.tres" id="4_enxxd"]
-[ext_resource type="Texture2D" uid="uid://dnm08utyi7dsy" path="res://character/astro_r_leggie.png" id="4_k7xci"]
-[ext_resource type="AudioStream" uid="uid://7li7krlh5w1c" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
-[ext_resource type="AudioStream" uid="uid://cf0ktd0vfivyx" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
+[ext_resource type="Texture2D" uid="uid://dufr55b4hi6a1" path="res://character/astro_r_leggie.png" id="4_k7xci"]
+[ext_resource type="Texture2D" uid="uid://dkdo878ha4560" path="res://Elzi-Assets/HealthBarBackground.png" id="6_0jtbl"]
+[ext_resource type="Texture2D" uid="uid://drvp2wqdsl527" path="res://Elzi-Assets/HealthBarForeground.png" id="7_p2l84"]
+[ext_resource type="AudioStream" uid="uid://dr0b4kgepltkd" path="res://audio/constant_whoosh.ogg" id="8_fa3sx"]
+[ext_resource type="Texture2D" uid="uid://c8w2m362cpvw5" path="res://Elzi-Assets/HealthBarFill.png" id="8_u1t6u"]
+[ext_resource type="AudioStream" uid="uid://dthfjrqmgt5se" path="res://audio/rotation_whoosh.ogg" id="9_w7kyr"]
 [ext_resource type="Script" path="res://character/body_bump_sound.gd" id="10_wa373"]
 [ext_resource type="AudioStream" uid="uid://dbbstiflp5lj3" path="res://audio/impact-glass.ogg" id="11_q8ggg"]
 [ext_resource type="Script" path="res://character/HeadBumpSound.gd" id="12_1iu1g"]
 [ext_resource type="AudioStream" uid="uid://c6bq5rhkgj4is" path="res://audio/breathing-panic.ogg" id="13_4jdfs"]
 [ext_resource type="Script" path="res://character/ArrowGroup.gd" id="13_50wp4"]
-[ext_resource type="Texture2D" uid="uid://ch7eh8py8fvro" path="res://final assets/fire_particle.png" id="15_47lk3"]
+[ext_resource type="Texture2D" uid="uid://dqjn46xt62mpt" path="res://final assets/fire_particle.png" id="15_47lk3"]
+[ext_resource type="PackedScene" uid="uid://mud8bu1mqad0" path="res://FailScreenFolder/fail_screen_preset.tscn" id="19_y0e6s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
@@ -108,6 +112,7 @@ physics_material_override = SubResource("PhysicsMaterial_2rb3r")
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_urmi3")
+NORMAL_DRAIN = 0.8
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
@@ -172,13 +177,17 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_right = -4.0
+offset_left = -85.9999
+offset_top = 325.0
+offset_right = 426.0
+offset_bottom = 1733.0
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(0.15, 0.15)
 
-[node name="OxygenLevel" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
+[node name="OxygenLevelOLD" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 0, 1, 1)
 layout_mode = 2
 size_flags_vertical = 1
@@ -187,6 +196,19 @@ step = 0.001
 value = 1.0
 fill_mode = 3
 show_percentage = false
+
+[node name="OxygenLevel" type="TextureProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
+unique_name_in_owner = true
+modulate = Color(1, 0.996078, 1, 1)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+fill_mode = 3
+texture_under = ExtResource("6_0jtbl")
+texture_over = ExtResource("7_p2l84")
+texture_progress = ExtResource("8_u1t6u")
+texture_progress_offset = Vector2(0, 270)
 
 [node name="DebugLabel" type="Label" parent="AstronautUI"]
 unique_name_in_owner = true
@@ -277,3 +299,6 @@ amount = 10
 process_material = SubResource("ParticleProcessMaterial_6tfmo")
 texture = ExtResource("15_47lk3")
 randomness = 0.85
+
+[node name="FailScreenPreset" parent="." instance=ExtResource("19_y0e6s")]
+unique_name_in_owner = true
