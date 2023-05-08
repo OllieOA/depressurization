@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bnd3tmw0qqa3n" path="res://level/explosive_debris.tscn" id="4_pyibh"]
 [ext_resource type="PackedScene" uid="uid://upc7oqxk8pwp" path="res://level/large_debris.tscn" id="6_5b64s"]
 
+[sub_resource type="TileSet" id="TileSet_pynmd"]
+tile_size = Vector2i(128, 128)
+
 [node name="Worlds" type="Node2D"]
 position = Vector2(-154, 6)
 

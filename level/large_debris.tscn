@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://upc7oqxk8pwp"]
 
 [ext_resource type="Script" path="res://level/large_debris.gd" id="1_un002"]
-[ext_resource type="Texture2D" uid="uid://dipyrpg8sjgb0" path="res://prototypes/lorge debris sheet.png" id="2_5lotp"]
+[ext_resource type="Texture2D" uid="uid://no03n6n0hw52" path="res://prototypes/lorge debris sheet.png" id="2_5lotp"]
 [ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_m8tvw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hrej2"]

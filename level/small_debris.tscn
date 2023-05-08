@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjt5odahqefls"]
 
 [ext_resource type="Script" path="res://level/small_debris.gd" id="1_0bpvx"]
-[ext_resource type="Texture2D" uid="uid://bxdyv47mb0hfh" path="res://prototypes/small debris sheet.png" id="1_4655f"]
+[ext_resource type="Texture2D" uid="uid://buhhodpevs23g" path="res://prototypes/small debris sheet.png" id="1_4655f"]
 [ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_oappn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
