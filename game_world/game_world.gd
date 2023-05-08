@@ -10,7 +10,7 @@ const START_VECTOR = Vector2(-376.0, 360.0)
 func _ready():
 	SignalBus.connect("hard_reset", hard_reset)
 	SignalBus.connect("player_latched", _on_player_latched)
-	var char_position = load_data()
+	var char_position = load_data() 
 	character.global_position = char_position
 
 
