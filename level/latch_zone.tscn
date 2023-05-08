@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkqd6q1ts78vh"]
+[gd_scene load_steps=14 format=3 uid="uid://bkqd6q1ts78vh"]
 
 [ext_resource type="Script" path="res://level/latch_zone.gd" id="1_d80rb"]
 [ext_resource type="Texture2D" uid="uid://ch82t8em87tew" path="res://prototypes/good old oxygen.png" id="2_nun86"]
 [ext_resource type="AudioStream" uid="uid://bkjmsa6pude64" path="res://audio/pumping.ogg" id="3_0oewa"]
+[ext_resource type="Texture2D" uid="uid://44pwklnudjgr" path="res://ui/ui_space_button.png" id="4_7dkdj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxe7d"]
 radius = 100.0
@@ -41,6 +42,28 @@ hue_variation_max = 1.0
 hue_variation_curve = SubResource("CurveTexture_0bw6r")
 collision_mode = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u826k"]
+atlas = ExtResource("4_7dkdj")
+region = Rect2(0, 0, 144, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx7iq"]
+atlas = ExtResource("4_7dkdj")
+region = Rect2(144, 0, 144, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj2j3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u826k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx7iq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [node name="LatchZone" type="Area2D" groups=["latch"]]
 rotation = -0.00190484
 collision_layer = 16
@@ -51,7 +74,7 @@ script = ExtResource("1_d80rb")
 shape = SubResource("CircleShape2D_vxe7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 23)
+position = Vector2(-0.0457161, 24)
 texture = ExtResource("2_nun86")
 
 [node name="OxygenLeak" type="GPUParticles2D" parent="."]
@@ -63,3 +86,11 @@ process_material = SubResource("ParticleProcessMaterial_b5byw")
 
 [node name="FillUpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0oewa")
+volume_db = -8.0
+
+[node name="PromptContainer" type="Node2D" parent="."]
+
+[node name="Prompt" type="AnimatedSprite2D" parent="PromptContainer"]
+position = Vector2(176.259, -135.665)
+sprite_frames = SubResource("SpriteFrames_cj2j3")
+autoplay = "default"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b8jc1fqno8k7d"]
 
 [ext_resource type="Script" path="res://level/fire_hazard.gd" id="1_ipml1"]
-[ext_resource type="Texture2D" uid="uid://uso4le2ggck5" path="res://assets/prototype_latch.png" id="2_qoard"]
+[ext_resource type="Texture2D" uid="uid://nwel823k1yuo" path="res://final assets/FIRE-HAZARD.png" id="2_h7hfl"]
 [ext_resource type="Texture2D" uid="uid://ch7eh8py8fvro" path="res://final assets/fire_particle.png" id="3_4yjn3"]
 [ext_resource type="AudioStream" uid="uid://bkjmsa6pude64" path="res://audio/pumping.ogg" id="3_t0628"]
 
@@ -55,7 +55,7 @@ shape = SubResource("CircleShape2D_vxe7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 23)
-texture = ExtResource("2_qoard")
+texture = ExtResource("2_h7hfl")
 
 [node name="HazardParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true

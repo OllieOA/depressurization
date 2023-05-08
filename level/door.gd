@@ -1,12 +1,13 @@
 class_name Door extends StaticBody2D
 
-enum DoorID {YELLOW, BLUE, RED, GREEN}
+enum DoorID {YELLOW, BLUE, RED, GREEN, BLACK}
 
 const DOOR_COLORS: Dictionary = {
 	DoorID.YELLOW: Color.GOLD,
 	DoorID.BLUE: Color.BLUE,
 	DoorID.RED: Color.RED,
-	DoorID.GREEN: Color.LAWN_GREEN
+	DoorID.GREEN: Color.LAWN_GREEN,
+	DoorID.BLACK: Color.BLACK  # Special case for inactive
 }
 
 @export var door_id: DoorID = DoorID.YELLOW
@@ -31,6 +32,7 @@ func close_door():
 	door_open = false
 	await door_animator.animation_finished
 	light.show()
+	door_sound.play()
 	
 	
 func open_door():
@@ -38,6 +40,7 @@ func open_door():
 	collider.disabled = true
 	door_animator.play("open")
 	door_open = true
+	door_sound.play()
 
 
 func _on_toggle_door(toggled_door_id: int) -> void:

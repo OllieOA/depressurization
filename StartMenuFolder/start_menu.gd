@@ -1,4 +1,8 @@
 extends Node2D
+@onready var animation_player = $Label/AnimationPlayer
+
+func _ready():
+	animation_player.play("pulse")
 
 
 func _on_quit_button_pressed():

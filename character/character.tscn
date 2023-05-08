@@ -112,7 +112,7 @@ physics_material_override = SubResource("PhysicsMaterial_2rb3r")
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_urmi3")
-NORMAL_DRAIN = 0.8
+state = 3
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
@@ -184,18 +184,6 @@ offset_bottom = 1733.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.15, 0.15)
-
-[node name="OxygenLevelOLD" type="ProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 0, 1, 1)
-layout_mode = 2
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.001
-value = 1.0
-fill_mode = 3
-show_percentage = false
 
 [node name="OxygenLevel" type="TextureProgressBar" parent="AstronautUI/OxygenWidgitMargin"]
 unique_name_in_owner = true
@@ -287,6 +275,7 @@ script = ExtResource("12_1iu1g")
 
 [node name="BreathingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_4jdfs")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="ArrowGroup" type="Node2D" parent="."]

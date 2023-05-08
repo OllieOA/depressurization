@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyuxk07gg4aix"]
+
+[ext_resource type="PackedScene" uid="uid://bnu2owb48rbtn" path="res://tileset/base_tilemap.tscn" id="1_rs6d8"]
+
+[node name="SleepingQuarters" instance=ExtResource("1_rs6d8")]

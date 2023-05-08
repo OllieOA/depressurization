@@ -28,13 +28,9 @@ var target_debris_type: int = 0
 var choose_random: bool = true
 
 enum DebrisClass {SMALL, MEDIUM, LARGE, TILE}
-
 enum SmallDebris {MUG, PLATE, BRUSH, GLOBE, PLATFORM, SHARD}
-
 enum MediumDebris {COMPUTER, PLANT, DESK, TOILET, LAMP, METAL_PLATE}
-
 enum LargeDebris {COUCH, TABLE, BATH, TANK, PLANT, METAL_PLATE, FRIDGE, BED}
-
 enum TileDebris {DIAG_PLATE = 4, MAIN_PLATE = 6, CORNER_PLATE = 7}
 
 const DEBRIS_SUBTYPES: Dictionary = {
@@ -71,6 +67,7 @@ func _process(delta) -> void:
 
 
 func _ready():
+	target_debris_enum = DEBRIS_SUBTYPES[debris_class]
 	connect(\"body_entered\", _on_body_entered)
 	impact_sound.owning_body = self
 	apply_central_force(Vector2(rng.randf_range(-1.0, 1.0), rng.randf_range(-1.0, 1.0)) * initial_push)

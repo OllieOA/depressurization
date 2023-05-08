@@ -8,9 +8,9 @@ radius = 52.5
 height = 233.0
 
 [node name="LargeDebris" instance=ExtResource("1_j4b12")]
-mass = 200.0
+mass = 100.0
 debris_class = 2
-initial_push = 6000.0
+initial_push = 100000.0
 pitch_modifier = 0.5
 randomly_select_sprite = true
 debris_type = 0
