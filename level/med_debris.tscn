@@ -9,6 +9,7 @@ radius = 40.0
 [node name="MedDebris" instance=ExtResource("1_hlp3w")]
 mass = 2.0
 debris_class = 1
+initial_push = 600.0
 debris_type = 0
 
 [node name="DebrisSprite" parent="." index="0"]

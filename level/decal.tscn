@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://55a42w4oqgnd"]
+
+[ext_resource type="Texture2D" uid="uid://bu3ivqq1isniy" path="res://assets/wall_text.png" id="1_hvk21"]
+
+[node name="Decal" type="Sprite2D"]
+texture = ExtResource("1_hvk21")
+region_enabled = true
+region_rect = Rect2(26, 11.5, 1126.12, 154)

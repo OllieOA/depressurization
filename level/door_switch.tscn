@@ -3,28 +3,28 @@
 [ext_resource type="Texture2D" uid="uid://b88wg50uwwd8q" path="res://tileset/switch_light.png" id="1_65hrw"]
 [ext_resource type="Script" path="res://level/door_switch.gd" id="1_u78ec"]
 [ext_resource type="Texture2D" uid="uid://hi00rrtyoksg" path="res://tileset/door_switch.png" id="2_blsi2"]
-[ext_resource type="Texture2D" uid="uid://b6urbdv22ukwo" path="res://ui/ui_E_button.png" id="4_yay0w"]
+[ext_resource type="Texture2D" uid="uid://44pwklnudjgr" path="res://ui/ui_space_button.png" id="4_gxvkk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74nui"]
 radius = 137.0
 height = 442.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3d5r"]
-atlas = ExtResource("4_yay0w")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ude3n"]
+atlas = ExtResource("4_gxvkk")
+region = Rect2(0, 0, 144, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uhjsj"]
-atlas = ExtResource("4_yay0w")
-region = Rect2(64, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_31mn0"]
+atlas = ExtResource("4_gxvkk")
+region = Rect2(144, 0, 144, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d3b50"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k3d5r")
+"texture": SubResource("AtlasTexture_ude3n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uhjsj")
+"texture": SubResource("AtlasTexture_31mn0")
 }],
 "loop": true,
 "name": &"default",

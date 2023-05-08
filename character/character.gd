@@ -25,16 +25,15 @@ var debug_text: String = ""
 var rotating_clockwise: bool = false
 var rotating_anticlockwise: bool = false
 
-@export var latch_strength: float = 0.05
+@export var latch_strength: float = 0.1
 var target_latch: Vector2
 var latching_area: Area2D
 var latching_distance: float = 100.0
 var latch_distance_threshold: float = 25.0
 
-var state = State.LATCHED
+@export var state = State.LATCHED
 
 enum State {
-	VIBING,  # Special title screen state
 	FLYING,
 	LATCHING,
 	LATCHED,
@@ -75,8 +74,11 @@ var fire_damage_remaining: float = 0.0
 @export var fire_damage_rate: float = 0.04
 @onready var fire_particles: GPUParticles2D = %FireParticles
 
+var rng = RandomNumberGenerator.new()
+var first_launch: bool = false
 
 func _ready() -> void:
+	rng.randomize()
 	oxygen_leak_sound.play()
 	breathing_sound.stream = slow_breathing
 	breathing_sound.play()
@@ -125,12 +127,12 @@ func _physics_process(delta: float) -> void:
 		State.LATCHED:
 			_handle_latched_state(delta)
 		State.LAUNCHING:
+			if not first_launch:
+				SignalBus.emit_signal("first_launch")
+				first_launch = true
 			state = State.FLYING
 		State.DEAD:
 			pass
-		State.VIBING:
-			pass
-			
 	total_oxygen = clamp(total_oxygen - step_drain, 0.0, 1.0)
 	
 	if is_on_fire:

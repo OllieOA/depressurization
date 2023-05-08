@@ -1,72 +1,72 @@
-name: Deploy Game
+# name: Deploy Game
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-env:
-  PROJECT_NAME: "decontrolled-decompression"
-  ITCH_PROJECT_NAME: "decontrolled-decompression"
-  ITCH_USERNAME: "ollieoa"
-  GODOT_VERSION: 4.0.2
+# env:
+#   PROJECT_NAME: "decontrolled-decompression"
+#   ITCH_PROJECT_NAME: "decontrolled-decompression"
+#   ITCH_USERNAME: "ollieoa"
+#   GODOT_VERSION: 4.0.2
 
-jobs:
-  BuildAndPublish:
-    runs-on: ubuntu-latest
-    environment: BnP
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3.3.0
-        with:
-          lfs: true
-          fetch-depth: 0
-      - name: Download + Authorize Godot
-        run: |
-          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_linux.x86_64.zip
-          unzip godot.zip
-          mv Godot_v4.0.2-stable_linux.x86_64 godot
-          ls
-          chmod +x godot
-      - name: Download Export Templates
-        run: |
-          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_export_templates.tpz
-          unzip export_templates.zip
-      - name: Install Export Templates
-        run: |
-          mkdir -p ~/.local/share/godot/export_templates/4.0.2.stable
-          mv ./templates/* ~/.local/share/godot/export_templates/4.0.2.stable
-      - name: Export Web Build
-        run: |
-          ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
-      - name: Publish Export Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: build
-  PushExportsToItch:
-    needs: BuildAndPublish
-    if: ${{ contains(github.ref, 'main') }}
-    runs-on: ubuntu-latest
-    environment: BnP
-    env:
-      BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}  # !!! MAKE SURE THIS IS GENERATED
-    steps:
-      - name: Download Exports
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: build
-          path: build
-      - name: Download + Authorize Butler
-        run: |
-          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
-          unzip butler.zip
-          chmod +x butler
-          ./butler -V
-      - name: Login To Butler
-        run: ./butler login
-      - name: Push Web Export To Itch
-        run: |
-          ls ./build/web
-          ls ./
-          ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5
+# jobs:
+#   BuildAndPublish:
+#     runs-on: ubuntu-latest
+#     environment: BnP
+#     steps:
+#       - name: Checkout Source Code
+#         uses: actions/checkout@v3.3.0
+#         with:
+#           lfs: true
+#           fetch-depth: 0
+#       - name: Download + Authorize Godot
+#         run: |
+#           curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_linux.x86_64.zip
+#           unzip godot.zip
+#           mv Godot_v4.0.2-stable_linux.x86_64 godot
+#           ls
+#           chmod +x godot
+#       - name: Download Export Templates
+#         run: |
+#           curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/4.0.2/Godot_v4.0.2-stable_export_templates.tpz
+#           unzip export_templates.zip
+#       - name: Install Export Templates
+#         run: |
+#           mkdir -p ~/.local/share/godot/export_templates/4.0.2.stable
+#           mv ./templates/* ~/.local/share/godot/export_templates/4.0.2.stable
+#       - name: Export Web Build
+#         run: |
+#           ./godot --headless --path ./ --export-release "Web" ./build/web/index.html
+#       - name: Publish Export Artifact
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: build
+#           path: build
+#   PushExportsToItch:
+#     needs: BuildAndPublish
+#     if: ${{ contains(github.ref, 'main') }}
+#     runs-on: ubuntu-latest
+#     environment: BnP
+#     env:
+#       BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}  # !!! MAKE SURE THIS IS GENERATED
+#     steps:
+#       - name: Download Exports
+#         uses: actions/download-artifact@v3.0.2
+#         with:
+#           name: build
+#           path: build
+#       - name: Download + Authorize Butler
+#         run: |
+#           curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+#           unzip butler.zip
+#           chmod +x butler
+#           ./butler -V
+#       - name: Login To Butler
+#         run: ./butler login
+#       - name: Push Web Export To Itch
+#         run: |
+#           ls ./build/web
+#           ls ./
+#           ./butler push ./build/web/ $ITCH_USERNAME/$ITCH_PROJECT_NAME:html5

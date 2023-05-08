@@ -5,3 +5,4 @@ signal out_of_oxygen
 # SignalBus.emit("signal_triggered_with", variable)
 
 signal toggle_door(door_id)
+signal first_launch

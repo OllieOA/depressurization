@@ -49,4 +49,4 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node):
-	impact_sound.play_random_sound()
+	impact_sound.play_random_sound(1.0)

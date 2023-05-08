@@ -1,12 +1,13 @@
 class_name Door extends StaticBody2D
 
-enum DoorID {YELLOW, BLUE, RED, GREEN}
+enum DoorID {YELLOW, BLUE, RED, GREEN, BLACK}
 
 const DOOR_COLORS: Dictionary = {
 	DoorID.YELLOW: Color.GOLD,
 	DoorID.BLUE: Color.BLUE,
 	DoorID.RED: Color.RED,
-	DoorID.GREEN: Color.LAWN_GREEN
+	DoorID.GREEN: Color.LAWN_GREEN,
+	DoorID.BLACK: Color.BLACK  # Special case for inactive
 }
 
 @export var door_id: DoorID = DoorID.YELLOW
