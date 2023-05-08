@@ -9,3 +9,4 @@ signal global_toggle(door_id, switch_id)
 signal first_launch
 
 signal player_latched(latch_id)
+signal game_won
