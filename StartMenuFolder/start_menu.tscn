@@ -1,16 +1,16 @@
 [gd_scene load_steps=15 format=3 uid="uid://c2t3msqfsn3h5"]
 
 [ext_resource type="Script" path="res://StartMenuFolder/start_menu.gd" id="1_05833"]
-[ext_resource type="Texture2D" uid="uid://cyx4nhfv0g55e" path="res://StartMenuFolder/proper_backgroundnot_jank.png" id="2_n5plt"]
+[ext_resource type="Texture2D" uid="uid://bgybj57bwbas3" path="res://StartMenuFolder/proper_backgroundnot_jank.png" id="2_n5plt"]
 [ext_resource type="PackedScene" uid="uid://bq6rvvboxq0fm" path="res://play_button.tscn" id="3_0jv1n"]
-[ext_resource type="Texture2D" uid="uid://dk225od616yom" path="res://StartMenuFolder/ButtonArt/QuitIdle.png" id="4_5uu2l"]
-[ext_resource type="Texture2D" uid="uid://cgme8j3ytp103" path="res://StartMenuFolder/ButtonArt/QuitPressed.png" id="5_ijlls"]
-[ext_resource type="Texture2D" uid="uid://hf3d4ob27gag" path="res://StartMenuFolder/ButtonArt/QuitHover.png" id="6_4u1bw"]
-[ext_resource type="Texture2D" uid="uid://comsinlpwjw80" path="res://StartMenuFolder/MiniLogo.png" id="7_hbpp4"]
-[ext_resource type="Texture2D" uid="uid://dw845hto101va" path="res://StartMenuFolder/ButtonArt/SettingsIdle.png" id="8_hxs6x"]
-[ext_resource type="Texture2D" uid="uid://det3ka6lr0yaf" path="res://StartMenuFolder/ButtonArt/SettingsPressed.png" id="9_fd38t"]
-[ext_resource type="Texture2D" uid="uid://dyys1jpw3a73" path="res://StartMenuFolder/ButtonArt/SettingsHover.png" id="10_7cj4h"]
-[ext_resource type="FontFile" uid="uid://ccwigpdqdct2s" path="res://theme/fonts/hartone_softed.ttf" id="11_npvos"]
+[ext_resource type="Texture2D" uid="uid://c8fyklcm7dohp" path="res://StartMenuFolder/ButtonArt/QuitIdle.png" id="4_5uu2l"]
+[ext_resource type="Texture2D" uid="uid://drixhmtykq7np" path="res://FailScreenFolder/FailScreenButtonArt/RestartIdle.png" id="5_bfg3b"]
+[ext_resource type="Texture2D" uid="uid://re8ewadtjoeo" path="res://StartMenuFolder/ButtonArt/QuitPressed.png" id="5_ijlls"]
+[ext_resource type="Texture2D" uid="uid://c827mjcx0s2ax" path="res://StartMenuFolder/ButtonArt/QuitHover.png" id="6_4u1bw"]
+[ext_resource type="Texture2D" uid="uid://dsot6vcss87gb" path="res://FailScreenFolder/FailScreenButtonArt/RestartPressed.png" id="6_taseg"]
+[ext_resource type="Texture2D" uid="uid://ce0dif04tnkiq" path="res://StartMenuFolder/MiniLogo.png" id="7_hbpp4"]
+[ext_resource type="Texture2D" uid="uid://cdqwruejkvgsq" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="7_nww87"]
+[ext_resource type="FontFile" uid="uid://bk0y33hgchkrb" path="res://theme/fonts/hartone_softed.ttf" id="11_npvos"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_18bks"]
 font = ExtResource("11_npvos")
@@ -83,9 +83,9 @@ offset_left = 352.0
 offset_top = 380.0
 offset_right = 608.0
 offset_bottom = 444.0
-texture_normal = ExtResource("8_hxs6x")
-texture_pressed = ExtResource("9_fd38t")
-texture_hover = ExtResource("10_7cj4h")
+texture_normal = ExtResource("5_bfg3b")
+texture_pressed = ExtResource("6_taseg")
+texture_hover = ExtResource("7_nww87")
 
 [node name="QuitButton" parent="All Buttons" instance=ExtResource("3_0jv1n")]
 offset_left = 352.0
@@ -115,4 +115,5 @@ libraries = {
 [connection signal="pressed" from="PlayButtonOld" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButtonOld" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="All Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="button_up" from="All Buttons/SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="pressed" from="All Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://mud8bu1mqad0"]
 
-[ext_resource type="Texture2D" uid="uid://bwse0jp86gubk" path="res://FailScreenFolder/FailScreenButtonArt/RetryIdle.png" id="1_8yxnn"]
+[ext_resource type="Texture2D" uid="uid://b5vnq01otadkv" path="res://FailScreenFolder/FailScreenButtonArt/RetryIdle.png" id="1_8yxnn"]
 [ext_resource type="Script" path="res://FailScreenFolder/fail_screen_preset.gd" id="1_hlxtb"]
-[ext_resource type="Texture2D" uid="uid://c5jnumkxsfxuu" path="res://FailScreenFolder/FailScreenButtonArt/RetryPressed.png" id="2_b1fxc"]
-[ext_resource type="Texture2D" uid="uid://b57oxcp5x1ba3" path="res://FailScreenFolder/FailScreenButtonArt/RetryHover.png" id="3_nckfl"]
-[ext_resource type="Texture2D" uid="uid://u4p3f2astuux" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuIdle.png" id="4_hivsa"]
-[ext_resource type="Texture2D" uid="uid://u3yux63s8af4" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuPressed.png" id="5_6fddm"]
-[ext_resource type="Texture2D" uid="uid://d2gxgxn5fu7x1" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuHover.png" id="6_heve2"]
-[ext_resource type="Texture2D" uid="uid://ctq1xe3prs1kd" path="res://FailScreenFolder/ONI.png" id="8_gge6r"]
-[ext_resource type="Texture2D" uid="uid://b0kmeng3vj18u" path="res://FailScreenFolder/FailScreenButtonArt/RestartIdle.png" id="9_1wxnw"]
-[ext_resource type="Texture2D" uid="uid://c4koiucuandn1" path="res://FailScreenFolder/FailScreenButtonArt/RestartPressed.png" id="10_t37ta"]
-[ext_resource type="Texture2D" uid="uid://ckbtnvf0au6l" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="11_r451j"]
+[ext_resource type="Texture2D" uid="uid://d0jggk2d04dtj" path="res://FailScreenFolder/FailScreenButtonArt/RetryPressed.png" id="2_b1fxc"]
+[ext_resource type="Texture2D" uid="uid://cjgbwc6t3ne68" path="res://FailScreenFolder/FailScreenButtonArt/RetryHover.png" id="3_nckfl"]
+[ext_resource type="Texture2D" uid="uid://dg3100tpwaw2i" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuIdle.png" id="4_hivsa"]
+[ext_resource type="Texture2D" uid="uid://c22fuv8a83b2g" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuPressed.png" id="5_6fddm"]
+[ext_resource type="Texture2D" uid="uid://38p3pdrrq1x1" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuHover.png" id="6_heve2"]
+[ext_resource type="Texture2D" uid="uid://dlh6l13pkr61g" path="res://FailScreenFolder/ONI.png" id="8_gge6r"]
+[ext_resource type="Texture2D" uid="uid://drixhmtykq7np" path="res://FailScreenFolder/FailScreenButtonArt/RestartIdle.png" id="9_1wxnw"]
+[ext_resource type="Texture2D" uid="uid://dsot6vcss87gb" path="res://FailScreenFolder/FailScreenButtonArt/RestartPressed.png" id="10_t37ta"]
+[ext_resource type="Texture2D" uid="uid://cdqwruejkvgsq" path="res://FailScreenFolder/FailScreenButtonArt/RestartHover.png" id="11_r451j"]
 
 [node name="FailScreenPreset" type="CanvasLayer"]
 visible = false
@@ -57,3 +57,4 @@ texture = ExtResource("8_gge6r")
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="ToMenuButton" to="." method="_on_to_menu_button_pressed"]
+[connection signal="button_up" from="RestartButton" to="." method="_on_restart_button_button_up"]
