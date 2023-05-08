@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bd38qs5q2ovej"]
+[gd_scene load_steps=34 format=3 uid="uid://bd38qs5q2ovej"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_urmi3"]
 [ext_resource type="Texture2D" uid="uid://c4q563mvy3ixm" path="res://character/astro_body.png" id="2_jvphb"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://21aoiu5w5s0p" path="res://audio/breathing-panic.ogg" id="13_4jdfs"]
 [ext_resource type="Script" path="res://character/ArrowGroup.gd" id="13_50wp4"]
 [ext_resource type="Texture2D" uid="uid://dqjn46xt62mpt" path="res://final assets/fire_particle.png" id="15_47lk3"]
+[ext_resource type="PackedScene" uid="uid://mud8bu1mqad0" path="res://FailScreenFolder/fail_screen_preset.tscn" id="19_y0e6s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2rb3r"]
 friction = 0.0
@@ -111,6 +112,7 @@ physics_material_override = SubResource("PhysicsMaterial_2rb3r")
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_urmi3")
+NORMAL_DRAIN = 0.8
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
@@ -297,3 +299,6 @@ amount = 10
 process_material = SubResource("ParticleProcessMaterial_6tfmo")
 texture = ExtResource("15_47lk3")
 randomness = 0.85
+
+[node name="FailScreenPreset" parent="." instance=ExtResource("19_y0e6s")]
+unique_name_in_owner = true
