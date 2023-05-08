@@ -8,6 +8,7 @@ const START_VECTOR = Vector2(-376.0, 360.0)
 
 
 func _ready():
+	SignalBus.connect("hard_reset", hard_reset)
 	SignalBus.connect("player_latched", _on_player_latched)
 	var char_position = load_data()
 	character.global_position = char_position
@@ -24,3 +25,8 @@ func load_data() -> Vector2:
 		return game_data.reset_position
 	else:
 		return START_VECTOR
+
+
+func hard_reset():
+	game_data.reset_position = START_VECTOR
+	var _result = ResourceSaver.save(game_data, SAVE_PATH)

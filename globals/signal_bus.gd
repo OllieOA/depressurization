@@ -10,3 +10,4 @@ signal first_launch
 
 signal player_latched(latch_id)
 signal game_won
+signal hard_reset
