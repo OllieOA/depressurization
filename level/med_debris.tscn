@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgb3r6nieo50q"]
+
+[ext_resource type="PackedScene" uid="uid://dygc60sw6p2tw" path="res://level/base_debris.tscn" id="1_hlp3w"]
+[ext_resource type="Texture2D" uid="uid://c1fxtyi5e275b" path="res://final assets/MED DEBRIS.png" id="2_xjxi2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbgcl"]
+radius = 40.0
+
+[node name="MedDebris" instance=ExtResource("1_hlp3w")]
+mass = 2.0
+debris_class = 1
+debris_type = 0
+
+[node name="DebrisSprite" parent="." index="0"]
+texture = ExtResource("2_xjxi2")
+frame = 0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_lbgcl")

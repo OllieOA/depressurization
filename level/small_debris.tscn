@@ -1,30 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjt5odahqefls"]
+[gd_scene load_steps=4 format=3 uid="uid://myxr4ul42o22"]
 
-[ext_resource type="Script" path="res://level/small_debris.gd" id="1_0bpvx"]
-[ext_resource type="Texture2D" uid="uid://bxdyv47mb0hfh" path="res://prototypes/small debris sheet.png" id="1_4655f"]
-[ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_oappn"]
+[ext_resource type="PackedScene" uid="uid://dygc60sw6p2tw" path="res://level/base_debris.tscn" id="1_5fgom"]
+[ext_resource type="Texture2D" uid="uid://0kfrhpdxe8ji" path="res://final assets/small debris sheet.png" id="2_0o4nl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3f6hm"]
 
-[node name="SmallDebris" type="RigidBody2D"]
-collision_layer = 64
-collision_mask = 786534
-mass = 0.2
-continuous_cd = 1
-max_contacts_reported = 1
-contact_monitor = true
-script = ExtResource("1_0bpvx")
+[node name="SmallDebris" instance=ExtResource("1_5fgom")]
+randomly_select_sprite = true
+debris_type = 0
 
-[node name="DebrisSprite" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-texture = ExtResource("1_4655f")
-hframes = 4
-vframes = 4
-frame = 1
+[node name="DebrisSprite" parent="." index="0"]
+texture = ExtResource("2_0o4nl")
+frame = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6)
-shape = SubResource("RectangleShape2D_lwt0d")
-
-[node name="ImpactSound" parent="." instance=ExtResource("3_oappn")]
-pitch_scale = 2.0
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_3f6hm")

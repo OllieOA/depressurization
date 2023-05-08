@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://decqggiwrciud"]
+
+[ext_resource type="PackedScene" uid="uid://c0wewp5uhgjhp" path="res://level/parallax_background.tscn" id="1_18744"]
+[ext_resource type="PackedScene" uid="uid://bhowvssmdadcb" path="res://level/door.tscn" id="2_a4h4n"]
+[ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="2_gkxqf"]
+[ext_resource type="PackedScene" uid="uid://b03mbfabey0go" path="res://level/door_switch.tscn" id="4_c7bl6"]
+
+[node name="GameWorld" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_18744")]
+
+[node name="WorldModules" type="Node2D" parent="."]
+
+[node name="Door" parent="." instance=ExtResource("2_a4h4n")]
+
+[node name="Character" parent="." instance=ExtResource("2_gkxqf")]
+
+[node name="DoorSwitch" parent="." instance=ExtResource("4_c7bl6")]
+position = Vector2(-567, 307)

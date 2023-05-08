@@ -7,4 +7,4 @@ func _on_to_menu_button_pressed():
 
 
 func _on_retry_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/worlds.tscn")
+	get_tree().change_scene_to_file("res://game_world/game_world.tscn")

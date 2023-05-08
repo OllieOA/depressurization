@@ -1,36 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://upc7oqxk8pwp"]
+[gd_scene load_steps=4 format=3 uid="uid://c2gjulb5ilgoq"]
 
-[ext_resource type="Script" path="res://level/large_debris.gd" id="1_un002"]
-[ext_resource type="Texture2D" uid="uid://dipyrpg8sjgb0" path="res://prototypes/lorge debris sheet.png" id="2_5lotp"]
-[ext_resource type="PackedScene" uid="uid://blm1lea1nevv1" path="res://audio/debris_impact_sound.tscn" id="3_m8tvw"]
+[ext_resource type="PackedScene" uid="uid://dygc60sw6p2tw" path="res://level/base_debris.tscn" id="1_j4b12"]
+[ext_resource type="Texture2D" uid="uid://dggqbco2umhon" path="res://final assets/lorge debris sheet.png" id="2_q1iod"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hrej2"]
-bounce = 1.0
-absorbent = true
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lw21"]
+radius = 52.5
+height = 233.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwt0d"]
-size = Vector2(30.1664, 33.8296)
+[node name="LargeDebris" instance=ExtResource("1_j4b12")]
+mass = 200.0
+debris_class = 2
+initial_push = 6000.0
+pitch_modifier = 0.5
+randomly_select_sprite = true
+debris_type = 0
 
-[node name="LargeDebris" type="RigidBody2D"]
-collision_layer = 64
-collision_mask = 786534
-mass = 500.0
-physics_material_override = SubResource("PhysicsMaterial_hrej2")
-continuous_cd = 1
-max_contacts_reported = 1
-contact_monitor = true
-script = ExtResource("1_un002")
+[node name="DebrisSprite" parent="." index="0"]
+texture = ExtResource("2_q1iod")
+frame = 0
 
-[node name="DebrisSprite" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-texture = ExtResource("2_5lotp")
-hframes = 4
-vframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.0202179, 52.7633)
-scale = Vector2(6.49596, 3.14735)
-shape = SubResource("RectangleShape2D_lwt0d")
-
-[node name="ImpactSound" parent="." instance=ExtResource("3_m8tvw")]
-pitch_scale = 0.6
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, 29)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1lw21")
