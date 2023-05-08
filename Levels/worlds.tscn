@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl6rb4sx8e5b1"]
+[gd_scene load_steps=7 format=3 uid="uid://bl6rb4sx8e5b1"]
 
 [ext_resource type="PackedScene" uid="uid://blxow270kptx1" path="res://Levels/base_tilemap.tscn" id="1_so4ce"]
 [ext_resource type="PackedScene" uid="uid://bd38qs5q2ovej" path="res://character/character.tscn" id="2_g5w3n"]
 [ext_resource type="TileSet" uid="uid://dqy883qkf0hsw" path="res://Elzi-Assets/FirstLevelTileSet.tres" id="2_mmsev"]
 [ext_resource type="PackedScene" uid="uid://bkqd6q1ts78vh" path="res://level/latch_zone.tscn" id="3_w1d3i"]
 [ext_resource type="PackedScene" uid="uid://bnd3tmw0qqa3n" path="res://level/explosive_debris.tscn" id="4_pyibh"]
+[ext_resource type="PackedScene" uid="uid://upc7oqxk8pwp" path="res://level/large_debris.tscn" id="6_5b64s"]
 
 [node name="Worlds" type="Node2D"]
-position = Vector2(-141, -11)
+position = Vector2(-154, 6)
 
 [node name="SleepingQuarters" parent="." instance=ExtResource("1_so4ce")]
 tile_set = ExtResource("2_mmsev")
@@ -25,8 +26,20 @@ layer_1/tile_data = PackedInt32Array(393199, 4, 3, 458735, 4, 3, 524272, 4, 3, 5
 [node name="Character" parent="." instance=ExtResource("2_g5w3n")]
 position = Vector2(-277, 374)
 
-[node name="LatchZone" parent="." instance=ExtResource("3_w1d3i")]
-position = Vector2(-947, 984)
-
 [node name="ExplosiveDebris" parent="." instance=ExtResource("4_pyibh")]
 position = Vector2(-1317, 726)
+
+[node name="LargeDebris" parent="." instance=ExtResource("6_5b64s")]
+position = Vector2(-768, 569)
+
+[node name="Latches" type="Node" parent="."]
+
+[node name="LatchZone" parent="Latches" instance=ExtResource("3_w1d3i")]
+position = Vector2(-1376, 1008)
+
+[node name="LatchZone2" parent="Latches" instance=ExtResource("3_w1d3i")]
+position = Vector2(-2370, 3568)
+
+[node name="LatchZone3" parent="Latches" instance=ExtResource("3_w1d3i")]
+position = Vector2(2765, 4201)
+rotation = -1.57079
