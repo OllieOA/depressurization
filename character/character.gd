@@ -15,7 +15,8 @@ var rotation_thrust_direction: float
 
 var debug_text: String = ""
 @onready var debug_label: Label = $"%DebugLabel"
-@onready var oxygen_level: ProgressBar = $"%OxygenLevel"
+@onready var oxygen_level: TextureProgressBar = $"%OxygenLevel" 
+@onready var fail_screen: CanvasLayer = $"%FailScreenPreset" #Added by ELzi/Killa! Value for FailScreen
 
 @onready var main_oxygen: GPUParticles2D = $"%MainOxygen"
 @onready var clockwise_oxygen: GPUParticles2D = $"%ClockwiseOxygen"
@@ -240,5 +241,9 @@ func _on_head_collision(body: Node) -> void:
 
 
 func _on_out_of_oxygen() -> void:
+	state=State.DEAD
 	breathing_sound.stop()
 	print("DED")
+	oxygen_level.visible = !oxygen_level.visible
+	main_oxygen.visible = !main_oxygen.visible
+	fail_screen.visible = true

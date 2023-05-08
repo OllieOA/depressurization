@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://mud8bu1mqad0"]
+
+[ext_resource type="Texture2D" uid="uid://bwse0jp86gubk" path="res://FailScreenFolder/FailScreenButtonArt/RetryIdle.png" id="1_8yxnn"]
+[ext_resource type="Script" path="res://FailScreenFolder/fail_screen_preset.gd" id="1_hlxtb"]
+[ext_resource type="Texture2D" uid="uid://c5jnumkxsfxuu" path="res://FailScreenFolder/FailScreenButtonArt/RetryPressed.png" id="2_b1fxc"]
+[ext_resource type="Texture2D" uid="uid://b57oxcp5x1ba3" path="res://FailScreenFolder/FailScreenButtonArt/RetryHover.png" id="3_nckfl"]
+[ext_resource type="Texture2D" uid="uid://u4p3f2astuux" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuIdle.png" id="4_hivsa"]
+[ext_resource type="Texture2D" uid="uid://u3yux63s8af4" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuPressed.png" id="5_6fddm"]
+[ext_resource type="Texture2D" uid="uid://d2gxgxn5fu7x1" path="res://FailScreenFolder/FailScreenButtonArt/ToMenuHover.png" id="6_heve2"]
+[ext_resource type="Texture2D" uid="uid://ctq1xe3prs1kd" path="res://FailScreenFolder/ONI.png" id="8_gge6r"]
+
+[node name="FailScreenPreset" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_hlxtb")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 910.0
+offset_bottom = 590.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RetryButton" type="TextureButton" parent="."]
+offset_left = 202.0
+offset_top = 420.0
+offset_right = 458.0
+offset_bottom = 484.0
+texture_normal = ExtResource("1_8yxnn")
+texture_pressed = ExtResource("2_b1fxc")
+texture_hover = ExtResource("3_nckfl")
+metadata/_edit_use_anchors_ = true
+
+[node name="ToMenuButton" type="TextureButton" parent="."]
+offset_left = 502.0
+offset_top = 420.0
+offset_right = 758.0
+offset_bottom = 484.0
+texture_normal = ExtResource("4_hivsa")
+texture_pressed = ExtResource("5_6fddm")
+texture_hover = ExtResource("6_heve2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Oni" type="Sprite2D" parent="."]
+position = Vector2(480, 201)
+texture = ExtResource("8_gge6r")
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="ToMenuButton" to="." method="_on_to_menu_button_pressed"]
