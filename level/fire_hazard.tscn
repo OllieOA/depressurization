@@ -57,12 +57,33 @@ shape = SubResource("CircleShape2D_vxe7d")
 position = Vector2(0, 23)
 texture = ExtResource("2_h7hfl")
 
-[node name="HazardParticles" type="GPUParticles2D" parent="."]
-unique_name_in_owner = true
+[node name="HazardParticlesGPU" type="GPUParticles2D" parent="."]
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_0ktlx")
 texture = ExtResource("3_4yjn3")
 randomness = 0.85
+
+[node name="HazardParticlesCPU" type="CPUParticles2D" parent="."]
+amount = 40
+randomness = 0.85
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("3_4yjn3")
+emission_shape = 1
+emission_sphere_radius = 60.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -60.0
+angular_velocity_max = 60.0
+radial_accel_min = -20.0
+radial_accel_max = 20.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_1o5gw")
+color = Color(1, 0, 0, 1)
+hue_variation_max = 0.15
+hue_variation_curve = SubResource("Curve_yfaq5")
 
 [node name="HazardSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_t0628")

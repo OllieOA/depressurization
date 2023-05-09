@@ -1,9 +1,14 @@
 extends CanvasLayer
 
+@onready var speed_particles_back_gpu = $SpeedParticlesBackGPU
+@onready var speed_particles_back_cpu = $SpeedParticlesBackCPU
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if OS.get_name() == "Web":
+		speed_particles_back_gpu.hide()
+	else:
+		speed_particles_back_cpu.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

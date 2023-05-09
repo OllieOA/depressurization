@@ -1,12 +1,22 @@
 class_name LatchZone extends Area2D
 
 @onready var fill_up_sound: AudioStreamPlayer = $FillUpSound
-@onready var oxygen_leak = %OxygenLeak
+var oxygen_leak
 var is_player_latched: bool = false
 @onready var prompt = $PromptContainer/Prompt
 
+@onready var oxygen_leak_gpu = $OxygenLeakGPU
+@onready var oxygen_leak_cpu = $OxygenLeakCPU
+
 
 func _ready():
+	if OS.get_name() == "Web":
+		oxygen_leak = oxygen_leak_cpu
+		oxygen_leak_gpu.emitting = false
+	else:
+		oxygen_leak = oxygen_leak_gpu
+		oxygen_leak_cpu.emitting = false
+	
 	if is_player_latched:
 		prompt.show()
 	else:

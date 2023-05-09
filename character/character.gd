@@ -19,9 +19,16 @@ var debug_text: String = ""
 @onready var fail_screen: CanvasLayer = $"%FailScreenPreset" #Added by ELzi/Killa! Value for FailScreen
 @onready var win_screen: CanvasLayer = $"%WinScreenPreset" #Added by ELzi/Killa! Value for FailScreen
 
-@onready var main_oxygen: GPUParticles2D = $"%MainOxygen"
-@onready var clockwise_oxygen: GPUParticles2D = $"%ClockwiseOxygen"
-@onready var anticlockwise_oxygen: GPUParticles2D = $"%AnticlockwiseOxygen"
+@onready var main_oxygen_gpu = $MainOxygenGPU
+@onready var main_oxygen_cpu = $MainOxygenCPU
+@onready var clockwise_oxygen_gpu = $ClockwiseOxygenGPU
+@onready var clockwise_oxygen_cpu = $ClockwiseOxygenCPU
+@onready var anticlockwise_oxygen_gpu = $AnticlockwiseOxygenGPU
+@onready var anticlockwise_oxygen_cpu = $AnticlockwiseOxygenCPU
+
+var main_oxygen
+var clockwise_oxygen
+var anticlockwise_oxygen
 
 var rotating_clockwise: bool = false
 var rotating_anticlockwise: bool = false
@@ -74,12 +81,36 @@ const panic_breathing: Resource = preload("res://audio/breathing-panic.ogg")
 var is_on_fire: bool = false
 var fire_damage_remaining: float = 0.0
 @export var fire_damage_rate: float = 0.04
-@onready var fire_particles: GPUParticles2D = %FireParticles
+
+@onready var fire_particles_gpu = $FireParticlesGPU
+@onready var fire_particles_cpu = $FireParticlesCPU
+var fire_particles
 
 var rng = RandomNumberGenerator.new()
 var first_launch: bool = false
 
 func _ready() -> void:
+	if OS.get_name() == "Web":
+		main_oxygen = main_oxygen_cpu
+		clockwise_oxygen = clockwise_oxygen_cpu
+		anticlockwise_oxygen = anticlockwise_oxygen_cpu
+		fire_particles = fire_particles_cpu
+
+		main_oxygen_gpu.emitting = false
+		clockwise_oxygen_gpu.emitting = false
+		anticlockwise_oxygen_gpu.emitting = false
+		fire_particles_gpu.emitting = false
+	else:
+		main_oxygen = main_oxygen_gpu
+		clockwise_oxygen = clockwise_oxygen_gpu
+		anticlockwise_oxygen = anticlockwise_oxygen_gpu
+		fire_particles = fire_particles_gpu
+		
+		main_oxygen_cpu.emitting = false
+		clockwise_oxygen_cpu.emitting = false
+		anticlockwise_oxygen_cpu.emitting = false
+		fire_particles_cpu.emitting = false
+		
 	SignalBus.connect("game_won", _on_game_won)
 	rng.randomize()
 	oxygen_leak_sound.play()

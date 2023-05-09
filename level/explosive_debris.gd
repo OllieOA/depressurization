@@ -1,7 +1,9 @@
 extends RigidBody2D
 
 @onready var impact_sound = $ImpactSound
-@onready var explosion_particles: GPUParticles2D = $ExplosionParticles
+@onready var explosion_particles_gpu = $ExplosionParticlesGPU
+@onready var explosion_particles_cpu = $ExplosionParticlesCPU
+var explosion_particles
 @onready var explosion_area: Area2D = $ExplosionArea
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var explosion_sound: AudioStreamPlayer2D = $ExplosionSound
@@ -18,6 +20,13 @@ const INITIAL_PUSH: float = 600.0
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	if OS.get_name() == "Web":
+		explosion_particles = explosion_particles_cpu
+		explosion_particles_gpu.emitting = false
+	else:
+		explosion_particles = explosion_particles_gpu
+		explosion_particles_cpu.emitting = false
+		
 	connect("body_entered", _on_body_entered)
 	impact_sound.owning_body = self
 	apply_central_force(Vector2(rng.randf_range(-1.0, 1.0), rng.randf_range(-1.0, 1.0)) * INITIAL_PUSH)
