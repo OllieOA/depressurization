@@ -1,6 +1,7 @@
 # OllieOA Ignores
 external/*
 export/*
+build/*
 
 
 # Godot-specific ignores

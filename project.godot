@@ -26,7 +26,6 @@ SignalBus="*res://globals/signal_bus.gd"
 window/size/viewport_width=960
 window/size/viewport_height=640
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [importer_defaults]
 
